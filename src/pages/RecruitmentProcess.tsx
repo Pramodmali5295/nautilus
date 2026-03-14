@@ -17,7 +17,7 @@ const RecruitmentProcess = () => {
         <div className="min-h-screen flex flex-col bg-background overflow-hidden font-display">
             <Navbar />
             <main className="flex-grow">
-                <header className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-32 md:pt-36 bg-navy">
+                <header className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-32 md:pt-32 bg-navy">
                     <motion.div
                         initial={{ scale: 1, filter: "brightness(0.5)" }}
                         animate={{ scale: 1, filter: "brightness(0.5)" }}
@@ -39,7 +39,7 @@ const RecruitmentProcess = () => {
                             initial={{ opacity: 1, y: 0 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2, duration: 0.6 }}
-                            className="inline-block text-white font-black tracking-[0.3em] sm:tracking-[0.5em] md:tracking-[0.6em] uppercase text-[10px] sm:text-xs md:text-sm mb-6 mt-8 md:mt-12 px-5 sm:px-6 py-2 sm:py-2.5 rounded-full bg-blue-600 shadow-lg border border-white/20"
+                            className="inline-block text-white font-black tracking-[0.3em] sm:tracking-[0.5em] md:tracking-[0.6em] uppercase text-[10px] sm:text-xs md:text-sm px-5 sm:px-6 py-2 sm:py-2.5 rounded-full bg-blue-600 shadow-lg border border-white/20"
                         >
                             Methodology Brief
                         </motion.span>
@@ -47,7 +47,7 @@ const RecruitmentProcess = () => {
                             initial={{ opacity: 1, y: 0 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4, duration: 0.8 }}
-                            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white drop-shadow-lg mb-6 tracking-tight leading-tight py-1"
+                            className="mt-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white drop-shadow-lg mb-6 tracking-tight leading-tight py-1"
                         >
                             Our <span className="text-gradient-gold italic">Process</span>
                         </motion.h1>

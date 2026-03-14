@@ -65,21 +65,21 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-navy/30 via-transparent to-navy/70" />
       </motion.div>
 
-      <div className="relative z-10 w-full px-6 md:px-10 lg:px-20 xl:px-24 pt-32 md:pt-36 pb-32 flex flex-col items-center justify-center min-h-[70vh]">
+      <div className="relative z-10 w-full px-6 md:px-10 lg:px-20 xl:px-24 pt-32 md:pt-32 pb-32 flex flex-col items-center justify-center min-h-[70vh]">
         <motion.div
           initial="visible"
           animate="visible"
           variants={containerVariants}
           className="text-center max-w-5xl mx-auto"
         >
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-blue-600 border border-white/20 px-5 py-2 rounded-full mb-8 mt-8 md:mt-12 shadow-xl">
+          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-blue-600 border border-white/20 px-5 py-2 rounded-full shadow-xl">
             <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
             <span className="text-white font-black tracking-[0.3em] uppercase text-[10px] md:text-xs">
               Connect Excellence
             </span>
           </motion.div>
 
-          <motion.h1 variants={itemVariants} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold text-primary-foreground mb-8 leading-[1.05]">
+          <motion.h1 variants={itemVariants} className="mt-8 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold text-primary-foreground mb-8 leading-[1.05]">
             Nautilus <br />
             <span className="text-gradient-gold italic">International</span>
           </motion.h1>
