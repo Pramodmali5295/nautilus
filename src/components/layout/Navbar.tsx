@@ -21,10 +21,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 50);
-      if (window.scrollY > 50 && mobileOpen) {
-        setMobileOpen(false);
-      }
+      if (window.scrollY > 50 && mobileOpen) setMobileOpen(false);
     };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
@@ -36,12 +33,7 @@ const Navbar = () => {
     <>
       {/* force the navbar to use the project's primary colour (matches logo) instead
           of the old navy gradient.  scrolled state still shrinks and adds shadow. */}
-      <nav
-        className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-500 ${scrolled || mobileOpen
-          ? "bg-white/95 shadow-lg py-1.5 md:py-2 backdrop-blur-md border-b border-gray-200"
-          : "bg-transparent py-4 md:py-6"
-          }`}
-      >
+      <nav className="fixed top-0 left-0 right-0 z-[60] transition-all duration-300 bg-white shadow-md py-1.5 md:py-2 border-b border-gray-100">
         <div className="w-full flex items-center justify-between px-4 md:px-8 lg:px-12">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group transition-transform hover:scale-[1.01] z-50 shrink-0">
@@ -70,10 +62,11 @@ const Navbar = () => {
                 <li key={item.href}>
                   <Link
                     to={item.href}
-                    className={`relative text-sm xl:text-[15px] tracking-wide uppercase font-bold transition-all duration-300 py-1.5 px-4 rounded-md group ${isActive(item.href)
-                      ? "text-gold bg-primary/5"
-                      : (scrolled || mobileOpen ? "text-foreground hover:text-gold" : "text-white/90 hover:text-white hover:bg-white/10")
-                      }`}
+                    className={`relative text-sm xl:text-[15px] tracking-wide uppercase font-bold transition-all duration-300 py-1.5 px-4 rounded-md group ${
+                      isActive(item.href)
+                        ? "text-gold bg-primary/5"
+                        : "text-foreground hover:text-gold"
+                    }`}
                   >
                     {item.label}
                     <span
@@ -86,7 +79,7 @@ const Navbar = () => {
             </ul>
 
             {/* Divider */}
-            <div className={`w-px h-6 mx-2 transition-colors duration-500 ${scrolled || mobileOpen ? "bg-gray-200" : "bg-white/20"}`} />
+            <div className="w-px h-6 mx-2 bg-gray-200" />
 
             {/* Contact Button */}
             <Link
@@ -100,8 +93,7 @@ const Navbar = () => {
 
           {/* Mobile Toggle */}
           <button
-            className={`lg:hidden transition-colors duration-500 p-2 z-50 relative ${scrolled || mobileOpen ? "text-foreground hover:text-gold" : "text-white hover:text-white/80"
-              }`}
+            className="lg:hidden transition-colors duration-500 p-2 z-50 relative text-foreground hover:text-gold"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >

@@ -96,12 +96,6 @@ const WhyUsSection = () => (
           viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer}
         >
-          <motion.p variants={fadeInUp} className="text-gold font-bold tracking-[0.3em] uppercase text-[10px] md:text-xs mb-6">The Nautilus Difference</motion.p>
-          <motion.h2 variants={fadeInUp} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-foreground mb-8 leading-[1.1]">
-            Why Visionaries <br />
-            <span className="text-gradient-gold italic">Choose Our Expertise</span>
-          </motion.h2>
-
           <div className="grid gap-6">
             {partnerReasons.map((r, i) => (
               <motion.div

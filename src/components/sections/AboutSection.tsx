@@ -95,7 +95,7 @@ const AboutSection = () => {
   return (
     <div className="bg-background overflow-hidden">
       {/* Company Story */}
-      <section className="py-20 relative">
+      <section className="py-12 md:py-16 relative">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] -mr-64 -mt-64" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-teal/5 rounded-full blur-[120px] -ml-64 -mb-64" />
 
@@ -173,7 +173,7 @@ const AboutSection = () => {
                   achievement. Let us help you forge the future you envision through the right talent.
                 </p>
               </motion.div>
-              <motion.div variants={fadeInUp} className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 py-8 border-y border-border/50">
+              <motion.div variants={fadeInUp} className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6 py-6 border-y border-border/50">
                 {stats.map((stat) => (
                   <div key={stat.label} className="text-center lg:text-left">
                     <p className="text-2xl md:text-3xl font-bold text-navy mb-1 tracking-tight">
@@ -188,8 +188,8 @@ const AboutSection = () => {
         </div>
       </section>
 
-      {/* Professional Team Imagery Section - Hidden on About page per user request */}
-      {!isAboutPage && (
+      {/* Professional Team Imagery Section - Hidden on Home and About per essential requirement */}
+      {isHomePage && false && (
         <section className="py-16 bg-background relative z-10 w-full px-6 md:px-10 lg:px-20 xl:px-24">
           <div className="grid md:grid-cols-2 gap-8 items-center justify-center">
             <motion.div
@@ -226,20 +226,11 @@ const AboutSection = () => {
         </section>
       )}
 
-      {/* Vision & Mission Sections */}
-      <section className="relative py-20 overflow-hidden bg-navy">
-        <div className="absolute inset-0 z-0">
-          <motion.img
-            initial={{ scale: 1.1 }}
-            whileInView={{ scale: 1 }}
-            transition={{ duration: 2 }}
-            src={visionSummit}
-            alt="Vision"
-            className="w-full h-full object-cover grayscale opacity-30"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy/80 to-navy" />
-        </div>
+      {/* Vision & Mission Sections - Hidden on Home for essential feel */}
+      {!isHomePage && (
+        <section className="relative py-12 md:py-16 overflow-hidden bg-background">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal/5 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative z-10 w-full px-6 md:px-10 lg:px-20 xl:px-24">
           <motion.div
@@ -249,32 +240,33 @@ const AboutSection = () => {
             variants={staggerContainer}
             className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto"
           >
-            <motion.div variants={fadeInUp} className="group bg-white/5 backdrop-blur-xl border border-white/10 p-12 rounded-[2rem] hover:bg-white/10 transition-all duration-500 hover:-translate-y-2">
-              <div className="w-16 h-16 rounded-2xl bg-rose-50 flex items-center justify-center mb-8 border border-rose-100 group-hover:bg-rose-500 transition-colors duration-500">
-                <Target className="text-rose-500 group-hover:text-white transition-colors" size={32} />
+            <motion.div variants={fadeInUp} className="group bg-white border border-navy/10 shadow-lg p-8 md:p-10 rounded-[2rem] hover:shadow-2xl hover:border-gold/20 transition-all duration-500 hover:-translate-y-2">
+              <div className="w-14 h-14 rounded-2xl bg-rose-50 flex items-center justify-center mb-6 border border-rose-100 group-hover:bg-rose-500 transition-colors duration-500">
+                <Target className="text-rose-500 group-hover:text-white transition-colors" size={28} />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-display font-bold text-primary-foreground mb-6">Our Vision</h3>
-              <p className="text-primary-foreground/70 text-lg leading-relaxed font-bold italic">
+              <h3 className="text-xl sm:text-2xl font-display font-bold text-navy mb-4">Our Vision</h3>
+              <p className="text-foreground/70 text-base md:text-lg leading-relaxed font-medium italic">
                 "To redefine the future of work by connecting organizations with exceptional talent that drives innovation, growth, and sustainable success."
               </p>
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="group bg-white/5 backdrop-blur-xl border border-white/10 p-12 rounded-[2rem] hover:bg-white/10 transition-all duration-500 hover:-translate-y-2">
-              <div className="w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center mb-8 border border-amber-100 group-hover:bg-amber-500 transition-colors duration-500">
-                <Award className="text-amber-500 group-hover:text-white transition-colors" size={32} />
+            <motion.div variants={fadeInUp} className="group bg-white border border-navy/10 shadow-lg p-8 md:p-10 rounded-[2rem] hover:shadow-2xl hover:border-gold/20 transition-all duration-500 hover:-translate-y-2">
+              <div className="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center mb-6 border border-amber-100 group-hover:bg-amber-500 transition-colors duration-500">
+                <Award className="text-amber-500 group-hover:text-white transition-colors" size={28} />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-display font-bold text-primary-foreground mb-6">Our Mission</h3>
-              <p className="text-primary-foreground/70 text-lg leading-relaxed font-bold">
+              <h3 className="text-xl sm:text-2xl font-display font-bold text-navy mb-4">Our Mission</h3>
+              <p className="text-foreground/70 text-base md:text-lg leading-relaxed font-medium">
                 "We combine advanced recruitment technology with human expertise to deliver HR solutions that empower organizations and guide professionals in their career journeys. As a dependable partner, we ensure every solution we provide contributes to creativity, progress, and long-term value."
               </p>
             </motion.div>
           </motion.div>
         </div>
       </section>
+      )}
 
       {/* Core Values - About page only */}
       {!isHomePage && (
-        <section className="py-24 bg-surface/50 relative">
+        <section className="py-12 md:py-16 bg-surface/50 relative">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
           <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24">
             <SectionTitle label="The Foundation" title="Our Core Values" />
@@ -292,8 +284,8 @@ const AboutSection = () => {
                   <motion.div
                     key={v.title}
                     variants={fadeInUp}
-                    whileHover={{ y: -12 }}
-                    className={`relative bg-card rounded-2xl p-8 xl:p-10 text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-navy/5 group hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:border-gold/20 transition-all duration-500 overflow-hidden ${isLastOnSm ? "sm:col-span-2 lg:col-span-1" : ""
+                    whileHover={{ y: -8 }}
+                    className={`relative bg-card rounded-2xl p-6 xl:p-8 text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-navy/5 group hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:border-gold/20 transition-all duration-500 overflow-hidden ${isLastOnSm ? "sm:col-span-2 lg:col-span-1" : ""
                       }`}
                   >
                     {/* Glossy Overlay effect */}
@@ -303,11 +295,11 @@ const AboutSection = () => {
                     <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-transparent group-hover:border-navy/20 rounded-tl-2xl transition-colors duration-500" />
                     <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-transparent group-hover:border-navy/20 rounded-br-2xl transition-colors duration-500" />
 
-                    <div className={`w-16 h-16 xl:w-20 xl:h-20 mx-auto rounded-2xl ${v.bgColor} flex items-center justify-center mb-6 xl:mb-8 group-hover:scale-110 transition-transform duration-500 shadow-xl border border-navy/5 relative z-10 group-hover:bg-navy group-hover:text-white`}>
-                      <Icon className={`${v.color} group-hover:text-white transition-colors`} size={window.innerWidth > 1280 ? 36 : 28} />
+                    <div className={`w-14 h-14 xl:w-16 xl:h-16 mx-auto rounded-2xl ${v.bgColor} flex items-center justify-center mb-5 xl:mb-6 group-hover:scale-110 transition-transform duration-500 shadow-xl border border-navy/5 relative z-10 group-hover:bg-navy group-hover:text-white`}>
+                      <Icon className={`${v.color} group-hover:text-white transition-colors`} size={24} />
                     </div>
-                    <h4 className="font-display font-bold text-foreground text-xl xl:text-2xl mb-4 group-hover:text-navy transition-colors relative z-10">{v.title}</h4>
-                    <p className="text-foreground text-sm xl:text-base leading-relaxed font-medium group-hover:text-foreground/90 transition-colors relative z-10">{v.desc}</p>
+                    <h4 className="font-display font-bold text-foreground text-lg xl:text-xl mb-3 group-hover:text-navy transition-colors relative z-10">{v.title}</h4>
+                    <p className="text-foreground text-xs xl:text-sm leading-relaxed font-medium group-hover:text-foreground/90 transition-colors relative z-10">{v.desc}</p>
                   </motion.div>
                 );
               })}
@@ -327,27 +319,26 @@ const AboutSection = () => {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.2 }}
                 variants={staggerContainer}
-                className="space-y-12"
+                className="grid lg:grid-cols-2 gap-10 mt-4"
               >
+                {/* Our Team Card */}
                 <motion.div
                   variants={fadeInUp}
-                  className="bg-navy p-10 md:p-16 lg:p-20 rounded-[2.5rem] shadow-2xl relative overflow-hidden group border border-white/10"
+                  className="bg-slate-50 border border-navy/10 shadow-lg p-8 md:p-10 rounded-[2rem] hover:shadow-2xl hover:border-gold/20 transition-all duration-500 hover:-translate-y-1 relative overflow-hidden group"
                 >
-                  {/* Decorative background effects */}
-                  <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] -mr-64 -mt-64 group-hover:bg-gold/10 transition-colors duration-1000 pointer-events-none" />
-                  <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-teal/5 rounded-full blur-[120px] -ml-64 -mb-64 group-hover:bg-teal/10 transition-colors duration-1000 pointer-events-none" />
-
-                  <div className="relative z-10 max-w-4xl mx-auto">
-                    <div className="space-y-8 text-primary-foreground/90 text-lg md:text-xl leading-relaxed font-medium text-center">
-                      <p className="drop-shadow-sm">
-                        <span className="text-gold font-bold text-2xl md:text-3xl block mb-6">Our Team:</span>
-                        Our Management and Execution Team brings together over 20 years of collective professional experience,
+                  <div className="absolute top-0 right-0 w-60 h-60 bg-gold/5 rounded-full blur-[80px] pointer-events-none group-hover:bg-gold/10 transition-colors duration-700" />
+                  <div className="relative z-10">
+                    <span className="text-gold font-black text-[10px] uppercase tracking-[0.4em] mb-2 block">The Team</span>
+                    <h3 className="text-xl md:text-2xl font-display font-bold text-navy mb-4">Our Team</h3>
+                    <div className="space-y-4 text-foreground/80 text-sm md:text-base leading-relaxed font-medium">
+                      <p>
+                        Our Management and Execution Team brings together over <span className="font-bold text-navy">20 years</span> of collective professional experience,
                         ensuring consistent value across every client engagement and business process. We are a team of seasoned
                         consultants with expertise spanning multiple sectors.
                       </p>
-                      <p className="drop-shadow-sm">
+                      <p>
                         Supporting our core team is a non-executive advisory panel of senior industry experts. Their insights and
                         networks extend our global reach and strengthen our ability to deliver solutions across diverse markets.
                       </p>
@@ -355,29 +346,36 @@ const AboutSection = () => {
                   </div>
                 </motion.div>
 
-                <motion.div variants={fadeInUp} className="pt-16 border-t border-border/50 max-w-4xl mx-auto">
-                  <h3 className="text-2xl md:text-3xl font-display font-bold text-navy mb-6">Our Edge</h3>
-                  <p className="text-foreground text-lg mb-8 font-semibold">We believe our advantage lies in three pillars:</p>
+                {/* Our Edge Card */}
+                <motion.div
+                  variants={fadeInUp}
+                  className="bg-amber-50/30 border border-navy/10 shadow-lg p-8 md:p-10 rounded-[2rem] hover:shadow-2xl hover:border-gold/20 transition-all duration-500 hover:-translate-y-1 relative overflow-hidden group"
+                >
+                  <div className="absolute bottom-0 left-0 w-60 h-60 bg-teal/5 rounded-full blur-[80px] pointer-events-none group-hover:bg-teal/10 transition-colors duration-700" />
+                  <div className="relative z-10">
+                    <span className="text-teal font-black text-[10px] uppercase tracking-[0.4em] mb-2 block">Competitive Advantage</span>
+                    <h3 className="text-xl md:text-2xl font-display font-bold text-navy mb-4">Our Edge</h3>
+                    <p className="text-foreground/70 text-sm md:text-base mb-4 font-semibold">We believe our advantage lies in three pillars:</p>
 
-                  <ul className="space-y-4">
-                    {[
-                      { title: "Quality of People", desc: "Experienced professionals committed to excellence" },
-                      { title: "Global Network", desc: "Connections that open doors worldwide" },
-                      { title: "Personalized Service", desc: "Tailored solutions that fit each client’s unique needs" },
-                    ].map((item) => (
-                      <li key={item.title} className="flex items-start gap-4">
-                        <div className="mt-1.5 w-2 h-2 rounded-full bg-gold shrink-0" />
-                        <p className="text-foreground text-base md:text-lg">
-                          <span className="font-bold text-navy">{item.title}</span> – {item.desc}
-                        </p>
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className="space-y-3 mb-6">
+                      {[
+                        { title: "Quality of People", desc: "Professionals committed to excellence" },
+                        { title: "Global Network", desc: "Connections that open doors worldwide" },
+                        { title: "Personalized Service", desc: "Solutions that fit unique needs" },
+                      ].map((item) => (
+                        <li key={item.title} className="flex items-start gap-3">
+                          <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                          <p className="text-foreground text-sm md:text-base">
+                            <span className="font-bold text-navy">{item.title}</span> – {item.desc}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
 
-                  <p className="mt-10 text-foreground text-base md:text-lg leading-relaxed font-bold italic border-l-4 border-gold pl-6">
-                    Our consultants deliver recruitment expertise on the ground, with a deep understanding of multicultural
-                    environments and local market dynamics.
-                  </p>
+                    <p className="text-foreground/80 text-sm md:text-base leading-relaxed font-medium italic border-l-4 border-gold pl-4">
+                      Our consultants deliver recruitment expertise on the ground, with a deep understanding of local market dynamics.
+                    </p>
+                  </div>
                 </motion.div>
               </motion.div>
             </div>
@@ -399,21 +397,21 @@ const AboutSection = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.1 }}
               variants={staggerContainer}
-              className="grid md:grid-cols-3 gap-12"
+              className="grid md:grid-cols-3 gap-10"
             >
               {[
-                { icon: Star, title: "Quality of People", desc: "Our recruiters aren't just HR professionals; they are industry veterans with deep domain technical expertise.", color: "text-amber-500", bgColor: "bg-amber-50" },
-                { icon: Globe, title: "Global Network", desc: "Access to an international talent pool that transcends geographic boundaries and local limitations.", color: "text-sky-500", bgColor: "bg-sky-50" },
-                { icon: Zap, title: "Agile Service", desc: "A bespoke, responsive recruitment lifecycle designed to scale with your organization's immediate needs.", color: "text-orange-500", bgColor: "bg-orange-50" },
+                { icon: Star, title: "Quality of People", desc: "Our recruiters are industry veterans with deep domain technical expertise.", color: "text-amber-500", bgColor: "bg-amber-50" },
+                { icon: Globe, title: "Global Network", desc: "Access to an international talent pool that transcends geographic boundaries.", color: "text-sky-500", bgColor: "bg-sky-50" },
+                { icon: Zap, title: "Agile Service", desc: "A bespoke, responsive recruitment lifecycle designed to scale with your needs.", color: "text-orange-500", bgColor: "bg-orange-50" },
               ].map((p, i) => {
                 const Icon = p.icon;
                 return (
                   <motion.div key={p.title} variants={fadeInUp} className="text-center group">
-                    <div className={`w-20 h-20 mx-auto rounded-full ${p.bgColor} border border-white/10 flex items-center justify-center mb-8 group-hover:bg-gold transition-colors duration-500`}>
-                      <Icon className={`${p.color} group-hover:text-navy transition-colors`} size={36} />
+                    <div className={`w-14 h-14 md:w-16 md:h-16 mx-auto rounded-full ${p.bgColor} border border-white/10 flex items-center justify-center mb-6 group-hover:bg-gold transition-colors duration-500`}>
+                      <Icon className={`${p.color} group-hover:text-navy transition-colors`} size={28} />
                     </div>
-                    <h4 className="font-display font-bold text-2xl mb-4">{p.title}</h4>
-                    <p className="text-primary-foreground/70 leading-relaxed font-semibold italic">{p.desc}</p>
+                    <h4 className="font-display font-bold text-xl md:text-2xl mb-4">{p.title}</h4>
+                    <p className="text-primary-foreground/70 text-sm md:text-base leading-relaxed font-semibold italic">{p.desc}</p>
                   </motion.div>
                 );
               })}
@@ -422,8 +420,8 @@ const AboutSection = () => {
         </section>
       )}
 
-      {/* Testimonials - Hidden on About page per user request */}
-      {!isAboutPage && (
+      {/* Testimonials - Hidden on Home for essential feel */}
+      {!isAboutPage && !isHomePage && (
         <section className="py-16">
           <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24">
             <SectionTitle label="Success Stories" title="Partner Feedback" />
@@ -461,49 +459,13 @@ const AboutSection = () => {
         </section>
       )}
 
-      {/* CTA */}
-      <section className="py-10 bg-surface">
-        <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="w-full gradient-navy px-10 py-8 md:py-10 rounded-2xl shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6"
-          >
-            {/* Decorative blobs */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-teal/20 rounded-full blur-[100px] -mr-32 -mt-32 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold/10 rounded-full blur-[100px] -ml-32 -mb-32 pointer-events-none" />
-
-            {/* Text */}
-            <div className="relative z-10 text-center md:text-left">
-              <h2 className="text-2xl sm:text-3xl font-display font-bold text-primary-foreground mb-2">
-                Your Transformation Starts Here
-              </h2>
-              <p className="text-primary-foreground/75 text-sm sm:text-base leading-relaxed max-w-2xl">
-                Whether you're a visionary company or an ambitious professional, let's create your success story together.
-              </p>
-            </div>
-
-            {/* Button */}
-            <div className="relative z-10 shrink-0">
-              <Link
-                to="/contact"
-                className="gradient-teal text-accent-foreground px-8 py-3.5 rounded-full font-bold tracking-wide hover:scale-105 transition-all shadow-xl inline-block whitespace-nowrap"
-              >
-                Submit Your CV
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 };
 
 
 const SectionTitle = ({ label, title }: { label: string; title: string }) => (
-  <div className="text-center mb-16">
+  <div className="text-center mb-10">
     <p className="text-teal font-semibold tracking-[0.2em] uppercase text-sm mb-3">{label}</p>
     <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground">{title}</h2>
     <div className="w-20 h-1.5 gradient-gold mx-auto mt-6 rounded-full" />

@@ -1,10 +1,9 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import WhyUsSection from "@/components/sections/WhyUsSection";
+
 import PartnerSection from "@/components/sections/PartnerSection";
 import DifferentiatorsSection from "@/components/sections/DifferentiatorsSection";
 import ServicesSection from "@/components/sections/ServicesSection";
-import ExecutiveSearchPillars from "@/components/sections/ExecutiveSearchPillars";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 
@@ -64,9 +63,7 @@ const WhyUs = () => {
                     <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent z-10" />
                 </header>
 
-                <div>
-                    <WhyUsSection />
-                </div>
+
 
                 <div className="bg-surface/10">
                     <PartnerSection />
@@ -76,9 +73,7 @@ const WhyUs = () => {
                     <DifferentiatorsSection />
                 </div>
 
-                <div className="bg-background">
-                    <ExecutiveSearchPillars />
-                </div>
+
             </main>
             <Footer />
         </div>

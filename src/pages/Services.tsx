@@ -2,12 +2,12 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ServicesSection from "@/components/sections/ServicesSection";
 import WhyUsSection from "@/components/sections/WhyUsSection";
+import CTASection from "@/components/sections/CTASection";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, TrendingUp, ShieldCheck, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroProfessional from "@/assets/hero-professional.png";
-import aboutMeeting from "@/assets/about-meeting.png";
+
 
 const Services = () => {
     useEffect(() => {
@@ -23,11 +23,10 @@ const Services = () => {
     return (
         <div className="min-h-screen flex flex-col bg-background overflow-hidden font-display">
             <Navbar />
-            {/* add a little padding at the top of the main area as a general safeguard against the fixed nav */}
-            <main className="flex-grow pt-4 md:pt-6">
+            <main className="flex-grow">
                 {/* the top padding keeps the hero content below the fixed navbar so the "Our Expertise" badge
                      isn’t hidden on page load or when scrolling */}
-                <header className="relative h-[40vh] md:h-[50vh] flex items-center justify-center overflow-hidden pt-20 md:pt-24">
+                <header className="relative h-[45vh] lg:h-[55vh] flex items-center justify-center overflow-hidden pt-16 md:pt-20">
                     <motion.div
                         initial={{ scale: 1.1, filter: "brightness(0.2)" }}
                         animate={{ scale: 1, filter: "brightness(0.4)" }}
@@ -57,7 +56,7 @@ const Services = () => {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4, duration: 0.8 }}
-                            className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white mb-8 border-l-4 border-gold pl-8"
+                            className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white mb-6 text-center"
                         >
                             Executive <span className="text-gradient-gold italic">Search</span>
                         </motion.h1>
@@ -65,35 +64,18 @@ const Services = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.6, duration: 1 }}
-                            className="text-white drop-shadow-md max-w-4xl text-base md:text-2xl font-bold leading-relaxed pl-8 text-pretty mb-12"
+                            className="text-white/90 drop-shadow-md max-w-3xl mx-auto text-base md:text-xl font-medium leading-relaxed text-center text-pretty mb-8"
                         >
-                            Our Executive Search Team specializes in identifying, attracting, and recruiting middle to senior-level executives for critical leadership positions.
+                            Our Executive Search Team specializes in identifying, attracting, and recruiting middle to senior-level executives for critical leadership positions. We combine extensive research, established networks, and targeted strategies to secure candidates with the right qualifications, experience, and cultural fit.
                         </motion.p>
-                        <div className="grid md:grid-cols-2 gap-8 pl-8 text-left max-w-5xl">
-                            <div className="space-y-4">
-                                <h3 className="text-gold font-black uppercase tracking-widest text-sm border-b border-white/20 pb-2">Strategic Support</h3>
-                                <div className="space-y-3">
-                                    {["Talent Mapping", "Confidential Search", "Customized Assessments"].map(t => (
-                                        <div key={t} className="flex items-center gap-2 text-white/90 text-sm font-bold"><div className="w-1.5 h-1.5 rounded-full bg-gold"/>{t}</div>
-                                    ))}
-                                </div>
-                            </div>
-                            <div className="space-y-4">
-                                <h3 className="text-teal font-black uppercase tracking-widest text-sm border-b border-white/20 pb-2">Client-Centric</h3>
-                                <div className="space-y-3">
-                                    {["Director-Level Oversight", "Strategic Partnership", "Trusted Process"].map(t => (
-                                        <div key={t} className="flex items-center gap-2 text-white/90 text-sm font-bold"><div className="w-1.5 h-1.5 rounded-full bg-teal"/>{t}</div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
 
                     <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent z-10" />
                 </header>
 
                 {/* Professional Recruitment Imagery Section */}
-                <section className="py-16 bg-background relative z-10 w-full px-6 md:px-10 lg:px-20 xl:px-24">
+                <section className="py-8 bg-background relative z-10 w-full px-6 md:px-10 lg:px-20 xl:px-24">
                     <div className="grid md:grid-cols-3 gap-8 items-center justify-center">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
@@ -103,10 +85,10 @@ const Services = () => {
                             className="w-full h-[250px] sm:h-[300px] lg:h-[350px] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(8,_24,_43,_0.1)] relative group"
                         >
                             <img
-                                src={heroProfessional}
-                                alt="Corporate Recruitment Meeting"
+                                src="/assets/images/indian_exec_man2.png"
+                                alt="Indian Business Executive"
                                 loading="lazy"
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
                             />
                             <div className="absolute inset-0 bg-navy/10 group-hover:bg-navy/0 transition-colors duration-500" />
                         </motion.div>
@@ -118,10 +100,10 @@ const Services = () => {
                             className="w-full h-[250px] sm:h-[300px] lg:h-[350px] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(8,_24,_43,_0.1)] relative group"
                         >
                             <img
-                                src={aboutMeeting}
-                                alt="Executive Recruitment Meeting"
+                                src="/assets/images/indian_exec_woman.png"
+                                alt="Indian Business Executive Woman"
                                 loading="lazy"
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
                             />
                             <div className="absolute inset-0 bg-navy/10 group-hover:bg-navy/0 transition-colors duration-500" />
                         </motion.div>
@@ -149,7 +131,7 @@ const Services = () => {
                 </div>
 
                 {/* Service Commitment / Benefits */}
-                <section className="py-24 bg-surface/30 relative">
+                <section className="py-16 bg-surface/30 relative">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-teal/5 rounded-full blur-[100px] pointer-events-none" />
                     <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 xl:gap-12 items-stretch">
@@ -174,49 +156,13 @@ const Services = () => {
                     </div>
                 </section>
 
-                {/* Professional Interview Imagery Section */}
-                <section className="py-16 bg-background relative z-10 w-full px-6 md:px-10 lg:px-20 xl:px-24">
-                    <div className="grid md:grid-cols-2 gap-8 items-center justify-center">
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.3 }}
-                            transition={{ duration: 0.8 }}
-                            className="w-full h-[250px] sm:h-[300px] lg:h-[350px] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(8,_24,_43,_0.1)] relative group"
-                        >
-                            <img
-                                src="/assets/images/female_professional.png"
-                                alt="Employer and Candidate Consulting with Us"
-                                loading="lazy"
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                            />
-                            <div className="absolute inset-0 bg-navy/10 group-hover:bg-navy/0 transition-colors duration-500" />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.3 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="w-full h-[250px] sm:h-[300px] lg:h-[350px] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(8,_24,_43,_0.1)] relative group"
-                        >
-                            <img
-                                src="/assets/images/interview.png"
-                                alt="Formal Interview Process"
-                                loading="lazy"
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                            />
-                            <div className="absolute inset-0 bg-navy/10 group-hover:bg-navy/0 transition-colors duration-500" />
-                        </motion.div>
-                    </div>
-                </section>
-
                 {/* Integration Why Us for full picture */}
                 <div className="bg-background">
                     <WhyUsSection />
                 </div>
 
                 {/* Services CTA */}
-                <section className="py-24 bg-surface/50">
+                <section className="py-16 bg-surface/50">
                     <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
@@ -271,6 +217,7 @@ const Services = () => {
                         </motion.div>
                     </div>
                 </section>
+                <CTASection />
             </main>
             <Footer />
         </div>

@@ -29,12 +29,12 @@ const HeroSection = () => {
   };
 
   const imageVariants: Variants = {
-    hidden: { opacity: 0, scale: 1.1 },
+    hidden: { opacity: 0, scale: 1.08 },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 1.5,
+        duration: 1.8,
         ease: "easeOut"
       }
     }
@@ -43,9 +43,9 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden"
     >
-      {/* Dynamic Background */}
+      {/* Full-screen Background Image */}
       <motion.div
         initial="hidden"
         animate="visible"
@@ -55,34 +55,36 @@ const HeroSection = () => {
         <img
           src={heroImage}
           alt="Professional Corporate Background"
-          className="w-full h-full object-cover"
-          fetchPriority="low"
-          loading="lazy"
+          className="w-full h-full object-cover object-center"
+          fetchPriority="high"
+          loading="eager"
         />
-        <div className="absolute inset-0 bg-navy/80" />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-transparent to-navy" />
+        {/* Lighter overlay so image is clearly visible */}
+        <div className="absolute inset-0 bg-navy/55" />
+        {/* Subtle vignette gradient for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/30 via-transparent to-navy/70" />
       </motion.div>
 
-      <div className="relative z-10 container mx-auto px-6 py-24 md:py-32 flex flex-col items-center justify-center min-h-[60vh]">
+      <div className="relative z-10 w-full px-6 md:px-10 lg:px-20 xl:px-24 py-32 flex flex-col items-center justify-center min-h-[70vh]">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="text-center max-w-4xl mx-auto"
+          className="text-center max-w-5xl mx-auto"
         >
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full mb-8">
-            <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-            <span className="text-gold font-semibold tracking-widest uppercase text-xs">
+          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-blue-600 backdrop-blur-md border border-blue-500/30 px-4 py-1.5 rounded-full mb-8 shadow-lg shadow-blue-900/20">
+            <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+            <span className="text-white font-semibold tracking-widest uppercase text-[10px] md:text-xs">
               Excellence in Global Recruitment
             </span>
           </motion.div>
 
-          <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-primary-foreground mb-8 leading-[1.1]">
+          <motion.h1 variants={itemVariants} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold text-primary-foreground mb-8 leading-[1.05]">
             Nautilus <br />
             <span className="text-gradient-gold italic">International</span>
           </motion.h1>
 
-          <motion.p variants={itemVariants} className="max-w-2xl mx-auto text-primary-foreground/70 text-base md:text-lg lg:text-xl leading-relaxed mb-12 font-bold px-4">
+          <motion.p variants={itemVariants} className="max-w-2xl mx-auto text-primary-foreground/85 text-lg md:text-xl lg:text-2xl leading-relaxed mb-14 font-semibold px-4">
             We bridge the gap between world-class talent and visionary organizations.
             Experience a new standard in specialized executive search and HR advisory.
           </motion.p>
@@ -90,13 +92,13 @@ const HeroSection = () => {
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
             <Link
               to="/services"
-              className="gradient-teal text-white px-8 md:px-10 py-3.5 md:py-4 rounded-md font-bold tracking-wider hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all transform hover:-translate-y-1 text-center text-sm w-full sm:w-auto"
+              className="gradient-teal text-white px-10 md:px-12 py-4 md:py-4.5 rounded-md font-bold tracking-wider hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transition-all transform hover:-translate-y-1 text-center text-sm w-full sm:w-auto"
             >
               OUR SERVICES
             </Link>
             <Link
               to="/contact"
-              className="group relative overflow-hidden px-8 md:px-10 py-3.5 md:py-4 rounded-md font-bold tracking-wider text-primary-foreground border border-primary-foreground/30 text-center text-sm w-full sm:w-auto"
+              className="group relative overflow-hidden px-10 md:px-12 py-4 md:py-4.5 rounded-md font-bold tracking-wider text-primary-foreground border border-primary-foreground/30 text-center text-sm w-full sm:w-auto"
             >
               <div className="absolute inset-0 w-0 bg-primary-foreground transition-all duration-300 group-hover:w-full" />
               <span className="relative z-10 group-hover:text-navy transition-colors">SUBMIT YOUR CV</span>
@@ -105,7 +107,7 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Floating Indicators */}
+      {/* Floating Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -131,4 +133,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-

@@ -19,6 +19,16 @@ const Contact = () => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
+        
+        // Mobile number validation: Only allow numbers and max 10 digits
+        if (name === "phone") {
+            const numericValue = value.replace(/[^0-9]/g, "");
+            if (numericValue.length <= 10) {
+                setForm({ ...form, phone: numericValue });
+            }
+            return;
+        }
+        
         setForm({ ...form, [name]: value });
     };
 
@@ -33,7 +43,30 @@ const Contact = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        alert("Thank you for your inquiry! Our strategic consultants will reach out to you within 24 hours.");
+        
+        // Mobile number length validation
+        if (form.phone.length !== 10) {
+            alert("Please enter a valid 10-digit mobile number.");
+            return;
+        }
+        
+        // Construct the WhatsApp message
+       const whatsappNumber = "917410775779";
+        const messageText = `*New Inquiry from Nautilus website*
+        
+*Name:* ${form.name}
+*Email:* ${form.email}
+*Phone:* ${form.phone}
+${fileName ? `*Document:* ${fileName} (User will attach in chat)` : ""}
+*Message:* ${form.message}`;
+
+        const encodedMessage = encodeURIComponent(messageText);
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        
+        // Open WhatsApp
+        window.open(whatsappUrl, "_blank");
+        
+        alert("Thank you for your inquiry! Redirecting you to WhatsApp. Please remember to attach your CV/Portfolio once the chat opens.");
         setForm({ name: "", email: "", phone: "", message: "" });
         setFileName("");
     };
@@ -63,11 +96,11 @@ const Contact = () => {
             <Navbar />
             <main className="flex-grow">
                 {/* Cinematic Header */}
-                <header className="relative h-[45vh] md:h-[55vh] flex items-center justify-center overflow-hidden pt-20 md:pt-24">
+                <header className="relative h-[45vh] lg:h-[55vh] flex items-center justify-center overflow-hidden pt-16 md:pt-20">
                     <motion.div
-                        initial={{ scale: 1.1, filter: "brightness(0.3)" }}
-                        animate={{ scale: 1, filter: "brightness(0.5)" }}
-                        transition={{ duration: 1.8, ease: "easeOut" }}
+                        initial={{ scale: 1.1 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 1.5 }}
                         className="absolute inset-0 z-0"
                     >
                         <img
@@ -77,7 +110,7 @@ const Contact = () => {
                             fetchPriority="low"
                             loading="lazy"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-navy/70 to-navy" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/80 to-navy" />
                     </motion.div>
 
                     <div className="relative z-10 w-full px-6 text-center">
@@ -93,7 +126,7 @@ const Contact = () => {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4, duration: 0.8 }}
-                            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white drop-shadow-lg mb-6 tracking-tight leading-tight py-1"
+                            className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white mb-6 text-center"
                         >
                             Our <span className="text-gradient-gold italic">Global Office</span>
                         </motion.h1>
@@ -101,7 +134,7 @@ const Contact = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.6, duration: 1 }}
-                            className="text-white drop-shadow-md max-w-2xl mx-auto text-sm md:text-base font-bold leading-relaxed px-4 text-pretty"
+                            className="text-white/90 drop-shadow-md max-w-3xl mx-auto text-base md:text-2xl font-medium leading-relaxed text-center text-pretty mb-8"
                         >
                             Ready to architect your organization's most critical transitions? Experience a new echelon of strategic engagement.
                         </motion.p>
@@ -110,79 +143,16 @@ const Contact = () => {
                     <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent z-10" />
                 </header>
 
-                <section id="pathways" className="relative pt-8 pb-8 px-6">
-                    <div className="max-w-[1400px] mx-auto">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={staggerContainer}
-                            className="grid md:grid-cols-3 gap-6 xl:gap-8"
-                        >
-                            {[
-                                {
-                                    title: "Organizational Growth",
-                                    label: "For Partners",
-                                    icon: Globe,
-                                    desc: "Initiate a search for executive leadership that will architect your company's future.",
-                                    color: "gold"
-                                },
-                                {
-                                    title: "Executive Advancement",
-                                    label: "For Talent",
-                                    icon: Rocket,
-                                    desc: "Explore high-impact transitions and enter our exclusive global talent ecosystem.",
-                                    color: "teal"
-                                },
-                                {
-                                    title: "Strategic Advisory",
-                                    label: "For Consulting",
-                                    icon: CheckCircle2,
-                                    desc: "Request a bespoke consultation for HR architecture and specialized strategic insights.",
-                                    color: "navy"
-                                }
-                            ].map((path, idx) => (
-                                <motion.div
-                                    key={idx}
-                                    variants={fadeInUp}
-                                    whileHover={{ y: -10 }}
-                                    className="group relative bg-white rounded-2xl p-6 xl:p-8 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.07)] border border-navy/5 overflow-hidden transition-all duration-500"
-                                >
-                                    <div className={`absolute top-0 right-0 w-32 h-32 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-700 bg-${path.color} rounded-full -mr-16 -mt-16`} />
 
-                                    <div className="relative z-10">
-                                        <span className="text-[10px] xl:text-[11px] font-black tracking-[0.4em] text-navy/30 uppercase mb-4 block">
-                                            {path.label}
-                                        </span>
-                                        <div className="w-10 h-10 rounded-xl bg-surface flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-navy group-hover:text-gold transition-all duration-500 shadow-sm">
-                                            <path.icon size={28} />
-                                        </div>
-                                        <h3 className="text-xl xl:text-2xl font-display font-bold text-navy mb-2 leading-tight">
-                                            {path.title}
-                                        </h3>
-                                        <p className="text-navy drop-shadow-md text-sm xl:text-base font-bold leading-relaxed">
-                                            {path.desc}
-                                        </p>
-                                    </div>
 
-                                    {/* Subtle highlight line */}
-                                    <div className={`absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-${path.color}/80 via-transparent to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left`} />
-                                </motion.div>
-                            ))}
-                        </motion.div>
-                    </div>
-                </section>
-
-                <section id="contact-interface" className="relative pb-10 z-20">
-                    <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24">
-                        <div className="max-w-[1400px] mx-auto">
-                            <div className="grid lg:grid-cols-12 gap-8 xl:gap-12 items-start">
+                 <section id="contact-interface" className="relative py-16 z-20 bg-slate-50/50">
+                    <div className="w-full px-6 md:px-10 lg:px-16 xl:px-20">
+                        <div className="grid lg:grid-cols-12 gap-8 xl:gap-12 items-start">
 
                                 {/* Sidebar: Professional Identity & Info */}
                                 <motion.div
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{ once: true, amount: 0.2 }}
+                                    initial="visible"
+                                    animate="visible"
                                     variants={staggerContainer}
                                     className="lg:col-span-5 space-y-6 md:space-y-8"
                                 >
@@ -194,14 +164,14 @@ const Contact = () => {
                                         <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal/10 rounded-full blur-[80px] -ml-32 -mb-32 pointer-events-none" />
 
                                         <div className="relative z-10">
-                                            <span className="inline-block text-[10px] font-black tracking-[0.4em] text-white uppercase mb-5 px-5 py-2 rounded-full bg-primary border border-white/20 shadow-lg backdrop-blur-md">
+                                            <span className="inline-block text-[10px] font-black tracking-[0.4em] text-white uppercase mb-5 px-5 py-2 rounded-full gradient-gold border border-white/20 shadow-lg backdrop-blur-md">
                                                 Elite Presence
                                             </span>
-                                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-10 leading-tight">
-                                                The <span className="text-gradient-gold italic">Nautilus</span> HQ
-                                            </h2>
+                                             <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-8 leading-tight">
+                                                 The <span className="text-gradient-gold italic">Nautilus</span> HQ
+                                             </h2>
 
-                                            <div className="space-y-10">
+                                            <div className="space-y-8">
                                                 {[
                                                     {
                                                         customIcon: <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Google_Maps_icon_%282020%29.svg" alt="Headquarters" className="w-8 h-8 object-contain" />,
@@ -228,30 +198,30 @@ const Contact = () => {
                                                         href: "mailto:hr@nautilusinternational.in",
                                                         bg: "bg-white",
                                                         border: "border-white/20"
-                                                    }
-                                                ].map((item, id) => (
-                                                    <div key={id} className="flex gap-6 md:gap-8 group/item">
-                                                        <div className={`w-16 h-16 rounded-2xl ${item.bg} border ${item.border} flex items-center justify-center shrink-0 group-hover/item:scale-110 group-hover/item:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-500 shadow-2xl relative`}>
-                                                            {item.customIcon}
-                                                        </div>
-                                                        <div className="flex flex-col justify-center">
-                                                            <span className="inline-block text-[12px] md:text-sm font-bold tracking-[0.1em] text-white bg-primary px-3 py-1 rounded-md mb-2 uppercase font-display">
-                                                                {item.label}
-                                                            </span>
-                                                            {item.isLink ? (
-                                                                <a href={item.href} className="text-xl md:text-2xl font-bold text-white hover:text-gold transition-all block tracking-tight font-display">
-                                                                    {item.value}
-                                                                </a>
-                                                            ) : (
-                                                                <div className="text-xl md:text-2xl font-bold text-white leading-tight tracking-tight font-display">
-                                                                    {item.value}
-                                                                    {item.detail && <p className="text-sm md:text-base font-semibold text-white/50 mt-2 italic tracking-normal font-display">"{item.detail}"</p>}
-                                                                </div>
-                                                            )}
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </div>
+                                                     }
+                                                 ].map((item, id) => (
+                                                     <div key={id} className="flex gap-4 md:gap-6 group/item">
+                                                         <div className={`w-12 h-12 rounded-xl ${item.bg} border ${item.border} flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-all duration-500 shadow-xl relative`}>
+                                                             {item.customIcon}
+                                                         </div>
+                                                         <div className="flex flex-col justify-center">
+                                                             <span className="inline-block text-[10px] font-bold tracking-[0.1em] text-gold/80 mb-1 uppercase">
+                                                                 {item.label}
+                                                             </span>
+                                                             {item.isLink ? (
+                                                                 <a href={item.href} className="text-lg md:text-xl font-bold text-white hover:text-gold transition-all block tracking-tight font-display">
+                                                                     {item.value}
+                                                                 </a>
+                                                             ) : (
+                                                                 <div className="text-lg md:text-xl font-bold text-white leading-tight tracking-tight font-display">
+                                                                     {item.value}
+                                                                     {item.detail && <p className="text-xs font-medium text-white/50 mt-1 italic tracking-normal font-display">"{item.detail}"</p>}
+                                                                 </div>
+                                                             )}
+                                                         </div>
+                                                     </div>
+                                                 ))}
+                                             </div>
 
                                             <div className="mt-14 pt-10 border-t border-white/10">
                                                 <div className="flex items-center gap-6 text-white/60 text-base md:text-lg font-bold italic">
@@ -285,22 +255,21 @@ const Contact = () => {
 
                                 {/* Main Form: The Strategic Interface */}
                                 <motion.div
-                                    initial={{ opacity: 0, x: 30 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
+                                    initial="visible"
+                                    animate="visible"
                                     transition={{ duration: 0.8 }}
                                     className="lg:col-span-7"
                                 >
-                                    <div className="bg-white rounded-[2.5rem] shadow-[0_30px_70px_-20px_rgba(0,0,0,0.12)] relative overflow-hidden border-4 border-primary">
+                                    <div className="bg-white rounded-[2.5rem] shadow-[0_30px_70px_-20px_rgba(0,0,0,0.12)] relative overflow-hidden border border-navy/5">
                                         {/* Colored Top Header */}
-                                        <div className="bg-primary p-8 md:p-10 relative overflow-hidden">
+                                        <div className="gradient-navy p-8 md:p-10 relative overflow-hidden">
                                             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
-                                            <div className="relative z-10">
-                                                <h3 className="text-3xl md:text-4xl font-display font-bold text-white mb-3 italic">Inquiry <span className="text-gold">Form</span></h3>
-                                                <p className="text-white/80 text-sm md:text-base font-bold leading-relaxed max-w-xl">
-                                                    Provide your details for a confidential executive consultation. Our experts will process your inquiry with the highest priority.
-                                                </p>
-                                            </div>
+                                             <div className="relative z-10">
+                                                 <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 italic">Inquiry <span className="text-gold">Form</span></h3>
+                                                 <p className="text-white/80 text-xs md:text-sm font-medium leading-relaxed">
+                                                     Provide your details for a confidential executive consultation. Our experts will process your inquiry with the highest priority.
+                                                 </p>
+                                             </div>
                                         </div>
 
                                         <div className="p-8 md:p-12 relative z-10">
@@ -310,67 +279,63 @@ const Contact = () => {
                                             <form onSubmit={handleSubmit} className="space-y-6">
                                                 <div className="grid md:grid-cols-2 gap-6">
                                                     <div className="space-y-2">
-                                                        <label className="text-xs md:text-sm font-black tracking-[0.1em] text-navy/60 ml-2 uppercase font-display">Full Name</label>
+                                                        <label className="text-[11px] font-bold tracking-[0.15em] text-navy/70 ml-1 uppercase">Full Name</label>
                                                         <div className="relative group">
                                                             <input
                                                                 type="text" name="name" required placeholder="Legal Name" value={form.name} onChange={handleChange}
-                                                                className="w-full bg-surface border-2 border-transparent rounded-2xl py-4 px-5 text-base text-navy placeholder:text-navy/20 focus:outline-none focus:border-gold/30 focus:bg-white focus:shadow-[0_10px_30px_-10px_rgba(212,175,55,0.2)] transition-all shadow-inner font-display"
+                                                                className="w-full bg-white border border-navy/10 rounded-xl py-4 px-5 text-base text-navy placeholder:text-navy/20 focus:outline-none focus:border-gold/50 focus:ring-4 focus:ring-gold/5 transition-all font-display"
                                                             />
-                                                            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-gold/10 to-teal/10 opacity-0 group-focus-within:opacity-100 -z-10 blur-sm transition-opacity" />
                                                         </div>
                                                     </div>
                                                     <div className="space-y-2">
-                                                        <label className="text-xs md:text-sm font-black tracking-[0.1em] text-navy/60 ml-2 uppercase font-display">Email Address</label>
+                                                        <label className="text-[11px] font-bold tracking-[0.15em] text-navy/70 ml-1 uppercase">Email Address</label>
                                                         <div className="relative group">
                                                             <input
                                                                 type="email" name="email" required placeholder="name@organization.com" value={form.email} onChange={handleChange}
-                                                                className="w-full bg-surface border-2 border-transparent rounded-2xl py-4 px-5 text-base text-navy placeholder:text-navy/20 focus:outline-none focus:border-gold/30 focus:bg-white focus:shadow-[0_10px_30px_-10px_rgba(212,175,55,0.2)] transition-all shadow-inner font-display"
+                                                                className="w-full bg-white border border-navy/10 rounded-xl py-4 px-5 text-base text-navy placeholder:text-navy/20 focus:outline-none focus:border-gold/50 focus:ring-4 focus:ring-gold/5 transition-all font-display"
                                                             />
-                                                            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-gold/10 to-teal/10 opacity-0 group-focus-within:opacity-100 -z-10 blur-sm transition-opacity" />
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div className="space-y-2">
-                                                    <label className="text-xs md:text-sm font-black tracking-[0.1em] text-navy/60 ml-2 uppercase font-display">Phone Number</label>
+                                                    <label className="text-[11px] font-bold tracking-[0.15em] text-navy/70 ml-1 uppercase">Phone Number</label>
                                                     <div className="relative group">
                                                         <input
                                                             type="tel" name="phone" placeholder="+00 000 000 0000" value={form.phone} onChange={handleChange}
-                                                            className="w-full bg-surface border-2 border-transparent rounded-2xl py-4 px-5 text-base text-navy placeholder:text-navy/20 focus:outline-none focus:border-gold/30 focus:bg-white focus:shadow-[0_10px_30px_-10px_rgba(212,175,55,0.2)] transition-all shadow-inner font-display"
+                                                            className="w-full bg-white border border-navy/10 rounded-xl py-4 px-5 text-base text-navy placeholder:text-navy/20 focus:outline-none focus:border-gold/50 focus:ring-4 focus:ring-gold/5 transition-all font-display"
                                                         />
-                                                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-gold/10 to-teal/10 opacity-0 group-focus-within:opacity-100 -z-10 blur-sm transition-opacity" />
                                                     </div>
                                                 </div>
 
                                                 <div className="space-y-2">
-                                                    <label className="text-xs md:text-sm font-black tracking-[0.1em] text-navy/60 ml-2 uppercase font-display">Upload CV / Portfolio (Optional)</label>
+                                                    <label className="text-[11px] font-bold tracking-[0.15em] text-navy/70 ml-1 uppercase">Upload CV / Portfolio (Optional)</label>
                                                     <div className="relative group/file">
                                                         <input
                                                             type="file" accept=".pdf,.doc,.docx" onChange={handleFileChange}
                                                             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                                                         />
-                                                        <div className="w-full rounded-2xl border-2 border-dashed border-navy/10 group-hover/file:border-gold/50 group-hover/file:bg-gold/5 bg-surface/30 p-5 flex flex-row items-center justify-center gap-4 transition-all duration-500 shadow-inner">
-                                                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all ${fileName ? "bg-gold text-white" : "bg-navy/5 text-navy/20"}`}>
-                                                                <Upload size={24} />
+                                                        <div className="w-full rounded-xl border border-dashed border-navy/20 group-hover/file:border-gold/50 group-hover/file:bg-gold/5 bg-surface/30 p-4 flex flex-row items-center justify-center gap-4 transition-all duration-500">
+                                                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all ${fileName ? "bg-gold text-white" : "bg-navy/5 text-navy/20"}`}>
+                                                                <Upload size={20} />
                                                             </div>
                                                             <div className="flex flex-col">
-                                                                <span className={`text-base tracking-wide font-display ${fileName ? "text-navy font-bold" : "text-navy/40 font-bold"}`}>
+                                                                <span className={`text-sm tracking-wide font-display ${fileName ? "text-navy font-bold" : "text-navy/40 font-medium"}`}>
                                                                     {fileName || "Click to browse or drag & drop"}
                                                                 </span>
-                                                                {!fileName && <span className="text-[10px] text-navy/30 uppercase font-black tracking-widest mt-0.5 font-sans">PDF, DOCX up to 10MB</span>}
+                                                                {!fileName && <span className="text-[9px] text-navy/30 uppercase font-bold tracking-widest mt-0.5">PDF, DOCX up to 10MB</span>}
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div className="space-y-2">
-                                                    <label className="text-xs md:text-sm font-black tracking-[0.1em] text-navy/60 ml-2 uppercase font-display">Message</label>
+                                                    <label className="text-[11px] font-bold tracking-[0.15em] text-navy/70 ml-1 uppercase">Message</label>
                                                     <div className="relative group">
                                                         <textarea
-                                                            name="message" rows={3} placeholder="Briefly describe your objectives or specific search requirements..." value={form.message} onChange={handleChange}
-                                                            className="w-full bg-surface border-2 border-transparent rounded-2xl py-4 px-5 text-base text-navy placeholder:text-navy/20 focus:outline-none focus:border-gold/30 focus:bg-white focus:shadow-[0_10px_30px_-10px_rgba(212,175,55,0.1)] transition-all shadow-inner resize-none font-display"
+                                                            name="message" rows={4} placeholder="Briefly describe your objectives..." value={form.message} onChange={handleChange}
+                                                            className="w-full bg-white border border-navy/10 rounded-xl py-4 px-5 text-base text-navy placeholder:text-navy/20 focus:outline-none focus:border-gold/50 focus:ring-4 focus:ring-gold/5 transition-all resize-none font-display"
                                                         />
-                                                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-gold/10 to-teal/10 opacity-0 group-focus-within:opacity-100 -z-10 blur-sm transition-opacity" />
                                                     </div>
                                                 </div>
 
@@ -392,9 +357,7 @@ const Contact = () => {
                                 </motion.div>
                             </div>
                         </div>
-                    </div>
-                </section>
-
+                    </section>
                 {/* Spacer Section for Footer Transition */}
                 <div className="h-10 md:h-16 bg-background" />
             </main>

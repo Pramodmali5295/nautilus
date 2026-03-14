@@ -98,7 +98,7 @@ const staggerContainer: Variants = {
 
 const DifferentiatorsSection = () => {
     return (
-        <section className="py-32 bg-surface/30 relative overflow-hidden">
+        <section className="py-16 md:py-24 bg-surface/30 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-navy/10 to-transparent" />
 
             <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24 relative z-10">
@@ -131,28 +131,28 @@ const DifferentiatorsSection = () => {
                             <motion.div
                                 key={item.title}
                                 variants={fadeInUp}
-                                className="group relative bg-white border border-navy/5 rounded-[2rem] p-8 shadow-[0_15px_45px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_45px_80px_-20px_rgba(15,23,42,0.1)] transition-all duration-700 flex flex-col"
+                                className="group relative bg-white border border-navy/5 rounded-[1.5rem] p-6 shadow-[0_10px_35px_-12px_rgba(0,0,0,0.05)] hover:shadow-[0_45px_80px_-20px_rgba(15,23,42,0.1)] transition-all duration-700 flex flex-col"
                             >
-                                <div className="flex items-center justify-between mb-8">
-                                    <div className={`w-16 h-16 rounded-2xl ${item.bgColor} flex items-center justify-center ${item.color} group-hover:bg-navy group-hover:text-white transition-all duration-500 shadow-sm border border-navy/5`}>
-                                        <Icon size={28} />
+                                <div className="flex items-center justify-between mb-5">
+                                    <div className={`w-12 h-12 rounded-xl ${item.bgColor} flex items-center justify-center ${item.color} group-hover:bg-navy group-hover:text-white transition-all duration-500 shadow-sm border border-navy/5`}>
+                                        <Icon size={24} />
                                     </div>
                                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                                        <CheckCircle2 size={24} className="text-emerald-500" />
+                                        <CheckCircle2 size={20} className="text-emerald-500" />
                                     </div>
                                 </div>
 
                                 <div className="flex-grow">
-                                    <h3 className="font-display font-bold text-navy mb-4 group-hover:text-gold transition-colors text-xl">
+                                    <h3 className="font-display font-bold text-navy mb-3 group-hover:text-gold transition-colors text-lg">
                                         {item.title}
                                     </h3>
 
-                                    <p className="text-navy/60 leading-relaxed font-semibold italic text-sm">
+                                    <p className="text-navy/60 leading-relaxed font-semibold italic text-xs md:text-sm">
                                         "{item.desc}"
                                     </p>
                                 </div>
 
-                                <div className="mt-8 flex justify-end">
+                                <div className="mt-6 flex justify-end">
                                     <div className="w-8 h-1 bg-navy/5 rounded-full group-hover:bg-gold group-hover:w-full transition-all duration-700" />
                                 </div>
                             </motion.div>
@@ -165,31 +165,31 @@ const DifferentiatorsSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1 }}
-                    className="mt-32 relative group"
+                    className="mt-20 relative group"
                 >
-                    <div className="absolute -inset-1 bg-gradient-to-r from-gold via-navy to-gold rounded-[4rem] blur opacity-10 group-hover:opacity-20 transition duration-1000 group-hover:duration-200" />
-                    <div className="relative bg-navy rounded-[3rem] p-10 md:p-14 overflow-hidden shadow-2xl">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-gold via-navy to-gold rounded-[3rem] blur opacity-10 group-hover:opacity-20 transition duration-1000 group-hover:duration-200" />
+                    <div className="relative bg-navy rounded-[2.5rem] p-8 md:p-12 overflow-hidden shadow-2xl">
                         {/* Abstract Background Detail */}
                         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/[0.02] rounded-full -mr-32 -mt-32 blur-3xl" />
 
                         <div className="relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto">
                             <motion.div
-                                animate={{ y: [0, -10, 0] }}
+                                animate={{ y: [0, -5, 0] }}
                                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                className="w-20 h-20 bg-gold/10 rounded-3xl flex items-center justify-center text-gold mb-12"
+                                className="w-16 h-16 bg-gold/10 rounded-2xl flex items-center justify-center text-gold mb-8"
                             >
-                                <Handshake size={48} />
+                                <Handshake size={36} />
                             </motion.div>
 
-                            <h3 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-10 tracking-tight leading-[1.1]">
+                            <h3 className="text-2xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6 tracking-tight leading-[1.1]">
                                 Commitment to <span className="text-gold italic underline decoration-gold/20 underline-offset-8">Excellence</span>
                             </h3>
 
-                            <p className="text-white/80 text-lg md:text-2xl font-medium italic leading-relaxed md:leading-loose">
+                            <p className="text-white/80 text-base md:text-xl font-medium italic leading-relaxed">
                                 "Partnering with Nautilus International means engaging a consultant that genuinely prioritizes your trajectory. Our commitment to excellence is the bridge between potential and achievement."
                             </p>
 
-                            <div className="mt-16 flex items-center gap-8 justify-center">
+                            <div className="mt-10 flex items-center gap-8 justify-center">
                                 <div className="w-16 md:w-24 h-px bg-white/20" />
                                 <div className="text-gold font-black uppercase tracking-[0.4em] text-[10px] md:text-xs">
                                     The Nautilus Standard

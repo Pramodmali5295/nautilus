@@ -101,30 +101,30 @@ const staggerContainer: Variants = {
 
 const FeatureCard = ({ item }: { item: typeof ourExpertise[0] }) => (
     <motion.div variants={fadeInUp} className="group relative h-full flex flex-col">
-        <div className="relative z-10 p-8 sm:p-10 bg-white border border-navy/5 rounded-[2.5rem] shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 h-full flex flex-col overflow-hidden">
+        <div className="relative z-10 p-6 sm:p-8 bg-white border border-navy/5 rounded-[1.5rem] shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-500 h-full flex flex-col overflow-hidden">
             {/* Visual Accent */}
-            <div className={`absolute top-0 right-0 w-32 h-32 opacity-10 rounded-full blur-3xl -mr-16 -mt-16 transition-colors duration-500 ${item.accentColor}`} />
+            <div className={`absolute top-0 right-0 w-24 h-24 opacity-10 rounded-full blur-2xl -mr-12 -mt-12 transition-colors duration-500 ${item.accentColor}`} />
 
             {/* Icon Container */}
-            <div className={`w-16 h-16 rounded-2xl ${item.bgColor} ${item.colorClass} flex items-center justify-center mb-8 transition-all duration-500 shadow-sm border border-navy/5 group-hover:bg-navy group-hover:text-white`}>
-                <item.icon size={30} />
+            <div className={`w-12 h-12 rounded-xl ${item.bgColor} ${item.colorClass} flex items-center justify-center mb-6 transition-all duration-500 shadow-sm border border-navy/5 group-hover:bg-navy group-hover:text-white`}>
+                <item.icon size={24} />
             </div>
 
             <div className="flex-grow">
-                <h4 className="text-xl sm:text-2xl font-display font-bold text-navy mb-5 leading-tight tracking-tight group-hover:text-gold transition-colors">
+                <h4 className="text-lg sm:text-xl font-display font-bold text-navy mb-3 leading-tight tracking-tight group-hover:text-gold transition-colors">
                     {item.title}
                 </h4>
-                <p className="text-navy/70 text-sm sm:text-base leading-relaxed font-semibold italic">
+                <p className="text-navy/70 text-xs sm:text-sm leading-relaxed font-semibold italic">
                     "{item.desc}"
                 </p>
             </div>
 
             {/* Decorative Footer Detail */}
-            <div className="mt-8 pt-6 border-t border-navy/5 flex items-center justify-between">
-                <div className="w-10 h-1 rounded-full bg-navy/5 overflow-hidden">
+            <div className="mt-6 pt-5 border-t border-navy/5 flex items-center justify-between">
+                <div className="w-8 h-1 rounded-full bg-navy/5 overflow-hidden">
                     <div className={`h-full w-0 group-hover:w-full transition-all duration-700 ${item.accentColor}`} />
                 </div>
-                <CheckCircle2 size={18} className="text-emerald-500/30 group-hover:text-emerald-500 transition-colors" />
+                <CheckCircle2 size={16} className="text-emerald-500/30 group-hover:text-emerald-500 transition-colors" />
             </div>
         </div>
     </motion.div>
@@ -149,7 +149,7 @@ const PartnerSection = () => {
                 >
                     <p className="text-gold font-bold tracking-[0.3em] uppercase text-xs mb-4">Talent Acquisition</p>
                     <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-navy mb-8 leading-[1.1]">
-                        Recruitment & <span className="text-gradient-gold italic">Talent Acquisition</span>
+                        Why <span className="text-gradient-gold italic">Partnership with us?</span>
                     </h2>
                     <p className="text-navy/60 text-lg md:text-2xl font-bold italic leading-relaxed px-4">
                         We specialize in delivering comprehensive recruitment and talent acquisition solutions designed to meet the evolving workforce needs of modern businesses—covering the entire recruitment lifecycle from candidate sourcing and selection to hiring and onboarding.
@@ -165,7 +165,7 @@ const PartnerSection = () => {
                     className="mb-6"
                 >
                     <p className="text-navy font-black uppercase tracking-[0.3em] text-xs mb-10 text-center">
-                        Why Collaborate with Us?
+                        Why Partnership with us?
                     </p>
                 </motion.div>
                 <motion.div

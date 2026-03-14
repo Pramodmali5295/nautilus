@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 import RecruitmentProcessSection from "@/components/sections/RecruitmentProcessSection";
 import WhyUsSection from "@/components/sections/WhyUsSection";
 import RecruitmentProcessCards from "@/components/sections/RecruitmentProcessCards";
+import CTASection from "@/components/sections/CTASection";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Shield, Zap, TrendingUp, Target } from "lucide-react";
@@ -16,7 +17,7 @@ const RecruitmentProcess = () => {
         <div className="min-h-screen flex flex-col bg-background overflow-hidden font-display">
             <Navbar />
             <main className="flex-grow">
-                <header className="relative h-[45vh] md:h-[55vh] flex items-center justify-center overflow-hidden pt-20 md:pt-24">
+                <header className="relative h-[45vh] lg:h-[55vh] flex items-center justify-center overflow-hidden pt-16 md:pt-20">
                     <motion.div
                         initial={{ scale: 1.1, filter: "brightness(0.3)" }}
                         animate={{ scale: 1, filter: "brightness(0.5)" }}
@@ -54,7 +55,7 @@ const RecruitmentProcess = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.6, duration: 1 }}
-                            className="text-white drop-shadow-md max-w-2xl mx-auto text-sm md:text-base font-bold leading-relaxed px-4 text-pretty"
+                            className="text-white drop-shadow-md max-w-2xl mx-auto text-lg md:text-xl font-bold leading-relaxed px-4 text-pretty"
                         >
                             A precision-engineered recruitment lifecycle designed to bridge the gap between world-class talent and visionary organizations.
                         </motion.p>
@@ -63,8 +64,8 @@ const RecruitmentProcess = () => {
                     <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent z-10" />
                 </header>
 
-                {/* Professional Imagery Section */}
-                <section className="py-16 bg-background relative z-10 w-full px-6 md:px-10 lg:px-20 xl:px-24">
+                {/* Professional Interview Imagery Section */}
+                <section className="py-8 bg-background relative z-10 w-full px-6 md:px-10 lg:px-20 xl:px-24">
                     <div className="grid md:grid-cols-2 gap-8 items-center justify-center">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
@@ -74,8 +75,8 @@ const RecruitmentProcess = () => {
                             className="w-full h-[250px] sm:h-[300px] lg:h-[350px] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(8,_24,_43,_0.1)] relative group"
                         >
                             <img
-                                src="/assets/images/consultation.jpg"
-                                alt="HR and Employee Meeting"
+                                src="/assets/images/female_professional.png"
+                                alt="Employer and Candidate Consulting with Us"
                                 loading="lazy"
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                             />
@@ -89,8 +90,8 @@ const RecruitmentProcess = () => {
                             className="w-full h-[250px] sm:h-[300px] lg:h-[350px] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(8,_24,_43,_0.1)] relative group"
                         >
                             <img
-                                src="/assets/images/presentation.jpg"
-                                alt="Presenting a Project"
+                                src="/assets/images/interview.png"
+                                alt="Formal Interview Process"
                                 loading="lazy"
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                             />
@@ -99,10 +100,10 @@ const RecruitmentProcess = () => {
                     </div>
                 </section>
 
-                <div className="bg-background">
-                    <WhyUsSection />
+                <div className="bg-background pb-16">
                     <RecruitmentProcessCards />
                 </div>
+                <CTASection />
             </main>
             <Footer />
         </div>

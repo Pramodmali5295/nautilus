@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import AboutSection from "@/components/sections/AboutSection";
+import CTASection from "@/components/sections/CTASection";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 
@@ -13,7 +14,7 @@ const About = () => {
         <div className="min-h-screen flex flex-col bg-background overflow-hidden font-display">
             <Navbar />
             <main className="flex-grow">
-                <header className="relative h-[45vh] md:h-[55vh] flex items-center justify-center overflow-hidden font-display pt-20 md:pt-24">
+                <header className="relative h-[45vh] lg:h-[55vh] flex items-center justify-center overflow-hidden font-display pt-16 md:pt-20">
                     <motion.div
                         initial={{ scale: 1.1 }}
                         animate={{ scale: 1 }}
@@ -51,7 +52,7 @@ const About = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.6, duration: 1 }}
-                            className="text-white drop-shadow-md max-w-2xl mx-auto text-base md:text-xl font-bold leading-relaxed px-4 text-pretty"
+                            className="text-white drop-shadow-md max-w-2xl mx-auto text-lg md:text-xl font-bold leading-relaxed px-4 text-pretty"
                         >
                             We are the strategic link between visionary organizations and the world-class talent they need to thrive.
                         </motion.p>
@@ -63,6 +64,7 @@ const About = () => {
                 <div>
                     <AboutSection />
                 </div>
+                <CTASection />
             </main>
             <Footer />
         </div>

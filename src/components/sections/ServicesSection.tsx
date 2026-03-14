@@ -213,62 +213,12 @@ const ServicesSection = () => {
   const displayServices = isDetailedPage ? services : services.slice(0, 3);
 
   return (
-    <section id="services" className={`py-24 ${isDetailedPage ? 'pt-12' : 'bg-background'} relative overflow-hidden`}>
+    <section id="services" className={`py-12 ${isDetailedPage ? 'pt-4' : 'bg-background'} relative overflow-hidden`}>
       <div className="absolute top-0 right-0 w-96 h-96 bg-teal/5 rounded-full blur-3xl -mr-48 -mt-48" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl -ml-48 -mb-48" />
 
       <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative mb-20 group"
-        >
-          {/* Solid Black/Navy Box Container */}
-          <div className="bg-navy p-10 md:p-16 lg:p-20 rounded-[2.5rem] shadow-2xl relative overflow-hidden border border-white/10 flex flex-col items-center text-center gap-10">
-            {/* Decorative background effects */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] -mr-64 -mt-64 group-hover:bg-gold/10 transition-colors duration-1000 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-teal/5 rounded-full blur-[120px] -ml-64 -mb-64 group-hover:bg-teal/10 transition-colors duration-1000 pointer-events-none" />
 
-            <div className={`max-w-5xl relative z-10 ${isDetailedPage ? 'text-left' : 'text-center'}`}>
-              {!isDetailedPage ? (
-                <>
-                  <p className="text-gold font-bold tracking-[0.4em] uppercase text-xs mb-4">Our Expertise</p>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-[1.1]">
-                    Specialized Solutions for <br />
-                    <span className="text-gradient-gold italic">Global Growth</span>
-                  </h2>
-                </>
-              ) : (
-                <div className="space-y-12">
-                  <div className="border-l-4 border-gold pl-8">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6 leading-tight">
-                      Executive <span className="text-gradient-gold italic">Search</span>
-                    </h2>
-                    <p className="text-white/80 text-lg md:text-xl font-medium leading-relaxed max-w-4xl italic">
-                      Our Executive Search Team specializes in identifying, attracting, and recruiting middle to senior-level executives for critical leadership positions. We combine extensive research, established networks, and targeted strategies to secure candidates with the right qualifications, experience, and cultural fit.
-                    </p>
-                  </div>
-
-                  <div className="flex flex-wrap gap-4 pl-8">
-                    <span className="px-5 py-2 bg-white/5 border border-white/10 rounded-full text-gold font-bold text-xs uppercase tracking-widest">Strategic Support</span>
-                    <span className="px-5 py-2 bg-white/5 border border-white/10 rounded-full text-teal font-bold text-xs uppercase tracking-widest">Client-Centric Approach</span>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {!isDetailedPage && (
-              <Link
-                to="/services"
-                className="relative z-10 group/btn flex items-center justify-center gap-3 text-white font-bold hover:text-gold transition-all text-base tracking-widest uppercase py-3 px-8 rounded-full border border-white/20 hover:border-gold/40 hover:bg-white/5"
-              >
-                Explore All Expertise <ArrowRight size={22} className="group-hover/btn:translate-x-2 transition-transform" />
-              </Link>
-            )}
-          </div>
-        </motion.div>
 
         <motion.div
           initial="hidden"
