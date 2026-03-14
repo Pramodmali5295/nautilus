@@ -14,7 +14,7 @@ const About = () => {
         <div className="min-h-screen flex flex-col bg-background overflow-hidden font-display">
             <Navbar />
             <main className="flex-grow">
-                <header className="relative h-[45vh] lg:h-[55vh] flex items-center justify-center overflow-hidden font-display pt-16 md:pt-20 bg-navy">
+                <header className="relative h-[45vh] lg:h-[55vh] flex items-center justify-center overflow-hidden font-display pt-32 md:pt-40 bg-navy">
                     <motion.div
                         initial={{ scale: 1 }}
                         animate={{ scale: 1 }}
@@ -36,7 +36,7 @@ const About = () => {
                             initial={{ opacity: 1, y: 0 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2, duration: 0.6 }}
-                            className="inline-block text-white font-black tracking-[0.3em] sm:tracking-[0.5em] md:tracking-[0.6em] uppercase text-[10px] sm:text-xs md:text-sm mb-6 px-5 sm:px-6 py-2 sm:py-2.5 rounded-full bg-blue-600 shadow-lg border border-white/20"
+                            className="inline-block text-white font-black tracking-[0.3em] sm:tracking-[0.5em] md:tracking-[0.6em] uppercase text-[10px] sm:text-xs md:text-sm mb-6 mt-12 md:mt-16 px-5 sm:px-6 py-2 sm:py-2.5 rounded-full bg-blue-600 shadow-lg border border-white/20"
                         >
                             Discover Nautilus
                         </motion.span>
