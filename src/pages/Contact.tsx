@@ -96,7 +96,7 @@ ${fileName ? `*Document:* ${fileName} (User will attach in chat)` : ""}
             <Navbar />
             <main className="flex-grow">
                 {/* Cinematic Header */}
-                <header className="relative min-h-[65vh] flex items-center justify-center overflow-hidden pt-40 md:pt-48 bg-navy">
+                <header className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-32 md:pt-36 bg-navy">
                     <motion.div
                         initial={{ scale: 1 }}
                         animate={{ scale: 1 }}
@@ -118,7 +118,7 @@ ${fileName ? `*Document:* ${fileName} (User will attach in chat)` : ""}
                             initial={{ opacity: 1, y: 0 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2, duration: 0.6 }}
-                            className="inline-block text-white font-black tracking-[0.3em] sm:tracking-[0.5em] md:tracking-[0.6em] uppercase text-[10px] sm:text-xs md:text-sm mb-6 mt-12 md:mt-16 px-5 sm:px-6 py-2 sm:py-2.5 rounded-full bg-blue-600 shadow-lg border border-white/20"
+                            className="inline-block text-white font-black tracking-[0.3em] sm:tracking-[0.5em] md:tracking-[0.6em] uppercase text-[10px] sm:text-xs md:text-sm mb-6 mt-8 md:mt-12 px-5 sm:px-6 py-2 sm:py-2.5 rounded-full bg-blue-600 shadow-lg border border-white/20"
                         >
                             Connect Excellence
                         </motion.span>
