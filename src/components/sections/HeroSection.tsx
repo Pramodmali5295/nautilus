@@ -43,7 +43,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden"
+      className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-navy"
     >
       {/* Full-screen Background Image */}
       <motion.div
@@ -67,7 +67,7 @@ const HeroSection = () => {
 
       <div className="relative z-10 w-full px-6 md:px-10 lg:px-20 xl:px-24 py-32 flex flex-col items-center justify-center min-h-[70vh]">
         <motion.div
-          initial="hidden"
+          initial="visible"
           animate="visible"
           variants={containerVariants}
           className="text-center max-w-5xl mx-auto"

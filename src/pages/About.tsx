@@ -14,9 +14,9 @@ const About = () => {
         <div className="min-h-screen flex flex-col bg-background overflow-hidden font-display">
             <Navbar />
             <main className="flex-grow">
-                <header className="relative h-[45vh] lg:h-[55vh] flex items-center justify-center overflow-hidden font-display pt-16 md:pt-20">
+                <header className="relative h-[45vh] lg:h-[55vh] flex items-center justify-center overflow-hidden font-display pt-16 md:pt-20 bg-navy">
                     <motion.div
-                        initial={{ scale: 1.1 }}
+                        initial={{ scale: 1 }}
                         animate={{ scale: 1 }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
                         className="absolute inset-0 z-0"
@@ -33,7 +33,7 @@ const About = () => {
 
                     <div className="relative z-10 w-full px-6 text-center">
                         <motion.span
-                            initial={{ opacity: 0, y: -20 }}
+                            initial={{ opacity: 1, y: 0 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2, duration: 0.6 }}
                             className="inline-block text-white font-black tracking-[0.3em] sm:tracking-[0.5em] md:tracking-[0.6em] uppercase text-[10px] sm:text-xs md:text-sm mb-6 px-5 sm:px-6 py-2 sm:py-2.5 rounded-full gradient-gold shadow-lg border border-white/20 backdrop-blur-sm"
@@ -41,7 +41,7 @@ const About = () => {
                             Discover Nautilus
                         </motion.span>
                         <motion.h1
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 1, y: 0 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4, duration: 0.8 }}
                             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white drop-shadow-lg mb-6 tracking-tight leading-tight py-1"
@@ -49,7 +49,7 @@ const About = () => {
                             About <span className="text-gradient-gold italic">Nautilus</span>
                         </motion.h1>
                         <motion.p
-                            initial={{ opacity: 0 }}
+                            initial={{ opacity: 1 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.6, duration: 1 }}
                             className="text-white drop-shadow-md max-w-2xl mx-auto text-lg md:text-xl font-bold leading-relaxed px-4 text-pretty"
