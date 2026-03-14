@@ -72,7 +72,7 @@ const HeroSection = () => {
           variants={containerVariants}
           className="text-center max-w-5xl mx-auto"
         >
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-blue-600 border border-white/20 px-5 py-2 rounded-full shadow-xl">
+          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-blue-600 border border-white/20 px-5 py-2 rounded-full mt-20 md:mt-28 shadow-xl">
             <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
             <span className="text-white font-black tracking-[0.3em] uppercase text-[10px] md:text-xs">
               Connect Excellence
