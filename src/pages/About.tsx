@@ -14,7 +14,7 @@ const About = () => {
         <div className="min-h-screen flex flex-col bg-background overflow-hidden font-display">
             <Navbar />
             <main className="flex-grow">
-                <header className="relative h-[45vh] lg:h-[55vh] flex items-center justify-center overflow-hidden font-display pt-32 md:pt-40 bg-navy">
+                <header className="relative min-h-[65vh] flex items-center justify-center overflow-hidden font-display pt-40 md:pt-48 bg-navy">
                     <motion.div
                         initial={{ scale: 1 }}
                         animate={{ scale: 1 }}

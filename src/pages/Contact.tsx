@@ -96,7 +96,7 @@ ${fileName ? `*Document:* ${fileName} (User will attach in chat)` : ""}
             <Navbar />
             <main className="flex-grow">
                 {/* Cinematic Header */}
-                <header className="relative h-[45vh] lg:h-[55vh] flex items-center justify-center overflow-hidden pt-32 md:pt-40 bg-navy">
+                <header className="relative min-h-[65vh] flex items-center justify-center overflow-hidden pt-40 md:pt-48 bg-navy">
                     <motion.div
                         initial={{ scale: 1 }}
                         animate={{ scale: 1 }}
