@@ -48,7 +48,7 @@ const Services = () => {
                             initial={{ opacity: 1, y: 0 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2, duration: 0.6 }}
-                            className="inline-block text-white font-black tracking-[0.3em] sm:tracking-[0.5em] md:tracking-[0.6em] uppercase text-[10px] sm:text-xs md:text-sm px-5 sm:px-6 py-2 sm:py-2.5 rounded-full bg-blue-600 shadow-lg border border-white/20"
+                            className="inline-block text-white font-black tracking-[0.3em] sm:tracking-[0.5em] md:tracking-[0.6em] uppercase text-[10px] sm:text-xs md:text-sm mb-6 px-5 sm:px-6 py-2 sm:py-2.5 rounded-full bg-blue-600 shadow-lg border border-white/20"
                         >
                             Our Expertise
                         </motion.span>
@@ -56,7 +56,7 @@ const Services = () => {
                             initial={{ opacity: 1, y: 0 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4, duration: 0.8 }}
-                            className="mt-8 text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white mb-6 text-center"
+                            className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white mb-6 text-center"
                         >
                             Executive <span className="text-gradient-gold italic">Search</span>
                         </motion.h1>
