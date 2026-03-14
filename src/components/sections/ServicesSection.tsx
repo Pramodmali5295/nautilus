@@ -1,0 +1,298 @@
+const services = [
+  {
+    icon: Search,
+    title: "Talent Mapping & Market Analysis",
+    desc: "Gain insights into industry-specific talent pools, market trends, and competitor benchmarks to support informed leadership decisions.",
+    features: [
+      "Industry-Specific Insights",
+      "Competitor Benchmarking",
+      "Market Trend Analysis",
+      "Data-Driven Decisions"
+    ],
+    color: "teal"
+  },
+  {
+    icon: Shield,
+    title: "Confidential Search",
+    desc: "Handle sensitive recruitment assignments with the highest level of discretion, ensuring complete confidentiality for both clients and candidates.",
+    features: [
+      "Absolute Discretion",
+      "Data Security",
+      "Private Candidate Pipelines",
+      "Sensitive Role Management"
+    ],
+    color: "indigo"
+  },
+  {
+    icon: Settings,
+    title: "Customized Assessments",
+    desc: "Conduct tailored screenings, evaluations, and interviews to ensure candidates meet role-specific requirements before presentation.",
+    features: [
+      "Tailored Screenings",
+      "Interdisciplinary Evaluations",
+      "Role-Specific Interviews",
+      "Pre-Presentation Vetting"
+    ],
+    color: "rose"
+  },
+  {
+    icon: Users,
+    title: "Director-Level Oversight",
+    desc: "Every Executive Search project is led by a senior consultant, providing a single point of contact and ensuring accountability at the highest level.",
+    features: [
+      "Senior Consultant Leadership",
+      "Dedicated Point of Contact",
+      "Maximum Accountability",
+      "Quality Assurance"
+    ],
+    color: "amber"
+  },
+  {
+    icon: Handshake,
+    title: "Strategic Partnership",
+    desc: "We work closely with client leadership teams to understand organizational goals and deliver talent solutions that drive long-term success.",
+    features: [
+      "Vision Alignment",
+      "Long-Term Growth Support",
+      "Collaborative Strategy",
+      "Result-Oriented Delivery"
+    ],
+    color: "cyan"
+  },
+  {
+    icon: Zap,
+    title: "Trusted Process",
+    desc: "From initial research to final onboarding, our methodology ensures precision, confidentiality, and alignment with your business vision.",
+    features: [
+      "Scientific Sourcing",
+      "Onboarding Support",
+      "Methodical Precision",
+      "Business Vision Alignment"
+    ],
+    color: "violet"
+  }
+];
+
+import { Briefcase, Search, Settings, ArrowRight, CheckCircle2, GraduationCap, Users, Zap, ArrowUpRight, Shield, Handshake } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { motion, Variants } from "framer-motion";
+import { useState } from "react";
+
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const ServiceCard = ({ s, index }: { s: any, index: number }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const colorMap: Record<string, any> = {
+    rose: { icon: 'bg-rose-50 text-rose-500 group-hover:bg-rose-500 group-hover:text-white', bar: 'bg-rose-500', glow: 'bg-rose-500/5', btn: '#f43f5e' },
+    teal: { icon: 'bg-teal-50 text-teal-600 group-hover:bg-teal-600 group-hover:text-white', bar: 'bg-teal-600', glow: 'bg-teal-600/5', btn: '#0d9488' },
+    indigo: { icon: 'bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white', bar: 'bg-indigo-600', glow: 'bg-indigo-600/5', btn: '#4f46e5' },
+    cyan: { icon: 'bg-cyan-50 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white', bar: 'bg-cyan-600', glow: 'bg-cyan-600/5', btn: '#0891b2' },
+    amber: { icon: 'bg-amber-50 text-amber-500 group-hover:bg-amber-500 group-hover:text-white', bar: 'bg-amber-500', glow: 'bg-amber-500/5', btn: '#d97706' },
+    violet: { icon: 'bg-violet-50 text-violet-600 group-hover:bg-violet-600 group-hover:text-white', bar: 'bg-violet-600', glow: 'bg-violet-600/5', btn: '#7c3aed' },
+  };
+
+  const currentStyles = colorMap[s.color] || colorMap.indigo;
+
+  return (
+    <motion.div variants={fadeInUp} className="group">
+      <div
+        className={`relative bg-white border border-navy/5 rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ${isExpanded ? 'shadow-2xl' : 'shadow-md hover:shadow-xl hover:-translate-y-1'
+          }`}
+        onClick={() => setIsExpanded(!isExpanded)}
+      >
+        {/* Colored accent bar on left */}
+        <div className={`absolute left-0 top-0 bottom-0 w-1.5 transition-all duration-500 ${isExpanded ? currentStyles.bar : 'bg-navy/10 group-hover:bg-navy/30'
+          }`} />
+
+        {/* Hover glow effect */}
+        <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none ${currentStyles.glow}`} />
+
+        {/* Card Header — always visible */}
+        <div className="relative z-10 flex items-center gap-5 px-8 py-6 pl-10">
+          {/* Icon */}
+          <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-500 shadow-sm ${currentStyles.icon}`}>
+            <s.icon size={24} />
+          </div>
+
+          {/* Title */}
+          <div className="flex-grow min-w-0">
+            <h3 className="text-lg sm:text-xl font-display font-bold text-navy leading-tight tracking-tight group-hover:text-navy/80 transition-colors">
+              {s.title}
+            </h3>
+          </div>
+
+          {/* Toggle Button */}
+          <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all duration-500 ${isExpanded ? `${currentStyles.bar} text-white` : 'bg-navy/5 text-navy group-hover:bg-navy/10'
+            }`}>
+            <ArrowUpRight size={16} className={`transition-transform duration-500 ${isExpanded ? 'rotate-90' : ''}`} />
+          </div>
+        </div>
+
+        {/* Preview text — only when collapsed */}
+        {!isExpanded && (
+          <div className="relative z-10 px-8 pb-4 pl-10">
+            <div className="flex gap-5">
+              <div className="w-14 shrink-0" />
+              <p className="text-navy/50 text-sm leading-relaxed font-medium line-clamp-2">
+                {s.desc}
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Expandable full content */}
+        <div className={`relative z-10 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] overflow-hidden ${isExpanded ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
+          }`}>
+          <div className="px-8 pb-8 pl-10 border-t border-navy/5">
+            <div className="flex gap-5 pt-6">
+              <div className="w-14 shrink-0" />
+              <div className="flex-grow">
+                <p className="text-navy/75 text-sm sm:text-base leading-relaxed font-semibold mb-8">
+                  {s.desc}
+                </p>
+
+                {/* Feature list */}
+                <ul className="space-y-3 pt-6 border-t border-navy/5">
+                  {s.features.map((feature: string, fIdx: number) => (
+                    <motion.li
+                      key={fIdx}
+                      initial={false}
+                      animate={{ opacity: isExpanded ? 1 : 0, x: isExpanded ? 0 : -10 }}
+                      transition={{ delay: fIdx * 0.06 }}
+                      className="flex items-center gap-3 text-sm text-navy/80"
+                    >
+                      <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
+                      <span className="font-bold">{feature}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className={`relative z-10 flex items-center justify-end px-8 py-3 pl-10 border-t border-navy/5 transition-colors ${isExpanded ? 'bg-navy/3' : ''
+          }`}>
+          <button
+            className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.25em] transition-colors duration-300 focus:outline-none"
+            style={{ color: isExpanded ? currentStyles.btn : '#64748b' }}
+            onClick={(e) => { e.stopPropagation(); setIsExpanded(!isExpanded); }}
+          >
+            {isExpanded ? 'Show less' : 'Read more'}
+            <ArrowUpRight size={11} className={`transition-transform duration-500 ${isExpanded ? 'rotate-90' : ''}`} />
+          </button>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const ServicesSection = () => {
+  const location = useLocation();
+  const isDetailedPage = location.pathname === '/services' || location.pathname === '/why-us';
+  const displayServices = isDetailedPage ? services : services.slice(0, 3);
+
+  return (
+    <section id="services" className={`py-24 ${isDetailedPage ? 'pt-12' : 'bg-background'} relative overflow-hidden`}>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-teal/5 rounded-full blur-3xl -mr-48 -mt-48" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl -ml-48 -mb-48" />
+
+      <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative mb-20 group"
+        >
+          {/* Solid Black/Navy Box Container */}
+          <div className="bg-navy p-10 md:p-16 lg:p-20 rounded-[2.5rem] shadow-2xl relative overflow-hidden border border-white/10 flex flex-col items-center text-center gap-10">
+            {/* Decorative background effects */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] -mr-64 -mt-64 group-hover:bg-gold/10 transition-colors duration-1000 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-teal/5 rounded-full blur-[120px] -ml-64 -mb-64 group-hover:bg-teal/10 transition-colors duration-1000 pointer-events-none" />
+
+            <div className={`max-w-5xl relative z-10 ${isDetailedPage ? 'text-left' : 'text-center'}`}>
+              {!isDetailedPage ? (
+                <>
+                  <p className="text-gold font-bold tracking-[0.4em] uppercase text-xs mb-4">Our Expertise</p>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-[1.1]">
+                    Specialized Solutions for <br />
+                    <span className="text-gradient-gold italic">Global Growth</span>
+                  </h2>
+                </>
+              ) : (
+                <div className="space-y-12">
+                  <div className="border-l-4 border-gold pl-8">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6 leading-tight">
+                      Executive <span className="text-gradient-gold italic">Search</span>
+                    </h2>
+                    <p className="text-white/80 text-lg md:text-xl font-medium leading-relaxed max-w-4xl italic">
+                      Our Executive Search Team specializes in identifying, attracting, and recruiting middle to senior-level executives for critical leadership positions. We combine extensive research, established networks, and targeted strategies to secure candidates with the right qualifications, experience, and cultural fit.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-4 pl-8">
+                    <span className="px-5 py-2 bg-white/5 border border-white/10 rounded-full text-gold font-bold text-xs uppercase tracking-widest">Strategic Support</span>
+                    <span className="px-5 py-2 bg-white/5 border border-white/10 rounded-full text-teal font-bold text-xs uppercase tracking-widest">Client-Centric Approach</span>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {!isDetailedPage && (
+              <Link
+                to="/services"
+                className="relative z-10 group/btn flex items-center justify-center gap-3 text-white font-bold hover:text-gold transition-all text-base tracking-widest uppercase py-3 px-8 rounded-full border border-white/20 hover:border-gold/40 hover:bg-white/5"
+              >
+                Explore All Expertise <ArrowRight size={22} className="group-hover/btn:translate-x-2 transition-transform" />
+              </Link>
+            )}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={staggerContainer}
+          className="grid md:grid-cols-2 gap-6 xl:gap-8 items-start"
+        >
+          {displayServices.map((s, i) => {
+            const isLastOnHome = !isDetailedPage && i === 2;
+            const Icon = s.icon;
+
+            return (
+              <div key={s.title} className={isLastOnHome ? "md:col-span-2 lg:col-span-2" : ""}>
+                <ServiceCard s={{ ...s, icon: Icon }} index={i} />
+              </div>
+            );
+          })}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default ServicesSection;
+
+

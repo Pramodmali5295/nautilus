@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 222 47% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 8%;
+
+    --primary: 221 83% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 94%;
+    --secondary-foreground: 222 47% 8%;
+
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 221 83% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 221 83% 40%;
+
+    --radius: 0.5rem;
+
+    /* Blue (replaces gold) */
+    --gold: 221 83% 53%;
+    --gold-foreground: 0 0% 100%;
+
+    /* Deep blue-black (replaces navy) */
+    --navy: 222 60% 6%;
+    --navy-light: 221 50% 14%;
+
+    /* Sky blue (replaces teal) */
+    --teal: 210 100% 55%;
+    --teal-light: 210 100% 67%;
+
+    --slate: 220 12% 50%;
+    --surface: 220 15% 96%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 220 10% 30%;
+    --sidebar-primary: 221 83% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 94%;
+    --sidebar-accent-foreground: 221 83% 40%;
+    --sidebar-border: 220 15% 88%;
+    --sidebar-ring: 221 83% 53%;
+  }
+
+  .dark {
+    --background: 222 47% 5%;
+    --foreground: 210 20% 95%;
+    --card: 222 40% 9%;
+    --card-foreground: 210 20% 95%;
+    --popover: 222 40% 9%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 221 83% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 25% 16%;
+    --secondary-foreground: 210 20% 95%;
+    --muted: 222 25% 16%;
+    --muted-foreground: 215 15% 60%;
+    --accent: 210 100% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 40%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222 25% 20%;
+    --input: 222 25% 20%;
+    --ring: 221 83% 60%;
+    --gold: 221 83% 60%;
+    --gold-foreground: 0 0% 100%;
+    --navy: 222 60% 6%;
+    --navy-light: 221 50% 14%;
+    --teal: 210 100% 60%;
+    --teal-light: 210 100% 72%;
+    --surface: 222 35% 11%;
+    --sidebar-background: 222 47% 5%;
+    --sidebar-foreground: 210 15% 90%;
+    --sidebar-primary: 221 83% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 25% 16%;
+    --sidebar-accent-foreground: 210 15% 90%;
+    --sidebar-border: 222 25% 20%;
+    --sidebar-ring: 221 83% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    /* Base: 100% = 16px browser default. Scale up slightly on larger screens. */
+    font-size: 100%;
+    scroll-behavior: smooth;
+  }
+
+  /* Tablet and up: slightly larger base */
+  @media (min-width: 768px) {
+    html {
+      font-size: 106%;
+    }
+  }
+
+  /* Desktop and up: comfortable reading size */
+  @media (min-width: 1024px) {
+    html {
+      font-size: 112%;
+    }
+  }
+
+  /* Large desktop */
+  @media (min-width: 1280px) {
+    html {
+      font-size: 116%;
+    }
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+
+  /* Make all non-title text bold and darker so it is clearly visible */
+  p,
+  li,
+  dl,
+  dd,
+  label,
+  a,
+  span:not(.text-gradient-gold, h1 span, h2 span, h3 span, h4 span, h5 span, h6 span) {
+    font-weight: 700 !important;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
+  }
+
+  .dark p,
+  .dark li,
+  .dark dl,
+  .dark dd,
+  .dark label,
+  .dark a,
+  .dark span:not(.text-gradient-gold, h1 span, h2 span, h3 span, h4 span, h5 span, h6 span) {
+    text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@layer utilities {
+
+  /* Deep blue-black gradient */
+  .gradient-navy {
+    background: linear-gradient(135deg, hsl(222, 60%, 6%) 0%, hsl(221, 50%, 14%) 100%);
+  }
+
+  /* Sky blue gradient */
+  .gradient-teal {
+    background: linear-gradient(135deg, hsl(221, 83%, 53%) 0%, hsl(210, 100%, 65%) 100%);
+  }
+
+  /* Electric blue gradient (replaces gold) */
+  .gradient-gold {
+    background: linear-gradient(135deg, hsl(221, 83%, 53%) 0%, hsl(221, 83%, 40%) 100%);
+  }
+
+  /* Primary color gradient (used for navbar/menu to match logo) */
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary)) 100%);
+  }
+
+  /* Blue text gradient */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(210, 100%, 65%) 0%, hsl(221, 83%, 60%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .animate-slow-zoom {
+    animation: slow-zoom 20s ease-in-out infinite alternate;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+
+  @keyframes slow-zoom {
+    from {
+      transform: scale(1);
+    }
+
+    to {
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+}
