@@ -38,7 +38,7 @@ const RecruitmentSection = () => {
 
     return (
         <section className="py-16 md:py-24 bg-white relative overflow-hidden">
-            <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24">
+            <div className="w-full px-4 sm:px-10 lg:px-20 xl:px-24">
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
@@ -49,7 +49,7 @@ const RecruitmentSection = () => {
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-navy mb-6 md:mb-8 leading-tight">
                         Recruitment & <span className="text-gradient-gold italic">Talent Acquisition</span>
                     </h2>
-                    <p className="text-navy/70 text-base md:text-xl leading-relaxed">
+                    <p className="text-navy text-lg md:text-2xl leading-relaxed font-medium">
                         We specialize in delivering comprehensive recruitment and talent acquisition solutions designed to meet the evolving workforce needs of modern businesses. Our approach covers the entire recruitment lifecycle from candidate sourcing and selection to hiring and onboarding—ensuring that every step is aligned with your organization’s goals, values, and long-term growth strategy.
                     </p>
                 </motion.div>
@@ -70,7 +70,7 @@ const RecruitmentSection = () => {
                                     <item.icon size={26} />
                                 </div>
                                 <h4 className="text-lg md:text-xl font-bold text-navy mb-4 group-hover:text-gold transition-colors">{item.title}</h4>
-                                <p className="text-navy/60 text-xs md:text-sm leading-relaxed mb-6">{item.desc}</p>
+                                <p className="text-navy text-sm md:text-base leading-relaxed mb-6 font-medium">{item.desc}</p>
                                 <div className="w-12 h-1 bg-gold/20 rounded-full group-hover:w-full transition-all duration-700 mt-auto" />
                             </motion.div>
                         ))}
@@ -95,7 +95,7 @@ const RecruitmentSection = () => {
                                     </div>
                                     <div>
                                         <h5 className="font-bold text-navy text-sm md:text-base">{item.title}</h5>
-                                        <p className="text-navy/60 text-xs md:text-sm">{item.desc}</p>
+                                        <p className="text-navy text-sm md:text-base font-medium">{item.desc}</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -105,7 +105,7 @@ const RecruitmentSection = () => {
                     <div className="bg-navy rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden group">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-32 -mt-32" />
                         <h3 className="text-xl md:text-2xl font-display font-bold mb-6 border-b border-white/10 pb-6">Consultative & Project-Based Support</h3>
-                        <p className="text-white/70 text-sm md:text-base leading-relaxed mb-8 italic">
+                        <p className="text-white text-base md:text-lg leading-relaxed mb-8 italic font-medium">
                             Beyond ongoing recruitment, we also provide strategic guidance on a project basis.
                         </p>
                         <ul className="space-y-6">
@@ -118,7 +118,7 @@ const RecruitmentSection = () => {
                                     <div className="w-6 h-6 rounded-full bg-gold/20 flex items-center justify-center shrink-0 mt-1">
                                         <Zap size={14} className="text-gold" />
                                     </div>
-                                    <span className="text-white/90 text-sm md:text-base">{text}</span>
+                                    <span className="text-white text-base md:text-lg font-medium">{text}</span>
                                 </li>
                             ))}
                         </ul>
@@ -131,7 +131,7 @@ const RecruitmentSection = () => {
                     viewport={{ once: true }}
                     className="mt-20 p-8 md:p-12 bg-surface/50 rounded-[2.5rem] border border-navy/5 text-center"
                 >
-                    <p className="text-navy/70 text-lg md:text-xl italic leading-relaxed max-w-4xl mx-auto">
+                    <p className="text-navy text-xl md:text-2xl italic leading-relaxed max-w-4xl mx-auto font-medium">
                         "At Nautilus International, we are dedicated to delivering exceptional service and value, ensuring your organization has the talent it needs to thrive in today’s competitive landscape."
                     </p>
                 </motion.div>
@@ -155,7 +155,7 @@ const ExecutiveSearchSection = () => {
 
     return (
         <section className="py-16 md:py-24 bg-surface/30 relative overflow-hidden">
-            <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24">
+            <div className="w-full px-4 sm:px-10 lg:px-20 xl:px-24">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -165,7 +165,7 @@ const ExecutiveSearchSection = () => {
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-navy mb-6 md:mb-8 leading-tight">
                         Executive <span className="text-gradient-gold italic">Search</span>
                     </h2>
-                    <p className="text-navy/70 text-base md:text-xl leading-relaxed">
+                    <p className="text-navy text-lg md:text-xl leading-relaxed font-medium">
                         Our Executive Search Team specializes in identifying, attracting, and recruiting middle to senior-level executives for critical leadership positions. We combine extensive research, established networks, and targeted strategies to secure candidates with the right qualifications, experience, and cultural fit.
                     </p>
                 </motion.div>
@@ -195,7 +195,7 @@ const ExecutiveSearchSection = () => {
                                     <item.icon size={26} />
                                 </div>
                                 <h4 className="text-lg font-bold text-navy mb-3 group-hover:text-gold transition-colors">{item.title}</h4>
-                                <p className="text-navy/55 text-sm leading-relaxed mb-6 flex-grow">{item.desc}</p>
+                                <p className="text-navy text-sm md:text-base leading-relaxed mb-6 flex-grow font-medium">{item.desc}</p>
                                 <div className="w-12 h-1 bg-gold/20 rounded-full group-hover:w-full transition-all duration-700 mt-auto" />
                             </motion.div>
                         ))}
@@ -218,7 +218,7 @@ const ExecutiveSearchSection = () => {
                                     <item.icon size={32} />
                                 </div>
                                 <h4 className="text-xl font-bold text-navy mb-4 group-hover:text-gold transition-colors">{item.title}</h4>
-                                <p className="text-navy/60 text-sm leading-relaxed max-w-xs">{item.desc}</p>
+                                <p className="text-navy text-sm md:text-base leading-relaxed max-w-xs font-medium">{item.desc}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -241,7 +241,7 @@ const HRAdvisorySection = () => {
         <section className="py-16 md:py-24 bg-white relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-[120px] -mr-48 -mt-48" />
             
-            <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24 text-navy">
+            <div className="w-full px-4 sm:px-10 lg:px-20 xl:px-24 text-navy">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -251,7 +251,7 @@ const HRAdvisorySection = () => {
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6 md:mb-8 leading-tight">
                         HR Advisory <span className="text-gradient-gold italic">Services</span>
                     </h2>
-                    <p className="text-navy/70 text-base md:text-xl leading-relaxed">
+                    <p className="text-navy text-lg md:text-xl leading-relaxed font-medium">
                         Our HR advisory services are driven by a team of seasoned HR experts, each bringing decades of rich and diverse experience. We employ well-researched methodologies to deliver tailored solutions that meet the unique needs of your business.
                     </p>
                 </motion.div>
@@ -270,7 +270,7 @@ const HRAdvisorySection = () => {
                                 <area.icon size={26} />
                             </div>
                             <h4 className="text-xl font-bold text-navy mb-4 group-hover:text-gold transition-colors">{area.title}</h4>
-                            <p className="text-navy/55 text-sm leading-relaxed mb-6 flex-grow">{area.desc}</p>
+                            <p className="text-navy text-sm md:text-base leading-relaxed mb-6 flex-grow font-medium">{area.desc}</p>
                             <div className="w-12 h-1 bg-gold/20 rounded-full group-hover:w-full transition-all duration-700 mt-auto" />
                         </motion.div>
                     ))}
@@ -286,7 +286,7 @@ const HRAdvisorySection = () => {
                             <Lightbulb size={26} />
                         </div>
                         <h4 className="text-xl md:text-2xl font-display font-bold text-navy mb-4 group-hover:text-gold transition-colors">Transform Your HR</h4>
-                        <p className="text-navy/60 text-sm italic mb-6 flex-grow">"Let our expertise guide you towards better alignment of human resources with strategic objectives."</p>
+                        <p className="text-navy text-sm md:text-base italic mb-6 flex-grow font-medium">"Let our expertise guide you towards better alignment of human resources with strategic objectives."</p>
                         <div className="w-12 h-1 bg-gold/20 rounded-full group-hover:w-full transition-all duration-700" />
                     </motion.div>
                 </div>

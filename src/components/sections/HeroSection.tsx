@@ -63,7 +63,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-navy/30" />
       </motion.div>
 
-      <div className="relative z-10 w-full px-6 md:px-10 lg:px-20 xl:px-24 pt-24 md:pt-32 pb-20 md:pb-32 flex flex-col items-center justify-center min-h-[70vh]">
+      <div className="relative z-10 w-full px-4 sm:px-10 lg:px-20 xl:px-24 pt-24 md:pt-32 pb-20 md:pb-32 flex flex-col items-center justify-center min-h-[70vh]">
         <motion.div
           initial="visible"
           animate="visible"
@@ -77,7 +77,7 @@ const HeroSection = () => {
             </span>
           </motion.div>
 
-          <motion.h1 variants={itemVariants} className="mt-8 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold text-primary-foreground mb-6 sm:mb-8 leading-[1.1] sm:leading-[1.05] drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+          <motion.h1 variants={itemVariants} className="mt-8 text-[2.5rem] sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold text-primary-foreground mb-6 sm:mb-8 leading-[1.1] sm:leading-[1.05] drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
             Nautilus <br />
             <span className="text-gradient-gold italic">International</span>
           </motion.h1>

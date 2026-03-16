@@ -101,7 +101,7 @@ const DifferentiatorsSection = () => {
         <section className="pt-10 md:pt-16 pb-16 md:pb-24 bg-surface/30 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-navy/10 to-transparent" />
 
-            <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24 relative z-10">
+            <div className="w-full px-4 sm:px-10 lg:px-20 xl:px-24 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -113,7 +113,7 @@ const DifferentiatorsSection = () => {
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-navy mb-6 md:mb-8 leading-[1.1]">
                         What <span className="text-gradient-gold italic">Differentiates</span> Us?
                     </h2>
-                    <p className="text-navy text-xs md:text-base max-w-4xl mx-auto leading-relaxed italic border-l-2 md:border-l-0 md:border-y border-navy/10 py-4 md:py-6 pl-5 md:pl-0">
+                    <p className="text-navy text-sm md:text-lg max-w-4xl mx-auto leading-relaxed italic border-l-2 md:border-l-0 md:border-y border-navy/10 py-4 md:py-6 pl-5 md:pl-0">
                         "Nautilus International stands out from other recruitment agencies through a multitude of unique features and benefits engineered for your organizational success."
                     </p>
                 </motion.div>
@@ -147,7 +147,7 @@ const DifferentiatorsSection = () => {
                                         {item.title}
                                     </h3>
 
-                                    <p className="text-navy leading-relaxed italic text-xs md:text-sm font-bold">
+                                    <p className="text-navy leading-relaxed italic text-xs md:text-sm font-medium">
                                         "{item.desc}"
                                     </p>
                                 </div>

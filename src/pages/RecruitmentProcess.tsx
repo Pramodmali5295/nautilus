@@ -33,7 +33,7 @@ const RecruitmentProcess = () => {
                         <div className="absolute inset-0 bg-navy/30" />
                     </motion.div>
 
-                    <div className="relative z-10 w-full px-6 text-center">
+                    <div className="relative z-10 w-full px-4 text-center">
                         <motion.span
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}

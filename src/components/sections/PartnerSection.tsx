@@ -138,7 +138,7 @@ const FeatureCard = ({ item }: { item: typeof ourExpertise[0] }) => (
                 <h4 className="text-lg sm:text-xl font-display font-bold text-navy mb-3 leading-tight tracking-tight group-hover:text-gold transition-colors">
                     {item.title}
                 </h4>
-                <p className="text-navy text-xs sm:text-sm leading-relaxed italic font-bold">
+                <p className="text-navy text-sm sm:text-base leading-relaxed italic font-medium">
                     "{item.desc}"
                 </p>
             </div>
@@ -161,7 +161,7 @@ const PartnerSection = () => {
             <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] -mr-64 pointer-events-none" />
             <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-teal/5 rounded-full blur-[120px] -ml-64 pointer-events-none" />
 
-            <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24 relative z-10">
+            <div className="w-full px-4 sm:px-10 lg:px-20 xl:px-24 relative z-10">
 
                 {/* Section Header */}
                 <motion.div
@@ -175,7 +175,7 @@ const PartnerSection = () => {
                     <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-navy mb-8 leading-[1.1]">
                         Why <span className="text-gradient-gold italic">Partner with Us?</span>
                     </h2>
-                    <p className="text-navy text-base md:text-lg italic leading-relaxed px-4 mb-6 font-bold">
+                    <p className="text-navy text-lg md:text-xl italic leading-relaxed px-4 mb-6 font-medium">
                         Partnering with Nautilus International goes beyond traditional recruitment; it is about building a strategic alliance that transforms potential into achievement.
                     </p>
                     <p className="text-navy text-sm md:text-base max-w-2xl mx-auto font-black uppercase tracking-tight">
@@ -204,7 +204,7 @@ const PartnerSection = () => {
                      className="max-w-4xl mx-auto text-center mt-12 mb-4"
                 >
                     <div className="bg-navy/5 p-8 md:p-12 rounded-[2.5rem] border border-navy/5 backdrop-blur-sm shadow-inner">
-                        <p className="text-navy text-lg md:text-xl italic leading-relaxed font-bold">
+                        <p className="text-navy text-lg md:text-xl italic leading-relaxed font-medium">
                             "In choosing Nautilus International, you are not just filling vacancies; you are investing in the future success and growth of your organization. Let us help you forge a path towards innovation and achievement through the right talent."
                         </p>
                     </div>

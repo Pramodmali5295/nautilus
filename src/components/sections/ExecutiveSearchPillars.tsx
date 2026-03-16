@@ -84,7 +84,7 @@ const ExecutiveSearchPillars = () => {
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-navy mb-8 leading-[1.1]">
                         Executive <span className="text-gradient-gold italic">Search</span>
                     </h2>
-                    <p className="text-navy/60 text-base md:text-xl font-medium max-w-4xl mx-auto leading-relaxed italic border-l-4 md:border-l-0 md:border-y border-navy/10 py-4 md:py-6 pl-8 md:pl-0">
+                    <p className="text-navy text-lg md:text-2xl font-medium max-w-4xl mx-auto leading-relaxed italic border-l-4 md:border-l-0 md:border-y border-navy/10 py-4 md:py-6 pl-8 md:pl-0">
                         "Our Executive Search Team specializes in identifying, attracting, and recruiting middle to senior-level executives for critical leadership positions. We combine extensive research, established networks, and targeted strategies to secure candidates with the right qualifications, experience, and cultural fit."
                     </p>
                 </motion.div>
@@ -118,7 +118,7 @@ const ExecutiveSearchPillars = () => {
                                         {item.title}
                                     </h3>
 
-                                    <p className="text-navy/60 leading-relaxed font-semibold italic text-sm">
+                                    <p className="text-navy leading-relaxed font-semibold italic text-base">
                                         "{item.desc}"
                                     </p>
                                 </div>

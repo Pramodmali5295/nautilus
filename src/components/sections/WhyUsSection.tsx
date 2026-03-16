@@ -88,7 +88,7 @@ const WhyUsSection = () => (
     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-teal/5 rounded-full blur-[120px] -mr-64 -mt-64 pointer-events-none" />
     <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] -ml-64 -mb-64 pointer-events-none" />
 
-    <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24 relative z-10">
+    <div className="w-full px-4 sm:px-10 lg:px-20 xl:px-24 relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -120,7 +120,7 @@ const WhyUsSection = () => (
                 </div>
                 <div className="flex-grow">
                   <h4 className="font-display font-bold text-xl md:text-2xl text-foreground mb-2 group-hover:text-gold transition-colors">{r.title}</h4>
-                  <p className="text-foreground/60 leading-relaxed text-sm md:text-base italic group-hover:text-foreground transition-colors mb-4">{r.desc}</p>
+                  <p className="text-navy leading-relaxed text-base md:text-lg italic group-hover:text-foreground transition-colors mb-4">{r.desc}</p>
                   <div className="w-12 h-1 bg-gold/20 rounded-full group-hover:w-full transition-all duration-700" />
                 </div>
               </motion.div>

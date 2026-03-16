@@ -152,7 +152,7 @@ const ServiceCard = ({ s, index }: { s: any, index: number }) => {
           <div className="relative z-10 px-8 pb-4 pl-10">
             <div className="flex gap-5">
               <div className="w-14 shrink-0" />
-              <p className="text-navy/50 text-sm leading-relaxed font-medium line-clamp-2">
+              <p className="text-navy text-sm leading-relaxed font-medium line-clamp-2">
                 {s.desc}
               </p>
             </div>
@@ -166,7 +166,7 @@ const ServiceCard = ({ s, index }: { s: any, index: number }) => {
             <div className="flex gap-4 sm:gap-5 pt-6">
               <div className="w-10 sm:w-14 shrink-0" />
               <div className="flex-grow">
-                <p className="text-navy/75 text-sm sm:text-base leading-relaxed font-semibold mb-8">
+                <p className="text-navy text-sm sm:text-base leading-relaxed font-medium mb-8">
                   {s.desc}
                 </p>
 
@@ -181,7 +181,7 @@ const ServiceCard = ({ s, index }: { s: any, index: number }) => {
                       className="flex items-center gap-3 text-sm text-navy/80"
                     >
                       <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
-                      <span className="font-bold">{feature}</span>
+                      <span className="font-medium">{feature}</span>
                     </motion.li>
                   ))}
                 </ul>

@@ -83,7 +83,7 @@ ${fileName ? `*Document:* ${fileName} (User will attach in chat)` : ""}
 
     return (
         <section id="contact-interface" className="relative py-12 md:py-24 z-20 bg-slate-50/50">
-            <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24">
+            <div className="w-full px-4 sm:px-10 lg:px-20 xl:px-24">
                 <div className="grid lg:grid-cols-12 gap-12 items-start">
                     {/* Sidebar: Professional Identity & Info */}
                     <motion.div
@@ -201,7 +201,7 @@ ${fileName ? `*Document:* ${fileName} (User will attach in chat)` : ""}
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
                                  <div className="relative z-10">
                                      <h3 className="text-xl md:text-3xl font-display font-bold text-white mb-2 italic">Inquiry <span className="text-gold">Form</span></h3>
-                                     <p className="text-white/80 text-[10px] md:text-sm leading-relaxed">
+                                     <p className="text-white/90 text-xs md:text-base leading-relaxed">
                                          Provide your details for a confidential executive consultation.
                                      </p>
                                  </div>

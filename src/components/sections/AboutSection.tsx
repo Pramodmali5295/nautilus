@@ -156,7 +156,7 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
                 Nautilus International <br />
                 <span className="text-gradient-gold italic">Catalysts for Success</span>
               </motion.h2>
-              <motion.div variants={fadeInUp} className="space-y-4 text-foreground text-sm md:text-base leading-relaxed font-bold">
+              <motion.div variants={fadeInUp} className="space-y-4 text-foreground text-base md:text-lg leading-relaxed font-medium">
                 <p>
                   At <span className="text-foreground font-semibold">Nautilus International</span>, we understand that innovation thrives through collaboration and the collective
                   power of people. Your goal is to challenge the status quo, pioneer new solutions, and propel industries into
@@ -191,7 +191,7 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
 
       {/* Professional Team Imagery Section - Hidden on Home and About per essential requirement */}
       {isHomePage && false && (
-        <section className="py-16 bg-background relative z-10 w-full px-6 md:px-10 lg:px-20 xl:px-24">
+        <section className="py-16 bg-background relative z-10 w-full px-4 sm:px-10 lg:px-20 xl:px-24">
           <div className="grid md:grid-cols-2 gap-8 items-center justify-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -233,7 +233,7 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal/5 rounded-full blur-[100px] pointer-events-none" />
 
-        <div className="relative z-10 w-full px-6 md:px-10 lg:px-20 xl:px-24">
+        <div className="relative z-10 w-full px-4 sm:px-10 lg:px-20 xl:px-24">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -246,7 +246,7 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
                 <Target className="text-white group-hover:text-black transition-colors" size={28} />
               </div>
               <h3 className="text-xl sm:text-2xl font-display font-bold text-navy mb-4">Our Vision</h3>
-              <p className="text-navy text-base md:text-lg leading-relaxed font-bold italic">
+              <p className="text-navy text-lg md:text-xl leading-relaxed font-medium italic">
                 "To redefine the future of work by connecting organizations with exceptional talent that drives innovation, growth, and sustainable success."
               </p>
             </motion.div>
@@ -256,7 +256,7 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
                 <Award className="text-white group-hover:text-black transition-colors" size={28} />
               </div>
               <h3 className="text-xl sm:text-2xl font-display font-bold text-navy mb-4">Our Mission</h3>
-              <p className="text-navy text-base md:text-lg leading-relaxed font-bold">
+              <p className="text-navy text-lg md:text-xl leading-relaxed font-medium">
                 "We combine advanced recruitment technology with human expertise to deliver HR solutions that empower organizations and guide professionals in their career journeys. As a dependable partner, we ensure every solution we provide contributes to creativity, progress, and long-term value."
               </p>
             </motion.div>
@@ -298,7 +298,7 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
                       <Icon className={`${v.color} group-hover:text-white transition-colors`} size={24} />
                     </div>
                     <h4 className="font-display font-bold text-foreground text-lg xl:text-xl mb-3 group-hover:text-navy transition-colors relative z-10">{v.title}</h4>
-                    <p className="text-navy text-xs xl:text-sm leading-relaxed font-bold group-hover:text-black transition-colors relative z-10">{v.desc}</p>
+                    <p className="text-navy text-sm xl:text-base leading-relaxed font-medium group-hover:text-black transition-colors relative z-10">{v.desc}</p>
                   </motion.div>
                 );
               })}
@@ -331,7 +331,7 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
                   <div className="relative z-10">
                     <span className="text-gold font-black text-[10px] uppercase tracking-[0.4em] mb-2 block">The Team</span>
                     <h3 className="text-xl md:text-2xl font-display font-bold text-navy mb-4">Our Team</h3>
-                    <div className="space-y-4 text-navy text-sm md:text-base leading-relaxed font-bold">
+                    <div className="space-y-4 text-navy text-base md:text-lg leading-relaxed font-medium">
                       <p>
                         Our Management and Execution Team brings together over <span className="font-bold text-navy">20 years</span> of collective professional experience,
                         ensuring consistent value across every client engagement and business process. We are a team of seasoned
@@ -354,7 +354,7 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
                   <div className="relative z-10">
                     <span className="text-teal font-black text-[10px] uppercase tracking-[0.4em] mb-2 block">Competitive Advantage</span>
                     <h3 className="text-xl md:text-2xl font-display font-bold text-navy mb-4">Our Edge</h3>
-                    <p className="text-navy text-sm md:text-base mb-4 font-black">We believe our advantage lies in three pillars:</p>
+                    <p className="text-navy text-sm md:text-base mb-4 font-bold">We believe our advantage lies in three pillars:</p>
 
                     <ul className="space-y-3 mb-6">
                       {[
@@ -371,7 +371,7 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
                       ))}
                     </ul>
 
-                    <p className="text-navy text-sm md:text-base leading-relaxed font-bold italic border-l-4 border-gold pl-4">
+                    <p className="text-navy text-base md:text-lg leading-relaxed font-medium italic border-l-4 border-gold pl-4">
                       Our consultants deliver recruitment expertise on the ground, with a deep understanding of local market dynamics.
                     </p>
                   </div>

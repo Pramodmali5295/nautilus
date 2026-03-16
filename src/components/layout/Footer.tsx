@@ -49,7 +49,7 @@ const Footer = () => {
       {/* Background accents */}
       <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gold/5 rounded-full blur-[80px] -mr-32 -mt-32 pointer-events-none" />
 
-      <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24 pt-12 pb-8 relative z-10">
+      <div className="w-full px-4 sm:px-10 lg:px-20 xl:px-24 pt-12 pb-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-10 lg:gap-8 mb-10">
           
           {/* Brand Column */}

@@ -85,7 +85,7 @@ const processSteps = [
                 </p>
               </div>
   
-              <div className="flex items-center gap-2 mt-6 pl-18">
+              <div className="flex items-center gap-2 mt-6 pl-16">
                 <div className="flex gap-1.5">
                   {[1, 2, 3].map(d => <div key={d} className="w-1.5 h-1.5 rounded-full bg-gold" />)}
                 </div>
