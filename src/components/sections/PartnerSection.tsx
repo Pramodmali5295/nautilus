@@ -3,28 +3,52 @@ import { motion, Variants } from "framer-motion";
 
 const whyCollaborate = [
     {
-        title: "Industry Expertise",
-        desc: "Leverage our deep knowledge, proven methodologies, and extensive resources across manufacturing, engineering, services, BFSI, IT & ITES services industries.",
-        icon: Award,
-        colorClass: "text-amber-500",
-        bgColor: "bg-amber-50",
-        accentColor: "bg-amber-500"
+        title: "Expert Talent Acquisition",
+        desc: "Our specialized team combines industry knowledge with advanced recruitment technology to attract and identify top-tier talent that aligns with your organization’s values and objectives.",
+        icon: Search,
+        colorClass: "text-gold",
+        bgColor: "bg-navy/5",
+        accentColor: "bg-navy"
     },
     {
-        title: "Seamless Integration",
-        desc: "Our team works as an extension of your HR function, blending effortlessly with your existing recruitment structure for a friction-free partnership.",
-        icon: Handshake,
-        colorClass: "text-teal-600",
-        bgColor: "bg-teal-50",
-        accentColor: "bg-teal-500"
-    },
-    {
-        title: "Tailored Strategies",
-        desc: "We design customized talent acquisition plans that fit your unique business needs, ensuring every strategy is as distinct as your organization.",
+        title: "Customized Solutions",
+        desc: "We understand that every organization is unique. We tailor our recruitment strategies to meet your specific needs, ensuring that we find the right individuals who can contribute to your vision.",
         icon: Settings2,
-        colorClass: "text-indigo-500",
-        bgColor: "bg-indigo-50",
-        accentColor: "bg-indigo-500"
+        colorClass: "text-gold",
+        bgColor: "bg-navy/5",
+        accentColor: "bg-navy"
+    },
+    {
+        title: "Enhanced Diversity",
+        desc: "Our commitment to inclusivity means you will benefit from a diverse talent pool, offering a range of perspectives, ideas, and experiences that can drive innovation and creativity within your organization.",
+        icon: Users,
+        colorClass: "text-gold",
+        bgColor: "bg-navy/5",
+        accentColor: "bg-navy"
+    },
+    {
+        title: "Streamlined Hiring Process",
+        desc: "By merging technology with human expertise, we optimize and simplify your hiring process, saving you time and resources while increasing the quality of candidates presented.",
+        icon: Zap,
+        colorClass: "text-gold",
+        bgColor: "bg-navy/5",
+        accentColor: "bg-navy"
+    },
+    {
+        title: "Long-Term Relationships",
+        desc: "We believe in building lasting partnerships with our clients, providing ongoing support and guidance as your organization evolves and your talent needs change.",
+        icon: Handshake,
+        colorClass: "text-gold",
+        bgColor: "bg-navy/5",
+        accentColor: "bg-navy"
+    },
+    {
+        title: "Future-Focused Growth",
+        desc: "Together, we will assemble dynamic teams that not only meet today’s challenges but are also equipped to tackle future opportunities, positioning your organization as a leader in your industry.",
+        icon: TrendingUp,
+        colorClass: "text-gold",
+        bgColor: "bg-navy/5",
+        accentColor: "bg-navy"
     },
 ];
 
@@ -114,7 +138,7 @@ const FeatureCard = ({ item }: { item: typeof ourExpertise[0] }) => (
                 <h4 className="text-lg sm:text-xl font-display font-bold text-navy mb-3 leading-tight tracking-tight group-hover:text-gold transition-colors">
                     {item.title}
                 </h4>
-                <p className="text-navy/70 text-xs sm:text-sm leading-relaxed font-semibold italic">
+                <p className="text-navy text-xs sm:text-sm leading-relaxed italic font-bold">
                     "{item.desc}"
                 </p>
             </div>
@@ -145,64 +169,48 @@ const PartnerSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="text-center max-w-4xl mx-auto mb-20"
+                    className="text-center max-w-4xl mx-auto mb-12 md:mb-20"
                 >
-                    <p className="text-gold font-bold tracking-[0.3em] uppercase text-xs mb-4">Talent Acquisition</p>
-                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-navy mb-8 leading-[1.1]">
-                        Why <span className="text-gradient-gold italic">Partnership with us?</span>
+                    <p className="text-gold font-bold tracking-[0.3em] uppercase text-xs mb-4">Strategic Alliance</p>
+                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-navy mb-8 leading-[1.1]">
+                        Why <span className="text-gradient-gold italic">Partner with Us?</span>
                     </h2>
-                    <p className="text-navy/60 text-lg md:text-2xl font-bold italic leading-relaxed px-4">
-                        We specialize in delivering comprehensive recruitment and talent acquisition solutions designed to meet the evolving workforce needs of modern businesses—covering the entire recruitment lifecycle from candidate sourcing and selection to hiring and onboarding.
+                    <p className="text-navy text-base md:text-lg italic leading-relaxed px-4 mb-6 font-bold">
+                        Partnering with Nautilus International goes beyond traditional recruitment; it is about building a strategic alliance that transforms potential into achievement.
+                    </p>
+                    <p className="text-navy text-sm md:text-base max-w-2xl mx-auto font-black uppercase tracking-tight">
+                        By collaborating with us, you gain access to:
                     </p>
                 </motion.div>
 
-                {/* Why Collaborate — 3 Cards */}
-                <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                    className="mb-6"
-                >
-                    <p className="text-navy font-black uppercase tracking-[0.3em] text-xs mb-10 text-center">
-                        Why Partnership with us?
-                    </p>
-                </motion.div>
+
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.1 }}
                     variants={staggerContainer}
-                    className="grid md:grid-cols-3 gap-8 xl:gap-10 items-start mb-20"
+                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10 items-start mb-20"
                 >
                     {whyCollaborate.map(item => (
                         <FeatureCard key={item.title} item={item} />
                     ))}
                 </motion.div>
 
-                {/* Our Expertise — 6 Cards */}
+                {/* Closing Statement */}
                 <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                    className="mb-6"
+                     initial={{ opacity: 0, y: 30 }}
+                     whileInView={{ opacity: 1, y: 0 }}
+                     viewport={{ once: true }}
+                     className="max-w-4xl mx-auto text-center mt-12 mb-4"
                 >
-                    <p className="text-navy font-black uppercase tracking-[0.3em] text-xs mb-10 text-center">
-                        Our Expertise
-                    </p>
+                    <div className="bg-navy/5 p-8 md:p-12 rounded-[2.5rem] border border-navy/5 backdrop-blur-sm shadow-inner">
+                        <p className="text-navy text-lg md:text-xl italic leading-relaxed font-bold">
+                            "In choosing Nautilus International, you are not just filling vacancies; you are investing in the future success and growth of your organization. Let us help you forge a path towards innovation and achievement through the right talent."
+                        </p>
+                    </div>
                 </motion.div>
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.1 }}
-                    variants={staggerContainer}
-                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10 items-start"
-                >
-                    {ourExpertise.map(item => (
-                        <FeatureCard key={item.title} item={item} />
-                    ))}
-                </motion.div>
+
+
 
             </div>
         </section>

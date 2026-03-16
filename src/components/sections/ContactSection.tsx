@@ -1,180 +1,299 @@
 import { useState } from "react";
-import { MapPin, Phone, Mail, Send, Upload, CheckCircle2 } from "lucide-react";
+import { Globe, Clock, Upload, Send, CheckCircle2 } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 
 const ContactSection = () => {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
-  const [fileName, setFileName] = useState("");
+    const [form, setForm] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+    });
+    const [fileName, setFileName] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        
+        if (name === "phone") {
+            const numericValue = value.replace(/[^0-9]/g, "");
+            if (numericValue.length <= 10) {
+                setForm({ ...form, phone: numericValue });
+            }
+            return;
+        }
+        
+        setForm({ ...form, [name]: value });
+    };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFileName(e.target.files[0].name);
-    }
-  };
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            setFileName(file.name);
+        } else {
+            setFileName("");
+        }
+    };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert(`Thank you! Your inquiry ${fileName ? "with CV" : ""} has been received. We will get back to you shortly.`);
-    setForm({ name: "", email: "", phone: "", message: "" });
-    setFileName("");
-  };
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        
+        if (form.phone.length !== 10) {
+            alert("Please enter a valid 10-digit mobile number.");
+            return;
+        }
+        
+       const whatsappNumber = "917410775779";
+        const messageText = `*New Inquiry from Nautilus website*
+        
+*Name:* ${form.name}
+*Email:* ${form.email}
+*Phone:* ${form.phone}
+${fileName ? `*Document:* ${fileName} (User will attach in chat)` : ""}
+*Message:* ${form.message}`;
 
-  const fadeInUp: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
-  };
+        const encodedMessage = encodeURIComponent(messageText);
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        
+        window.open(whatsappUrl, "_blank");
+        
+        alert("Thank you for your inquiry! Redirecting you to WhatsApp. Please remember to attach your CV/Portfolio once the chat opens.");
+        setForm({ name: "", email: "", phone: "", message: "" });
+        setFileName("");
+    };
 
-  const staggerContainer: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
+    const fadeInUp: Variants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: "easeOut" }
+        }
+    };
 
-  return (
-    <section id="contact" className="py-24 bg-background overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16">
-            {/* Contact Info */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={staggerContainer}
-              className="flex flex-col justify-center"
-            >
-              <motion.p variants={fadeInUp} className="text-teal font-semibold tracking-widest uppercase text-sm mb-3">Connect With Us</motion.p>
-              <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-display font-bold text-foreground mb-8 leading-tight">
-                Ready to Start Your <br />
-                <span className="text-gradient-gold italic">Success Story?</span>
-              </motion.h2>
+    const staggerContainer: Variants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2
+            }
+        }
+    };
 
-              <div className="space-y-8 mt-4">
-                {[
-                  { icon: MapPin, title: "Our Headquarters", content: "Office No 214, Vishnu Capital, City Pride School Lane, Chikhali - Moshi, Pune, Maharashtra, India – 411062", color: "text-rose-500", bgColor: "bg-rose-50" },
-                  { icon: Phone, title: "Direct Line", content: "+91 7410775779", link: "tel:+917410775779", color: "text-emerald-500", bgColor: "bg-emerald-50" },
-                  { icon: Mail, title: "Email Support", content: "hr@nautilusinternational.in", link: "mailto:hr@nautilusinternational.in", color: "text-indigo-500", bgColor: "bg-indigo-50" }
-                ].map((item, i) => (
-                  <motion.div key={i} variants={fadeInUp} className="flex items-start gap-5 group">
-                    <div className={`w-12 h-12 rounded-xl ${item.bgColor} flex items-center justify-center shrink-0 border border-border group-hover:bg-navy transition-colors`}>
-                      <item.icon className={`${item.color} group-hover:text-white transition-colors`} size={24} />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-lg text-foreground mb-1">{item.title}</h4>
-                      {item.link ? (
-                        <a href={item.link} className="text-muted-foreground hover:text-teal transition-colors font-medium">
-                          {item.content}
-                        </a>
-                      ) : (
-                        <p className="text-muted-foreground leading-relaxed">
-                          {item.content}
-                        </p>
-                      )}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+    return (
+        <section id="contact-interface" className="relative py-12 md:py-24 z-20 bg-slate-50/50">
+            <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24">
+                <div className="grid lg:grid-cols-12 gap-12 items-start">
+                    {/* Sidebar: Professional Identity & Info */}
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerContainer}
+                        className="lg:col-span-5 space-y-8"
+                    >
+                        <motion.div
+                            variants={fadeInUp}
+                            className="bg-white rounded-[2.5rem] p-8 md:p-10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.05)] relative overflow-hidden group border border-navy/10"
+                        >
+                            <div className="absolute top-0 right-0 w-80 h-80 bg-gold/5 rounded-full blur-[100px] -mr-40 -mt-40 pointer-events-none group-hover:bg-gold/10 transition-all duration-700" />
+                            <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal/5 rounded-full blur-[80px] -ml-32 -mb-32 pointer-events-none" />
 
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="bg-card rounded-3xl p-8 md:p-12 border border-border shadow-2xl relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-teal/5 rounded-full blur-2xl -mr-16 -mt-16" />
+                            <div className="relative z-10">
+                                 <span className="inline-block text-[10px] tracking-[0.4em] text-navy font-black uppercase mb-5 px-5 py-2 rounded-full bg-surface shadow-md border border-navy/5">
+                                     Elite Presence
+                                 </span>
+                                 <h2 className="text-3xl md:text-4xl font-display font-bold text-navy mb-8 leading-tight">
+                                     The <span className="text-gradient-gold italic">Nautilus</span> HQ
+                                 </h2>
 
-              <h3 className="text-2xl font-display font-bold text-foreground mb-2">Inquiry Form</h3>
-              <p className="text-muted-foreground text-sm mb-8">
-                Complete the form below and our consultants will reach out to you within 24 hours.
-              </p>
+                                <div className="space-y-6 md:space-y-8">
+                                    {[
+                                        {
+                                            customIcon: <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Google_Maps_icon_%282020%29.svg" alt="Headquarters" className="w-8 h-8 object-contain" />,
+                                            label: "Headquarters",
+                                            value: "Office No 214, Vishnu Capital, City Pride School Lane, Chikhali-Moshi, Pune, Maharashtra, India - 411062",
+                                            bg: "bg-background",
+                                            border: "border-navy/5"
+                                        },
+                                        {
+                                            customIcon: <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Secure Digital Line" className="w-9 h-9 object-contain" />,
+                                            label: "Secure Digital Line",
+                                            value: "+91 7410775779",
+                                            isLink: true,
+                                            href: "tel:+917410775779",
+                                            bg: "bg-background",
+                                            border: "border-navy/5"
+                                        },
+                                        {
+                                            customIcon: <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Strategic Inquiry" className="w-8 h-8 object-contain" />,
+                                            label: "Strategic Inquiry",
+                                            value: "hr@nautilusinternational.in",
+                                            isLink: true,
+                                            href: "mailto:hr@nautilusinternational.in",
+                                            bg: "bg-background",
+                                            border: "border-navy/5"
+                                         }
+                                     ].map((item, id) => (
+                                         <div key={id} className="flex gap-4 md:gap-6 group/item">
+                                             <div className={`w-12 h-12 rounded-xl ${item.bg} border ${item.border} flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-all duration-500 shadow-sm relative`}>
+                                                 {item.customIcon}
+                                             </div>
+                                             <div className="flex flex-col justify-center">
+                                                  <span className="inline-block text-[10px] tracking-[0.1em] text-navy mb-1 uppercase font-bold">
+                                                     {item.label}
+                                                 </span>
+                                                 {item.isLink ? (
+                                                     <a href={item.href} className="text-base sm:text-lg md:text-xl text-navy hover:text-gold transition-all block tracking-tight font-display break-all sm:break-normal font-bold">
+                                                         {item.value}
+                                                     </a>
+                                                 ) : (
+                                                     <div className="text-base sm:text-lg md:text-xl text-navy leading-tight tracking-tight font-display break-all sm:break-normal font-bold">
+                                                      {item.value}
+                                                  </div>
+                                                 )}
+                                             </div>
+                                         </div>
+                                     ))}
+                                 </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs uppercase tracking-wider font-bold text-muted-foreground ml-1">Full Name</label>
-                    <input
-                      type="text" name="name" required placeholder="John Doe" value={form.name} onChange={handleChange}
-                      className="w-full rounded-xl border border-border bg-surface px-5 py-4 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal transition-all"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs uppercase tracking-wider font-bold text-muted-foreground ml-1">Email Address</label>
-                    <input
-                      type="email" name="email" required placeholder="john@example.com" value={form.email} onChange={handleChange}
-                      className="w-full rounded-xl border border-border bg-surface px-5 py-4 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal transition-all"
-                    />
-                  </div>
+                                <div className="mt-14 pt-10 border-t border-white/10">
+                                    <div className="flex items-center gap-6 text-white/60 text-lg italic">
+                                        <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center shadow-inner border border-white/10">
+                                            <Clock size={24} className="text-gold" />
+                                        </div>
+                                        <span>Global Operations: 24/7 Strategic Support</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-4">
+                            <div className="bg-surface/50 backdrop-blur-md border border-navy/5 rounded-[2rem] p-8 flex flex-col justify-between group hover:border-gold/30 transition-all duration-500">
+                                <Globe size={24} className="text-teal mb-4 group-hover:rotate-12 transition-transform" />
+                                <div>
+                                    <p className="text-[10px] tracking-widest text-navy uppercase mb-1">Coverage</p>
+                                    <h4 className="text-xl font-bold text-navy">Global Network</h4>
+                                </div>
+                            </div>
+                            <div className="bg-surface/50 backdrop-blur-md border border-navy/5 rounded-[2rem] p-8 flex flex-col justify-between group hover:border-gold/30 transition-all duration-500">
+                                <CheckCircle2 size={24} className="text-gold mb-4 group-hover:scale-110 transition-transform" />
+                                <div>
+                                    <p className="text-[10px] tracking-widest text-navy uppercase mb-1">Standard</p>
+                                    <h4 className="text-xl font-bold text-navy">ISO Certified</h4>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+
+                    {/* Main Form: The Strategic Interface */}
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        className="lg:col-span-7"
+                    >
+                        <div className="bg-white rounded-[2.5rem] shadow-[0_30px_70px_-20px_rgba(0,0,0,0.12)] relative overflow-hidden border border-navy/5">
+                            {/* Colored Top Header */}
+                            <div className="gradient-navy p-6 md:p-10 relative overflow-hidden">
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
+                                 <div className="relative z-10">
+                                     <h3 className="text-xl md:text-3xl font-display font-bold text-white mb-2 italic">Inquiry <span className="text-gold">Form</span></h3>
+                                     <p className="text-white/80 text-[10px] md:text-sm leading-relaxed">
+                                         Provide your details for a confidential executive consultation.
+                                     </p>
+                                 </div>
+                            </div>
+
+                            <div className="p-6 md:p-12 relative z-10">
+                                <div className="absolute top-0 right-0 w-96 h-96 bg-gold/[0.03] rounded-full blur-[100px] -mr-48 -mt-48 pointer-events-none" />
+                                <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal/[0.03] rounded-full blur-[100px] -ml-48 -mb-48 pointer-events-none" />
+
+                                <form onSubmit={handleSubmit} className="space-y-6">
+                                    <div className="grid md:grid-cols-2 gap-6">
+                                        <div className="space-y-2">
+                                            <label className="text-xs md:text-sm font-black tracking-[0.2em] text-navy ml-1 uppercase">Full Name</label>
+                                            <div className="relative group">
+                                                <input
+                                                    type="text" name="name" required placeholder="Legal Name" value={form.name} onChange={handleChange}
+                                                    className="w-full bg-white border border-black rounded-xl py-4 px-5 text-base text-navy placeholder:text-navy/20 focus:outline-none focus:border-gold focus:ring-4 focus:ring-gold/5 transition-all font-display"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <label className="text-xs md:text-sm font-black tracking-[0.2em] text-navy ml-1 uppercase">Email Address</label>
+                                            <div className="relative group">
+                                                <input
+                                                    type="email" name="email" required placeholder="name@organization.com" value={form.email} onChange={handleChange}
+                                                    className="w-full bg-white border border-black rounded-xl py-4 px-5 text-base text-navy placeholder:text-navy/20 focus:outline-none focus:border-gold focus:ring-4 focus:ring-gold/5 transition-all font-display"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-2">
+                                        <label className="text-xs md:text-sm font-black tracking-[0.2em] text-navy ml-1 uppercase">Phone Number</label>
+                                        <div className="relative group">
+                                            <input
+                                                type="tel" name="phone" placeholder="+00 000 000 0000" value={form.phone} onChange={handleChange}
+                                                className="w-full bg-white border border-black rounded-xl py-4 px-5 text-base text-navy placeholder:text-navy/20 focus:outline-none focus:border-gold/50 focus:ring-4 focus:ring-gold/5 transition-all font-display"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-2">
+                                        <label className="text-xs md:text-sm font-black tracking-[0.2em] text-navy ml-1 uppercase">Upload CV / Portfolio (Optional)</label>
+                                        <div className="relative group/file">
+                                            <input
+                                                type="file" accept=".pdf,.doc,.docx" onChange={handleFileChange}
+                                                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                                            />
+                                            <div className="w-full rounded-xl border border-dashed border-navy/20 group-hover/file:border-gold/50 group-hover/file:bg-gold/5 bg-surface/30 p-4 flex flex-row items-center justify-center gap-4 transition-all duration-500">
+                                                <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all ${fileName ? "bg-gold text-white" : "bg-navy/5 text-navy/20"}`}>
+                                                    <Upload size={20} />
+                                                </div>
+                                                <div className="flex flex-col">
+                                                    <span className={`text-sm tracking-wide font-display ${fileName ? "text-navy font-bold" : "text-navy/40 font-medium"}`}>
+                                                        {fileName || "Click to browse or drag & drop"}
+                                                    </span>
+                                                    {!fileName && <span className="text-[9px] text-navy/30 uppercase font-bold tracking-widest mt-0.5">PDF, DOCX up to 10MB</span>}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-2">
+                                        <label className="text-xs md:text-sm font-black tracking-[0.2em] text-navy ml-1 uppercase">Message</label>
+                                        <div className="relative group">
+                                            <textarea
+                                                name="message" rows={4} placeholder="Briefly describe your objectives..." value={form.message} onChange={handleChange}
+                                                className="w-full bg-white border border-black rounded-xl py-4 px-5 text-base text-navy placeholder:text-navy/20 focus:outline-none focus:border-gold focus:ring-4 focus:ring-gold/5 transition-all resize-none font-display"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <motion.button
+                                        whileHover={{ y: -4, boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.3)" }}
+                                        whileTap={{ scale: 0.98 }}
+                                        type="submit"
+                                        className="w-full group relative h-16 rounded-2xl gradient-gold text-white font-bold tracking-[0.4em] text-base shadow-[0_15px_30px_-10px_rgba(0,0,0,0.2)] overflow-hidden transition-all"
+                                    >
+                                        <div className="relative z-10 flex items-center justify-center gap-3">
+                                            SEND MESSAGE <Send size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                                        </div>
+                                        <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite] pointer-events-none" />
+                                    </motion.button>
+                                </form>
+                            </div>
+                        </div>
+                    </motion.div>
                 </div>
-
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-wider font-bold text-muted-foreground ml-1">Phone Number</label>
-                  <input
-                    type="tel" name="phone" placeholder="+91 00000 00000" value={form.phone} onChange={handleChange}
-                    className="w-full rounded-xl border border-border bg-surface px-5 py-4 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal transition-all"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-wider font-bold text-muted-foreground ml-1">Upload CV (PDF/DOC)</label>
-                  <div className="relative group">
-                    <input
-                      type="file"
-                      accept=".pdf,.doc,.docx"
-                      onChange={handleFileChange}
-                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                    />
-                    <div className="w-full rounded-xl border border-dashed border-border group-hover:border-emerald-500/50 bg-surface px-5 py-4 flex items-center justify-between transition-all">
-                      <div className="flex items-center gap-3">
-                        <Upload className={fileName ? "text-emerald-500" : "text-muted-foreground"} size={20} />
-                        <span className={`text-sm ${fileName ? "text-foreground font-medium" : "text-muted-foreground/50"}`}>
-                          {fileName || "Click to upload your CV"}
-                        </span>
-                      </div>
-                      {fileName && <CheckCircle2 className="text-emerald-500" size={18} />}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-wider font-bold text-muted-foreground ml-1">Your Message</label>
-                  <textarea
-                    name="message" rows={4} placeholder="How can we help you?" value={form.message} onChange={handleChange}
-                    className="w-full rounded-xl border border-border bg-surface px-5 py-4 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal transition-all resize-none"
-                  />
-                </div>
-
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  type="submit"
-                  className="w-full h-14 gradient-teal text-accent-foreground rounded-xl font-bold tracking-widest hover:shadow-xl hover:shadow-teal/20 transition-all flex items-center justify-center gap-3 group"
-                >
-                  SEND MESSAGE <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </motion.button>
-              </form>
-            </motion.div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+            </div>
+        </section>
+    );
 };
 
 export default ContactSection;
-

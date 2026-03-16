@@ -3,73 +3,73 @@ import { motion, Variants } from "framer-motion";
 
 const differentiators = [
     {
-        title: "80% Joining Ratio",
+        title: "High Joining Ratio",
         icon: TrendingUp,
-        desc: "Our commitment to quality candidates is reflected in our impressive joining ratio of over 80%. We ensure candidates are truly ready.",
+        desc: "Our commitment to quality candidates is reflected in our impressive joining ratio of over 80%. We do not just find candidates; we ensure they are ready and eager to join your team.",
         size: "large",
-        color: "text-emerald-500",
-        bgColor: "bg-emerald-50"
+        color: "text-gold",
+        bgColor: "bg-navy/5"
     },
     {
-        title: "Robust Vetting",
+        title: "Robust Vetting Process",
         icon: ShieldCheck,
-        desc: "Thorough vetting processes that significantly reduce last-minute dropouts, ensuring reliability and commitment.",
+        desc: "Unlike many agencies, we implement a thorough vetting process that significantly reduce last-minute dropouts. This ensures that the candidates presented are reliable and committed.",
         size: "small",
-        color: "text-blue-600",
-        bgColor: "bg-blue-50"
+        color: "text-gold",
+        bgColor: "bg-navy/5"
     },
     {
         title: "Personalized Service",
         icon: Heart,
-        desc: "Dedicated support from experts who understand both technical requirements and cultural alignment.",
+        desc: "Each client receives dedicated support from recruitment experts who take the time to understand both the technical requirements and cultural fit of your organization. This personalized approach sets us apart from impersonal, one-size-fits-all services offered by competitors.",
         size: "small",
-        color: "text-rose-500",
-        bgColor: "bg-rose-50"
+        color: "text-gold",
+        bgColor: "bg-navy/5"
     },
     {
         title: "Continuous Engagement",
         icon: MessageCircle,
-        desc: "Post-offer engagement that keeps candidates valued and informed, securing their successful onboarding.",
+        desc: "We maintain contact with candidates even after job offers are made, ensuring they feel valued and informed. This unique post-offer engagement helps secure their commitment to joining your organization.",
         size: "small",
-        color: "text-sky-500",
-        bgColor: "bg-sky-50"
+        color: "text-gold",
+        bgColor: "bg-navy/5"
     },
     {
         title: "Streamlined Process",
         icon: Zap,
-        desc: "End-to-end solutions that take the hassle out of hiring, from initial sourcing to final placement.",
+        desc: "Our end-to-end recruitment solutions take the hassle out of hiring. Where other agencies might leave you to manage multiple stages, we handle everything from sourcing to final placement, offering a seamless experience.",
         size: "large",
-        color: "text-amber-500",
-        bgColor: "bg-amber-50"
+        color: "text-gold",
+        bgColor: "bg-navy/5"
     },
     {
         title: "Industry Expertise",
         icon: Briefcase,
-        desc: "Specialists with deep knowledge across diverse sectors, providing unique insights and tailored approaches.",
+        desc: "Our team is comprised of specialists with extensive knowledge across diverse sectors, allowing us to tailor our approach and provide insights that other agencies may not offer.",
         size: "small",
-        color: "text-indigo-500",
-        bgColor: "bg-indigo-50"
+        color: "text-gold",
+        bgColor: "bg-navy/5"
     },
     {
         title: "Trustworthy Partnership",
         icon: Handshake,
-        desc: "Consistent delivery of quality results, prioritizing long-term value and transparency in every operation.",
+        desc: "We emphasize reliability and transparency in our operations. Our clients can depend on us to deliver quality results consistently, unlike other agencies that may prioritize volume over quality.",
         size: "small",
-        color: "text-orange-500",
-        bgColor: "bg-orange-50"
+        color: "text-gold",
+        bgColor: "bg-navy/5"
     },
     {
         title: "Long-Term Focus",
         icon: InfinityIcon,
-        desc: "Invested in the sustainable success of both clients and candidates, building teams that contribute meaningfully.",
+        desc: "We are invested in the long-term success of both our clients and candidates. Our goal is not just to fill positions, but to build lasting relationships and teams that contribute meaningfully to your organizational goals.",
         size: "small",
-        color: "text-violet-500",
-        bgColor: "bg-violet-50"
+        color: "text-gold",
+        bgColor: "bg-navy/5"
     },
     {
-        title: "Tailored Strategies",
+        title: "Tailored Recruitment Strategies",
         icon: Settings2,
-        desc: "Customized recruitment strategies that align perfectly with your specific organizational goals and needs.",
+        desc: "We customize our recruitment strategies to align with your specific needs, unlike competitors who often utilize standardized methods that may not suit every organization.",
         size: "small",
         color: "text-slate-500",
         bgColor: "bg-slate-50"
@@ -98,7 +98,7 @@ const staggerContainer: Variants = {
 
 const DifferentiatorsSection = () => {
     return (
-        <section className="py-16 md:py-24 bg-surface/30 relative overflow-hidden">
+        <section className="pt-10 md:pt-16 pb-16 md:pb-24 bg-surface/30 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-navy/10 to-transparent" />
 
             <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24 relative z-10">
@@ -107,14 +107,14 @@ const DifferentiatorsSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="max-w-4xl mx-auto mb-20 text-center"
+                    className="max-w-4xl mx-auto mb-12 md:mb-16 text-center"
                 >
                     <p className="text-gold font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs mb-4">The Competitive Edge</p>
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-navy mb-8 leading-[1.1]">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-navy mb-6 md:mb-8 leading-[1.1]">
                         What <span className="text-gradient-gold italic">Differentiates</span> Us?
                     </h2>
-                    <p className="text-navy/60 text-base md:text-xl font-medium max-w-3xl mx-auto leading-relaxed italic border-l-4 md:border-l-0 md:border-y border-navy/10 py-4 md:py-6 pl-8 md:pl-0">
-                        "Nautilus International stands out through a strategic architecture of unique benefits engineered for your organizational success."
+                    <p className="text-navy text-xs md:text-base max-w-4xl mx-auto leading-relaxed italic border-l-2 md:border-l-0 md:border-y border-navy/10 py-4 md:py-6 pl-5 md:pl-0">
+                        "Nautilus International stands out from other recruitment agencies through a multitude of unique features and benefits engineered for your organizational success."
                     </p>
                 </motion.div>
 
@@ -147,7 +147,7 @@ const DifferentiatorsSection = () => {
                                         {item.title}
                                     </h3>
 
-                                    <p className="text-navy/60 leading-relaxed font-semibold italic text-xs md:text-sm">
+                                    <p className="text-navy leading-relaxed italic text-xs md:text-sm font-bold">
                                         "{item.desc}"
                                     </p>
                                 </div>
@@ -181,17 +181,17 @@ const DifferentiatorsSection = () => {
                                 <Handshake size={36} />
                             </motion.div>
 
-                            <h3 className="text-2xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6 tracking-tight leading-[1.1]">
+                            <h3 className="text-xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6 tracking-tight leading-[1.1]">
                                 Commitment to <span className="text-gold italic underline decoration-gold/20 underline-offset-8">Excellence</span>
                             </h3>
 
-                            <p className="text-white/80 text-base md:text-xl font-medium italic leading-relaxed">
-                                "Partnering with Nautilus International means engaging a consultant that genuinely prioritizes your trajectory. Our commitment to excellence is the bridge between potential and achievement."
+                            <p className="text-white/80 text-sm md:text-xl italic leading-relaxed">
+                                "Choosing Nautilus International means choosing a partner that truly prioritizes your success in recruitment and beyond, with a commitment to excellence that differentiates us from the competition."
                             </p>
 
                             <div className="mt-10 flex items-center gap-8 justify-center">
                                 <div className="w-16 md:w-24 h-px bg-white/20" />
-                                <div className="text-gold font-black uppercase tracking-[0.4em] text-[10px] md:text-xs">
+                                <div className="text-gold uppercase tracking-[0.4em] text-[10px] md:text-xs">
                                     The Nautilus Standard
                                 </div>
                                 <div className="w-16 md:w-24 h-px bg-white/20" />

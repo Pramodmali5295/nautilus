@@ -127,7 +127,7 @@ const ServiceCard = ({ s, index }: { s: any, index: number }) => {
         <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none ${currentStyles.glow}`} />
 
         {/* Card Header — always visible */}
-        <div className="relative z-10 flex items-center gap-5 px-8 py-6 pl-10">
+        <div className="relative z-10 flex items-center gap-4 sm:gap-5 px-5 sm:px-8 py-5 sm:py-6 pl-6 sm:pl-10">
           {/* Icon */}
           <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-500 shadow-sm ${currentStyles.icon}`}>
             <s.icon size={24} />
@@ -163,8 +163,8 @@ const ServiceCard = ({ s, index }: { s: any, index: number }) => {
         <div className={`relative z-10 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] overflow-hidden ${isExpanded ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
           }`}>
           <div className="px-8 pb-8 pl-10 border-t border-navy/5">
-            <div className="flex gap-5 pt-6">
-              <div className="w-14 shrink-0" />
+            <div className="flex gap-4 sm:gap-5 pt-6">
+              <div className="w-10 sm:w-14 shrink-0" />
               <div className="flex-grow">
                 <p className="text-navy/75 text-sm sm:text-base leading-relaxed font-semibold mb-8">
                   {s.desc}

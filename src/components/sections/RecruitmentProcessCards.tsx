@@ -51,7 +51,7 @@ const processSteps = [
             }`} />
   
           {/* Card Header - always visible */}
-          <div className="flex items-center gap-6 px-8 py-6 pl-10">
+          <div className="flex items-center gap-4 sm:gap-6 px-5 sm:px-8 py-5 sm:py-6 pl-6 sm:pl-10">
             <span className="text-4xl font-display font-black text-gold/20 group-hover:text-gold/40 transition-colors leading-none select-none shrink-0 w-12 text-center">
               {String(index + 1).padStart(2, "0")}
             </span>
@@ -74,7 +74,7 @@ const processSteps = [
             className={`transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] overflow-hidden ${isExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
               }`}
           >
-            <div className="px-8 pb-8 pl-10 border-t border-navy/5">
+            <div className="px-5 sm:px-8 pb-8 pl-6 sm:pl-10 border-t border-navy/5">
               <div className="flex gap-6 pt-6">
                 <div className="w-12 shrink-0" />{/* spacer to align with title */}
                 <p 
@@ -95,7 +95,7 @@ const processSteps = [
   
           {/* Collapsed preview — shows first line of text */}
           {!isExpanded && (
-            <div className="px-8 pb-6 pl-10">
+            <div className="px-5 sm:px-8 pb-6 pl-6 sm:pl-10">
               <div className="flex gap-6">
                 <div className="w-12 shrink-0" />
                 <p 
@@ -126,15 +126,15 @@ const processSteps = [
   };
 
 const RecruitmentProcessCards = () => (
-    <section className="py-12 bg-background">
-    <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24">
-      <SectionTitle label="The Roadmap" title="Recruitment Intelligence" />
+    <section className="py-10 md:py-12 bg-background">
+    <div className="w-full px-4 sm:px-10 lg:px-20 xl:px-24">
+      <SectionTitle label="The Roadmap" title="Recruitment Process" />
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
         variants={staggerContainer}
-        className="grid md:grid-cols-2 gap-4 xl:gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 gap-4 xl:gap-6"
       >
         {processSteps.map((step, i) => (
           <ProcessCard key={step.title} step={step} index={i} />
@@ -146,9 +146,9 @@ const RecruitmentProcessCards = () => (
 
 const SectionTitle = ({ label, title }: { label: string; title: string }) => (
     <div className="text-center mb-10">
-      <p className="text-teal font-semibold tracking-[0.2em] uppercase text-sm mb-3">{label}</p>
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground">{title}</h2>
-      <div className="w-20 h-1.5 gradient-gold mx-auto mt-6 rounded-full" />
+      <p className="text-teal font-semibold tracking-[0.2em] uppercase text-xs sm:text-sm mb-3">{label}</p>
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground">{title}</h2>
+      <div className="w-16 sm:w-20 h-1.5 gradient-gold mx-auto mt-6 rounded-full" />
     </div>
   );
 

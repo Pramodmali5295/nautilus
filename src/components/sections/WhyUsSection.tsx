@@ -60,7 +60,7 @@ const differentiators = [
   { val: 88, suffix: "%", label: "Placement Success" },
   { val: 10, suffix: "+", label: "Years of Trust" },
   { val: 100, suffix: "+", label: "Global Clients" },
-  { val: 15, suffix: "+", label: "Sector Verticals" },
+  { val: 20, suffix: "+", label: "Sector Verticals" },
 ];
 
 const fadeInUp: Variants = {
@@ -89,6 +89,18 @@ const WhyUsSection = () => (
     <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] -ml-64 -mb-64 pointer-events-none" />
 
     <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24 relative z-10">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="max-w-4xl mx-auto mb-16 text-center"
+      >
+        <p className="text-gold font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs mb-4">The Nautilus Difference</p>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-navy leading-[1.1]">
+          Why Visionaries <span className="text-gradient-gold italic">Choose Our Expertise</span>
+        </h2>
+      </motion.div>
       <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-center">
         <motion.div
           initial="hidden"
@@ -101,14 +113,15 @@ const WhyUsSection = () => (
               <motion.div
                 key={r.title}
                 variants={fadeInUp}
-                className="flex gap-6 md:gap-8 group"
+                className="flex gap-6 md:gap-8 group p-6 rounded-3xl hover:bg-surface/50 transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
               >
                 <div className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl ${r.bgColor} border border-navy/5 shadow-sm flex items-center justify-center shrink-0 group-hover:bg-navy transition-all duration-500 group-hover:scale-110 shadow-navy/5`}>
                   <r.icon size={28} className={`${r.color} group-hover:text-white transition-colors`} />
                 </div>
-                <div>
-                  <h4 className="font-display font-bold text-xl md:text-2xl text-foreground mb-2 group-hover:text-navy transition-colors">{r.title}</h4>
-                  <p className="text-foreground/60 leading-relaxed text-sm md:text-base font-bold italic group-hover:text-foreground transition-colors">{r.desc}</p>
+                <div className="flex-grow">
+                  <h4 className="font-display font-bold text-xl md:text-2xl text-foreground mb-2 group-hover:text-gold transition-colors">{r.title}</h4>
+                  <p className="text-foreground/60 leading-relaxed text-sm md:text-base italic group-hover:text-foreground transition-colors mb-4">{r.desc}</p>
+                  <div className="w-12 h-1 bg-gold/20 rounded-full group-hover:w-full transition-all duration-700" />
                 </div>
               </motion.div>
             ))}
@@ -126,7 +139,7 @@ const WhyUsSection = () => (
           <motion.div
             whileHover={{ rotate: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative gradient-navy rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-10 shadow-2xl overflow-hidden border border-white/10 group"
+            className="relative gradient-navy rounded-[2.5rem] md:rounded-[3rem] p-6 sm:p-8 md:p-10 shadow-2xl overflow-hidden border border-white/10 group"
           >
             {/* Decorative Corners */}
             <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-transparent group-hover:border-gold rounded-tl-[3rem] transition-all duration-500" />
@@ -134,17 +147,17 @@ const WhyUsSection = () => (
 
             <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl -mr-40 -mt-40" />
 
-            <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-6 border-b border-white/10 pb-6 tracking-wide">
+            <h3 className="text-xl md:text-3xl font-display font-bold text-white mb-6 border-b border-white/10 pb-6 tracking-wide">
               Global Scale Impact
             </h3>
 
-            <div className="grid grid-cols-2 gap-x-8 gap-y-10">
+            <div className="grid grid-cols-2 gap-x-6 md:gap-x-8 gap-y-8 md:gap-y-10">
               {differentiators.map((d) => (
                 <div key={d.label} className="group/stat">
-                  <p className="text-4xl md:text-5xl font-bold text-gold mb-2 transition-transform group-hover/stat:scale-110 duration-500">
+                  <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-gold mb-1 transition-transform group-hover/stat:scale-110 duration-500">
                     <Counter value={d.val} suffix={d.suffix} />
                   </p>
-                  <p className="text-white/50 text-[10px] md:text-xs uppercase tracking-[0.2em] font-black">{d.label}</p>
+                  <p className="text-white/50 text-[8px] md:text-xs uppercase tracking-[0.2em] font-black">{d.label}</p>
                 </div>
               ))}
             </div>
@@ -166,7 +179,7 @@ const WhyUsSection = () => (
                   <div className="w-5 h-5 rounded-full bg-emerald-50 flex items-center justify-center group-hover/item:bg-emerald-500 transition-colors">
                     <CheckCircle2 size={12} className="text-emerald-500 group-hover:text-white transition-colors" />
                   </div>
-                  <span className="font-medium text-base md:text-lg tracking-wide">{item}</span>
+                  <span className="text-base md:text-lg tracking-wide">{item}</span>
                 </motion.div>
               ))}
             </div>

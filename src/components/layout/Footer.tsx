@@ -1,5 +1,5 @@
-import { Link, useLocation } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowUpRight, Phone, Mail, Globe, MapPin, Linkedin, Instagram, MessageSquare } from "lucide-react";
 import { motion } from "framer-motion";
 import logo from "@/assets/MainLogo.png";
 
@@ -13,113 +13,152 @@ const Footer = () => {
     { label: "Contact", path: "/contact" },
   ];
 
+  const expertises = [
+    { label: "Executive Search", path: "/services" },
+    { label: "Talent Acquisition", path: "/services" },
+    { label: "HR Advisory", path: "/services" },
+    { label: "Market Analysis", path: "/services" },
+  ];
+
   const socials = [
-    {
-      href: "#",
-      icon: "https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg",
-      alt: "LinkedIn",
+    { 
+      href: "#", 
+      icon: Linkedin, 
+      label: "LinkedIn",
+      color: "bg-[#0077b5]" 
     },
-    {
-      href: "#",
-      icon: "https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg",
-      alt: "Instagram",
+    { 
+      href: "#", 
+      icon: Instagram, 
+      label: "Instagram",
+      color: "bg-[#E4405F]" 
     },
-    {
-      href: "https://wa.me/917410775779",
-      icon: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg",
-      alt: "WhatsApp",
+    { 
+      href: "https://wa.me/917410775779", 
+      icon: MessageSquare, 
+      label: "WhatsApp",
+      color: "bg-[#25D366]" 
     },
   ];
 
   return (
-    <footer className="relative bg-white border-t border-gray-100 overflow-hidden">
-      {/* Top gold line */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+    <footer className="relative bg-white border-t border-gray-200 overflow-hidden">
+      {/* Decorative top border */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-navy/5 via-gold/40 to-navy/5" />
+      
+      {/* Background accents */}
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gold/5 rounded-full blur-[80px] -mr-32 -mt-32 pointer-events-none" />
 
-      <div className="w-full px-4 sm:px-6 md:px-10 lg:px-20 xl:px-24 py-10">
-
-        {/* Main row: logo | nav | contact | socials */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-wrap items-start justify-between gap-x-10 gap-y-8 pb-8 border-b border-gray-100"
-        >
-          {/* Logo + tagline */}
-          <div className="flex flex-col gap-3 min-w-[160px]">
-            <Link to="/">
-              <img src={logo} alt="Nautilus International" className="h-24 w-auto object-contain" loading="lazy" />
+      <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24 pt-12 pb-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-10 lg:gap-8 mb-10">
+          
+          {/* Brand Column */}
+          <div className="col-span-1 xl:col-span-2 flex flex-col gap-5">
+            <Link to="/" className="inline-block transition-transform hover:scale-105 duration-300">
+              <img src={logo} alt="Nautilus International" className="h-20 md:h-24 w-auto object-contain" />
             </Link>
-            <p className="text-base text-gray-500 font-normal leading-relaxed max-w-[220px]">
-              Architecture of recruitment, engineered for executive success.
+            <p className="text-black text-lg leading-relaxed max-w-sm font-medium italic">
+              "Architecture of recruitment, engineered for executive success."
             </p>
-          </div>
-
-          {/* Nav links */}
-          <div className="flex flex-col gap-1">
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-primary mb-2">Navigation</p>
-            <div className="flex flex-col gap-y-2">
-              {navLinks.map(link => (
-                <Link key={link.label} to={link.path} className="flex items-center gap-1.5 text-base text-gray-600 hover:text-gold transition-colors group">
-                  <ArrowUpRight size={14} className="text-gold/30 group-hover:text-gold transition-colors shrink-0" />
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Contact */}
-          <div className="flex flex-col gap-1">
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-primary mb-2">Contact</p>
-            <div className="space-y-2.5">
-              <div className="flex items-start gap-2 text-base text-gray-600">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Google_Maps_icon_%282020%29.svg" className="w-4 h-4 mt-0.5 shrink-0" alt="loc" />
-                <span className="max-w-[200px] leading-relaxed">Office No 214, Vishnu Capital, Chikhali-Moshi, Pune 411062</span>
-              </div>
-              <div className="flex items-center gap-2 text-base">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" className="w-4 h-4 shrink-0" alt="wa" />
-                <a href="tel:+917410775779" className="text-gray-600 hover:text-gold transition-colors">+91 7410775779</a>
-              </div>
-              <div className="flex items-center gap-2 text-base">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" className="w-4 h-4 shrink-0" alt="mail" />
-                <a href="mailto:hr@nautilusinternational.in" className="text-gray-600 hover:text-gold transition-colors">hr@nautilusinternational.in</a>
-              </div>
-              <div className="flex items-center gap-2 text-base">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" className="w-4 h-4 shrink-0" alt="web" />
-                <a href="https://www.nautilusinternational.in" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gold transition-colors">nautilusinternational.in</a>
-              </div>
-            </div>
-          </div>
-
-          {/* Socials */}
-          <div className="flex flex-col gap-2">
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-primary mb-2">Follow Us</p>
-            <div className="flex gap-3">
+            <div className="flex gap-4 mt-1">
               {socials.map((s, i) => (
                 <motion.a
                   key={i}
                   href={s.href}
-                  whileHover={{ y: -3 }}
-                  className="w-10 h-10 rounded-xl border border-gray-200 bg-white flex items-center justify-center shadow-sm hover:border-gold/40 hover:shadow-md transition-all"
+                  whileHover={{ y: -5, scale: 1.1 }}
+                  className={`w-12 h-12 rounded-xl ${s.color} text-white flex items-center justify-center shadow-lg transition-all duration-300`}
+                  aria-label={s.label}
                 >
-                  <img src={s.icon} alt={s.alt} className="w-5 h-5 object-contain" />
+                  <s.icon size={22} />
                 </motion.a>
               ))}
             </div>
           </div>
-        </motion.div>
 
-        {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-2 pt-4">
-          <p className="text-sm text-gray-400 tracking-wide">
-            © {new Date().getFullYear()} Nautilus International · All rights reserved
-          </p>
-          <p className="text-sm text-gray-400 tracking-wide">
-            Developed by <span className="text-orange-500 font-semibold">Infoyashonand Technology Pvt. Ltd.</span>
-          </p>
+          {/* Navigation Column */}
+          <div className="flex flex-col gap-5">
+            <h4 className="text-base font-black uppercase tracking-[0.4em] text-navy border-b border-gold/30 pb-3 inline-block">
+              Navigation
+            </h4>
+            <ul className="space-y-3">
+              {navLinks.map(link => (
+                <li key={link.label}>
+                  <Link 
+                    to={link.path} 
+                    className="group flex items-center gap-2 text-black hover:text-gold transition-all duration-300 font-bold text-base"
+                  >
+                    <ArrowUpRight size={16} className="text-gold opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Expertise Column */}
+          <div className="flex flex-col gap-5">
+            <h4 className="text-base font-black uppercase tracking-[0.4em] text-navy border-b border-gold/30 pb-3 inline-block">
+              Expertise
+            </h4>
+            <ul className="space-y-3">
+              {expertises.map(item => (
+                <li key={item.label}>
+                  <Link 
+                    to={item.path} 
+                    className="group flex items-center gap-2 text-black hover:text-gold transition-all duration-300 font-bold text-base"
+                  >
+                    <div className="w-2 h-2 rounded-full bg-gold/30 group-hover:bg-gold transition-colors" />
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Column */}
+          <div className="flex flex-col gap-5">
+            <h4 className="text-base font-black uppercase tracking-[0.4em] text-navy border-b border-gold/30 pb-3 inline-block">
+              Headquarters
+            </h4>
+            <div className="space-y-5">
+              <div className="flex items-start gap-4 text-black group">
+                <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center shrink-0 group-hover:bg-navy group-hover:text-white transition-all text-gold">
+                  <MapPin size={20} />
+                </div>
+                <p className="text-base leading-relaxed font-bold">
+                  Office No 214, Vishnu Capital, <br />
+                  City Pride School Lane, Chikhali-Moshi, <br />
+                  Pune, Maharashtra, India - 411062
+                </p>
+              </div>
+              <div className="flex items-center gap-4 text-black group">
+                <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center shrink-0 group-hover:bg-navy group-hover:text-white transition-all text-gold">
+                  <Phone size={20} />
+                </div>
+                <a href="tel:+917410775779" className="text-base font-black hover:text-gold transition-colors">+91 7410775779</a>
+              </div>
+              <div className="flex items-center gap-4 text-black group">
+                <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center shrink-0 group-hover:bg-navy group-hover:text-white transition-all text-gold">
+                  <Mail size={20} />
+                </div>
+                <a href="mailto:hr@nautilusinternational.in" className="text-base font-black hover:text-gold transition-colors break-all">hr@nautilusinternational.in</a>
+              </div>
+            </div>
+          </div>
+
         </div>
 
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 text-base text-black font-bold">
+            <p>© {new Date().getFullYear()} Nautilus International · All rights reserved</p>
+          </div>
+          
+          <div className="flex items-center gap-2 text-base text-black font-bold">
+            <Globe size={18} className="text-gold animate-pulse" />
+            <span>Developed by <span className="text-orange-600 font-black">Infoyashonand Technology Pvt. Ltd.</span></span>
+          </div>
+        </div>
       </div>
     </footer>
   );

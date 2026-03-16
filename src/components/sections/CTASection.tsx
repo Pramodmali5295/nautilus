@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const CTASection = () => {
     const location = useLocation();
-    const isHomePage = location.pathname === "/";
+    const isDarkSection = location.pathname === "/" || location.pathname === "/services" || location.pathname === "/recruitment-process" || location.pathname === "/why-us";
 
     return (
         <section className="py-10 bg-surface">
@@ -13,18 +13,18 @@ const CTASection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7 }}
-                    className={`w-full ${isHomePage ? 'bg-black border-white/10' : 'bg-slate-50 border-navy/10'} border px-8 py-6 md:py-8 rounded-2xl shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6`}
+                    className={`w-full ${isDarkSection ? 'bg-black border-white/10' : 'bg-white border-navy/10'} border px-8 py-6 md:py-8 rounded-2xl shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6`}
                 >
                     {/* Decorative blobs */}
-                    <div className={`absolute top-0 right-0 w-64 h-64 ${isHomePage ? 'bg-teal/20' : 'bg-teal/5'} rounded-full blur-[100px] -mr-32 -mt-32 pointer-events-none`} />
-                    <div className={`absolute bottom-0 left-0 w-64 h-64 ${isHomePage ? 'bg-gold/10' : 'bg-gold/5'} rounded-full blur-[100px] -ml-32 -mb-32 pointer-events-none`} />
+                    <div className={`absolute top-0 right-0 w-64 h-64 ${isDarkSection ? 'bg-teal/20' : 'bg-teal/5'} rounded-full blur-[100px] -mr-32 -mt-32 pointer-events-none`} />
+                    <div className={`absolute bottom-0 left-0 w-64 h-64 ${isDarkSection ? 'bg-gold/10' : 'bg-gold/5'} rounded-full blur-[100px] -ml-32 -mb-32 pointer-events-none`} />
 
                     {/* Text */}
                     <div className="relative z-10 text-center md:text-left">
-                        <h2 className={`text-2xl sm:text-3xl font-display font-bold ${isHomePage ? 'text-white' : 'text-navy'} mb-2`}>
+                        <h2 className={`text-2xl sm:text-3xl font-display font-bold ${isDarkSection ? 'text-white' : 'text-navy'} mb-2`}>
                             Your Transformation Starts Here
                         </h2>
-                        <p className={`${isHomePage ? 'text-white/80' : 'text-foreground/70'} text-sm sm:text-base leading-relaxed max-w-2xl font-medium`}>
+                        <p className={`${isDarkSection ? 'text-white/80' : 'text-foreground/70'} text-sm sm:text-base leading-relaxed max-w-2xl font-medium`}>
                             Whether you're a visionary company or an ambitious professional, let's create your success story together.
                         </p>
                     </div>
