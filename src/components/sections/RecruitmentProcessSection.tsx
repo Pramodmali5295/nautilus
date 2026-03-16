@@ -120,11 +120,11 @@ const RecruitmentProcessSection = () => {
                                 </span>
                             </div>
 
-                            <h3 className="text-lg xl:text-xl font-display font-bold text-foreground mb-4 leading-tight group-hover:text-navy transition-colors relative z-10">
+                            <h3 className="text-lg xl:text-xl font-display font-bold text-navy mb-4 leading-tight group-hover:text-gold transition-colors relative z-10">
                                 {step.title}
                             </h3>
 
-                            <p className="text-foreground text-sm xl:text-base leading-relaxed font-medium group-hover:text-foreground/90 transition-colors relative z-10 flex-grow">
+                            <p className="text-navy text-sm xl:text-base leading-relaxed font-medium group-hover:text-navy/80 transition-colors relative z-10 flex-grow">
                                 {step.desc}
                             </p>
 

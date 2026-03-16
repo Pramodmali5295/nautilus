@@ -217,7 +217,7 @@ const ServicesSection = () => {
       <div className="absolute top-0 right-0 w-96 h-96 bg-teal/5 rounded-full blur-3xl -mr-48 -mt-48" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl -ml-48 -mb-48" />
 
-      <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24 relative z-10">
+      <div className="w-full px-4 sm:px-10 lg:px-20 xl:px-24 relative z-10">
 
 
         <motion.div

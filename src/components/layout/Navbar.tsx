@@ -65,7 +65,7 @@ const Navbar = () => {
                     className={`relative text-sm xl:text-[15px] tracking-wide uppercase font-bold transition-all duration-300 py-1.5 px-4 rounded-md group ${
                       isActive(item.href)
                         ? "text-gold bg-primary/5"
-                        : "text-foreground hover:text-gold"
+                        : "text-navy hover:text-gold"
                     }`}
                   >
                     {item.label}
@@ -93,7 +93,7 @@ const Navbar = () => {
 
           {/* Mobile Toggle */}
           <button
-            className="lg:hidden transition-colors duration-500 p-2 z-50 relative text-foreground hover:text-gold"
+            className="lg:hidden transition-colors duration-500 p-2 z-50 relative text-navy hover:text-gold"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -124,7 +124,7 @@ const Navbar = () => {
                 onClick={() => setMobileOpen(false)}
                 className={`text-[15px] tracking-wide uppercase font-bold transition-all block py-3 px-4 rounded-xl ${isActive(item.href)
                   ? "text-gold bg-primary/5 shadow-sm"
-                  : "text-foreground hover:text-gold hover:bg-primary/5"
+                  : "text-navy hover:text-gold hover:bg-primary/5"
                   }`}
               >
                 {item.label}

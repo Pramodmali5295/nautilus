@@ -78,7 +78,7 @@ const processSteps = [
               <div className="flex gap-6 pt-6">
                 <div className="w-12 shrink-0" />{/* spacer to align with title */}
                 <p 
-                  className="text-navy/75 text-sm sm:text-base leading-relaxed font-semibold"
+                  className="text-navy text-sm sm:text-base leading-relaxed font-semibold italic"
                   style={{ fontFamily: '"Times New Roman", Times, serif' }}
                 >
                   {step.desc}
@@ -99,7 +99,7 @@ const processSteps = [
               <div className="flex gap-6">
                 <div className="w-12 shrink-0" />
                 <p 
-                  className="text-navy/50 text-sm leading-relaxed font-medium line-clamp-2"
+                  className="text-navy text-sm leading-relaxed font-medium line-clamp-2"
                   style={{ fontFamily: '"Times New Roman", Times, serif' }}
                 >
                   {step.desc}
@@ -113,7 +113,7 @@ const processSteps = [
             }`}>
             <button
               className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.25em] transition-colors duration-300 focus:outline-none"
-              style={{ color: isExpanded ? '#D4AF37' : '#1e293b' }}
+              style={{ color: isExpanded ? '#D4AF37' : '#000080' }}
               onClick={(e) => { e.stopPropagation(); setIsExpanded(!isExpanded); }}
             >
               {isExpanded ? "Show less" : "Read more"}
@@ -147,7 +147,7 @@ const RecruitmentProcessCards = () => (
 const SectionTitle = ({ label, title }: { label: string; title: string }) => (
     <div className="text-center mb-10">
       <p className="text-teal font-semibold tracking-[0.2em] uppercase text-xs sm:text-sm mb-3">{label}</p>
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground">{title}</h2>
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-navy">{title}</h2>
       <div className="w-16 sm:w-20 h-1.5 gradient-gold mx-auto mt-6 rounded-full" />
     </div>
   );

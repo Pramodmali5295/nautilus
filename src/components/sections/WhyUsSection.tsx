@@ -119,8 +119,8 @@ const WhyUsSection = () => (
                   <r.icon size={28} className={`${r.color} group-hover:text-white transition-colors`} />
                 </div>
                 <div className="flex-grow">
-                  <h4 className="font-display font-bold text-xl md:text-2xl text-foreground mb-2 group-hover:text-gold transition-colors">{r.title}</h4>
-                  <p className="text-navy leading-relaxed text-base md:text-lg italic group-hover:text-foreground transition-colors mb-4">{r.desc}</p>
+                  <h4 className="font-display font-bold text-xl md:text-2xl text-navy mb-2 group-hover:text-gold transition-colors">{r.title}</h4>
+                  <p className="text-navy leading-relaxed text-base md:text-lg italic group-hover:text-navy/80 transition-colors mb-4">{r.desc}</p>
                   <div className="w-12 h-1 bg-gold/20 rounded-full group-hover:w-full transition-all duration-700" />
                 </div>
               </motion.div>
@@ -157,7 +157,7 @@ const WhyUsSection = () => (
                   <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-gold mb-1 transition-transform group-hover/stat:scale-110 duration-500">
                     <Counter value={d.val} suffix={d.suffix} />
                   </p>
-                  <p className="text-white/50 text-[8px] md:text-xs uppercase tracking-[0.2em] font-black">{d.label}</p>
+                  <p className="text-white/70 text-[8px] md:text-xs uppercase tracking-[0.2em] font-black">{d.label}</p>
                 </div>
               ))}
             </div>
@@ -179,7 +179,7 @@ const WhyUsSection = () => (
                   <div className="w-5 h-5 rounded-full bg-emerald-50 flex items-center justify-center group-hover/item:bg-emerald-500 transition-colors">
                     <CheckCircle2 size={12} className="text-emerald-500 group-hover:text-white transition-colors" />
                   </div>
-                  <span className="text-base md:text-lg tracking-wide">{item}</span>
+                  <span className="text-base md:text-lg tracking-wide text-white">{item}</span>
                 </motion.div>
               ))}
             </div>

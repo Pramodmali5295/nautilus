@@ -7,7 +7,7 @@ const CTASection = () => {
 
     return (
         <section className="py-10 bg-surface">
-            <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24">
+            <div className="w-full px-4 sm:px-10 lg:px-20 xl:px-24">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -24,7 +24,7 @@ const CTASection = () => {
                         <h2 className={`text-2xl sm:text-3xl font-display font-bold ${isDarkSection ? 'text-white' : 'text-navy'} mb-2`}>
                             Your Transformation Starts Here
                         </h2>
-                        <p className={`${isDarkSection ? 'text-white/80' : 'text-foreground/70'} text-sm sm:text-base leading-relaxed max-w-2xl font-medium`}>
+                        <p className={`${isDarkSection ? 'text-white' : 'text-navy'} text-sm sm:text-base leading-relaxed max-w-2xl font-medium`}>
                             Whether you're a visionary company or an ambitious professional, let's create your success story together.
                         </p>
                     </div>

@@ -100,7 +100,7 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] -mr-64 -mt-64" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-teal/5 rounded-full blur-[120px] -ml-64 -mb-64" />
 
-        <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24">
+        <div className="w-full px-4 sm:px-10 lg:px-20 xl:px-24">
           <div className="grid lg:grid-cols-2 gap-10 sm:gap-20 items-center">
             <motion.div
               initial="hidden"
@@ -135,7 +135,7 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
                     <Award size={28} />
                   </div>
                   <div>
-                    <p className="text-3xl font-bold text-foreground tracking-tight">Top Rated</p>
+                    <p className="text-3xl font-bold text-navy tracking-tight">Top Rated</p>
                     <p className="text-navy text-sm font-medium uppercase tracking-wider">Agency of the Year 2024</p>
                   </div>
                 </div>
@@ -152,13 +152,13 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
                 <div className="w-12 h-[2px] bg-gold" />
                 <p className="text-gold font-bold tracking-[0.3em] uppercase text-[10px] md:text-xs">Our Heritage</p>
               </motion.div>
-              <motion.h2 variants={fadeInUp} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6 leading-[1.1]">
+              <motion.h2 variants={fadeInUp} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-navy mb-6 leading-[1.1]">
                 Nautilus International <br />
                 <span className="text-gradient-gold italic">Catalysts for Success</span>
               </motion.h2>
-              <motion.div variants={fadeInUp} className="space-y-4 text-foreground text-base md:text-lg leading-relaxed font-medium">
+              <motion.div variants={fadeInUp} className="space-y-4 text-navy text-base md:text-lg leading-relaxed font-medium">
                 <p>
-                  At <span className="text-foreground font-semibold">Nautilus International</span>, we understand that innovation thrives through collaboration and the collective
+                  At <span className="text-navy font-semibold">Nautilus International</span>, we understand that innovation thrives through collaboration and the collective
                   power of people. Your goal is to challenge the status quo, pioneer new solutions, and propel industries into
                   the future. Our mission is to connect you with the exceptional talent that can make that vision a reality.
                 </p>
@@ -269,7 +269,7 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
       {displayFull && (
         <section className="py-10 md:py-16 bg-surface/50 relative">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
-          <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24">
+          <div className="w-full px-4 sm:px-10 lg:px-20 xl:px-24">
             <SectionTitle label="The Foundation" title="Our Core Values" />
             <motion.div
               initial="hidden"
@@ -297,7 +297,7 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
                     <div className={`w-14 h-14 xl:w-16 xl:h-16 mx-auto rounded-2xl ${v.bgColor} flex items-center justify-center mb-5 xl:mb-6 group-hover:scale-110 transition-transform duration-500 shadow-xl border border-navy/5 relative z-10 group-hover:bg-navy group-hover:text-white`}>
                       <Icon className={`${v.color} group-hover:text-white transition-colors`} size={24} />
                     </div>
-                    <h4 className="font-display font-bold text-foreground text-lg xl:text-xl mb-3 group-hover:text-navy transition-colors relative z-10">{v.title}</h4>
+                    <h4 className="font-display font-bold text-navy text-lg xl:text-xl mb-3 group-hover:text-navy transition-colors relative z-10">{v.title}</h4>
                     <p className="text-navy text-sm xl:text-base leading-relaxed font-medium group-hover:text-black transition-colors relative z-10">{v.desc}</p>
                   </motion.div>
                 );
@@ -311,7 +311,7 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
       {displayFull && (
         <section className="py-16 md:py-24 bg-background relative overflow-hidden">
           <div className="absolute top-1/2 left-0 w-72 h-72 bg-teal/5 rounded-full blur-[100px] -ml-36 pointer-events-none" />
-          <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24">
+          <div className="w-full px-4 sm:px-10 lg:px-20 xl:px-24">
             <div className="max-w-6xl mx-auto">
               <SectionTitle label="The People" title="Our Team and Our Edge" />
 
@@ -364,7 +364,7 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
                       ].map((item) => (
                         <li key={item.title} className="flex items-start gap-3">
                           <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
-                          <p className="text-foreground text-sm md:text-base">
+                          <p className="text-navy text-sm md:text-base">
                             <span className="font-bold text-navy">{item.title}</span> – {item.desc}
                           </p>
                         </li>
@@ -385,7 +385,7 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
       {/* Team Pillars */}
       {displayFull && (
         <section className="py-12 md:py-16 gradient-navy text-primary-foreground">
-          <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24">
+          <div className="w-full px-4 sm:px-10 lg:px-20 xl:px-24">
             <div className="text-center mb-10 md:mb-16">
               <p className="text-gold font-semibold tracking-widest uppercase text-xs sm:text-sm mb-3">Our Strength</p>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">Built on Expertise</h2>
@@ -422,7 +422,7 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
       {/* Testimonials - Hidden on Home for essential feel */}
       {!isAboutPage && !isHomePage && (
         <section className="py-16">
-          <div className="w-full px-6 md:px-10 lg:px-20 xl:px-24">
+          <div className="w-full px-4 sm:px-10 lg:px-20 xl:px-24">
             <SectionTitle label="Success Stories" title="Partner Feedback" />
             <motion.div
               initial="hidden"
@@ -441,13 +441,13 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
                   variants={fadeInUp}
                   className="bg-card p-10 rounded-2xl border border-border shadow-sm hover:shadow-xl transition-all border-b-4 border-b-teal"
                 >
-                  <p className="text-muted-foreground italic mb-6 leading-relaxed">"{t.text}"</p>
+                  <p className="text-navy italic mb-6 leading-relaxed">"{t.text}"</p>
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full gradient-navy flex items-center justify-center text-gold font-bold">
                       {t.name[0]}
                     </div>
                     <div>
-                      <h5 className="font-bold text-foreground">{t.name}</h5>
+                      <h5 className="font-bold text-navy">{t.name}</h5>
                       <p className="text-teal text-sm font-semibold">{t.role}</p>
                     </div>
                   </div>
@@ -466,7 +466,7 @@ const AboutSection = ({ showAll = false }: { showAll?: boolean }) => {
 const SectionTitle = ({ label, title }: { label: string; title: string }) => (
   <div className="text-center mb-10">
     <p className="text-teal font-semibold tracking-[0.2em] uppercase text-sm mb-3">{label}</p>
-    <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground">{title}</h2>
+    <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-navy">{title}</h2>
     <div className="w-20 h-1.5 gradient-gold mx-auto mt-6 rounded-full" />
   </div>
 );

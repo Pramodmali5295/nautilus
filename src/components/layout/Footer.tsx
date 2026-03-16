@@ -57,7 +57,7 @@ const Footer = () => {
             <Link to="/" className="inline-block transition-transform hover:scale-105 duration-300">
               <img src={logo} alt="Nautilus International" className="h-20 md:h-24 w-auto object-contain" />
             </Link>
-            <p className="text-black text-lg leading-relaxed max-w-sm font-medium italic">
+            <p className="text-navy text-base md:text-lg leading-relaxed max-w-sm font-medium italic">
               "Architecture of recruitment, engineered for executive success."
             </p>
             <div className="flex gap-4 mt-1">
@@ -85,7 +85,7 @@ const Footer = () => {
                 <li key={link.label}>
                   <Link 
                     to={link.path} 
-                    className="group flex items-center gap-2 text-black hover:text-gold transition-all duration-300 font-bold text-base"
+                    className="group flex items-center gap-2 text-navy hover:text-gold transition-all duration-300 font-bold text-sm md:text-base"
                   >
                     <ArrowUpRight size={16} className="text-gold opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                     {link.label}
@@ -105,7 +105,7 @@ const Footer = () => {
                 <li key={item.label}>
                   <Link 
                     to={item.path} 
-                    className="group flex items-center gap-2 text-black hover:text-gold transition-all duration-300 font-bold text-base"
+                    className="group flex items-center gap-2 text-navy hover:text-gold transition-all duration-300 font-bold text-sm md:text-base"
                   >
                     <div className="w-2 h-2 rounded-full bg-gold/30 group-hover:bg-gold transition-colors" />
                     {item.label}
@@ -121,27 +121,27 @@ const Footer = () => {
               Headquarters
             </h4>
             <div className="space-y-5">
-              <div className="flex items-start gap-4 text-black group">
-                <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center shrink-0 group-hover:bg-navy group-hover:text-white transition-all text-gold">
+              <div className="flex items-start gap-4 text-navy group">
+                <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center shrink-0 group-hover:bg-navy group-hover:text-white transition-all text-gold shadow-sm">
                   <MapPin size={20} />
                 </div>
-                <p className="text-base leading-relaxed font-bold">
+                <p className="text-sm md:text-base leading-relaxed font-bold">
                   Office No 214, Vishnu Capital, <br />
                   City Pride School Lane, Chikhali-Moshi, <br />
                   Pune, Maharashtra, India - 411062
                 </p>
               </div>
-              <div className="flex items-center gap-4 text-black group">
-                <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center shrink-0 group-hover:bg-navy group-hover:text-white transition-all text-gold">
+              <div className="flex items-center gap-4 text-navy group">
+                <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center shrink-0 group-hover:bg-navy group-hover:text-white transition-all text-gold shadow-sm">
                   <Phone size={20} />
                 </div>
-                <a href="tel:+917410775779" className="text-base font-black hover:text-gold transition-colors">+91 7410775779</a>
+                <a href="tel:+917410775779" className="text-sm md:text-base font-black hover:text-gold transition-colors">+91 7410775779</a>
               </div>
-              <div className="flex items-center gap-4 text-black group">
-                <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center shrink-0 group-hover:bg-navy group-hover:text-white transition-all text-gold">
+              <div className="flex items-center gap-4 text-navy group">
+                <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center shrink-0 group-hover:bg-navy group-hover:text-white transition-all text-gold shadow-sm">
                   <Mail size={20} />
                 </div>
-                <a href="mailto:hr@nautilusinternational.in" className="text-base font-black hover:text-gold transition-colors break-all">hr@nautilusinternational.in</a>
+                <a href="mailto:hr@nautilusinternational.in" className="text-sm md:text-base font-black hover:text-gold transition-colors break-all">hr@nautilusinternational.in</a>
               </div>
             </div>
           </div>
@@ -150,11 +150,11 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 text-base text-black font-bold">
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 text-xs md:text-sm text-navy/70 font-bold">
             <p>© {new Date().getFullYear()} Nautilus International · All rights reserved</p>
           </div>
           
-          <div className="flex items-center gap-2 text-base text-black font-bold">
+          <div className="flex items-center gap-2 text-xs md:text-sm text-navy/70 font-bold">
             <Globe size={18} className="text-gold animate-pulse" />
             <span>Developed by <span className="text-orange-600 font-black">Infoyashonand Technology Pvt. Ltd.</span></span>
           </div>
