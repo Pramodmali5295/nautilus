@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Globe, Clock, Upload, Send, CheckCircle2 } from "lucide-react";
 import { motion, Variants } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 const ContactSection = () => {
     const [form, setForm] = useState({
@@ -81,8 +82,22 @@ ${fileName ? `*Document:* ${fileName} (User will attach in chat)` : ""}
         }
     };
 
+    const location = useLocation();
+    const isHomePage = location.pathname === "/";
+
     return (
         <section id="contact-interface" className="relative py-12 md:py-24 z-20 bg-slate-50/50">
+            {isHomePage && (
+                <div className="w-full px-4 sm:px-10 lg:px-20 xl:px-24 mb-16 md:mb-20">
+                    <div className="text-center">
+                        <p className="text-gold font-bold tracking-[0.3em] md:tracking-[0.4em] uppercase text-[10px] md:text-sm mb-4">Get in Touch</p>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-navy leading-[1.1]">
+                            Contact <span className="text-gradient-gold italic">Us</span>
+                        </h2>
+                        <div className="w-16 sm:w-20 h-1.5 gradient-gold mx-auto mt-6 rounded-full" />
+                    </div>
+                </div>
+            )}
             <div className="w-full px-4 sm:px-10 lg:px-20 xl:px-24">
                 <div className="grid lg:grid-cols-12 gap-12 items-start">
                     {/* Sidebar: Professional Identity & Info */}

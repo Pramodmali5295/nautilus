@@ -145,11 +145,11 @@ const RecruitmentProcessCards = () => (
 );
 
 const SectionTitle = ({ label, title }: { label: string; title: string }) => (
-    <div className="text-center mb-10">
-      <p className="text-teal font-semibold tracking-[0.2em] uppercase text-xs sm:text-sm mb-3">{label}</p>
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-navy">{title}</h2>
-      <div className="w-16 sm:w-20 h-1.5 gradient-gold mx-auto mt-6 rounded-full" />
-    </div>
+  <div className="text-center mb-10 md:mb-16">
+    <p className="text-gold font-bold tracking-[0.3em] md:tracking-[0.4em] uppercase text-[10px] md:text-sm mb-4">{label}</p>
+    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-navy leading-[1.1]">{title}</h2>
+    <div className="w-16 sm:w-20 h-1.5 gradient-gold mx-auto mt-6 rounded-full" />
+  </div>
   );
 
 export default RecruitmentProcessCards;

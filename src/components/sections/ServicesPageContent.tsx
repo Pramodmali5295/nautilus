@@ -1,5 +1,6 @@
 import { Search, Users, Zap, ShieldCheck, Heart, Settings2, BarChart3, Target, Layout, Rocket, Briefcase, GraduationCap, ClipboardCheck, MessageSquare, UserCheck, Lightbulb, TrendingUp, Award, Layers, Globe, Shield, Handshake, CheckCircle2 } from "lucide-react";
 import { motion, Variants } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 30 },
@@ -23,17 +24,56 @@ const staggerContainer: Variants = {
 
 const RecruitmentSection = () => {
     const whyCollaborate = [
-        { title: "Industry Expertise", desc: "Leverage our deep knowledge, proven methodologies, and extensive resources.", icon: GraduationCap, color: "text-gold", bgColor: "bg-navy/5" },
-        { title: "Seamless Integration", desc: "Our team works as an extension of your HR function, blending effortlessly.", icon: Target, color: "text-gold", bgColor: "bg-navy/5" },
-        { title: "Tailored Strategies", desc: "We design customized talent acquisition plans that fit your unique business needs.", icon: Settings2, color: "text-gold", bgColor: "bg-navy/5" },
+        { 
+            title: "Expert Talent Acquisition", 
+            desc: "Leverage our deep industry knowledge, proven recruitment methodologies, and extensive global resources to find the perfect fit for your specialized organizational needs.", 
+            icon: GraduationCap, 
+            color: "text-gold", 
+            bgColor: "bg-navy/5" 
+        },
+        { 
+            title: "Seamless Integration", 
+            desc: "Our dedicated team works as a natural extension of your internal HR function, blending effortlessly with your culture, processes, and existing workflow systems.", 
+            icon: Target, 
+            color: "text-gold", 
+            bgColor: "bg-navy/5" 
+        },
+        { 
+            title: "Tailored Strategies", 
+            desc: "We design highly customized talent acquisition plans that precisely align with your unique business objectives, organizational values, and long-term growth roadmap.", 
+            icon: Settings2, 
+            color: "text-gold", 
+            bgColor: "bg-navy/5" 
+        },
+        { 
+            title: "Enhanced Diversity", 
+            desc: "Our commitment to inclusivity ensures you benefit from a diverse talent pool, bringing varied perspectives and experiences that drive creativity and innovation.", 
+            icon: Users, 
+            color: "text-gold", 
+            bgColor: "bg-navy/5" 
+        },
+        { 
+            title: "Streamlined Processes", 
+            desc: "We optimize your hiring lifecycle by merging human expertise with advanced recruitment technology, significantly reducing time-to-hire while maximizing quality.", 
+            icon: Zap, 
+            color: "text-gold", 
+            bgColor: "bg-navy/5" 
+        },
+        { 
+            title: "Future-Focused Growth", 
+            desc: "Together, we assemble dynamic and resilient teams that not only meet today’s challenges but are also strategically equipped to tackle future market opportunities.", 
+            icon: TrendingUp, 
+            color: "text-gold", 
+            bgColor: "bg-navy/5" 
+        },
     ];
 
     const expertiseItems = [
-        { title: "Candidate Sourcing & Attraction", desc: "Identifying the right channels and methods to reach top talent.", icon: Search },
-        { title: "Optimized Job Advertising", desc: "Crafting impactful job postings to maximize visibility and engagement.", icon: Rocket },
-        { title: "Assessment & Selection Tools", desc: "Utilizing advanced evaluation techniques to ensure the best fit.", icon: ClipboardCheck },
-        { title: "Candidate Engagement", desc: "Building strong connections with potential hires to enhance retention.", icon: MessageSquare },
-        { title: "Onboarding Support", desc: "Streamlining the transition from hire to productive employee.", icon: UserCheck },
+        { title: "Candidate Sourcing & Attraction", desc: "Utilizing advanced multi-channel identification methods and industry networks to reach top-tier latent and active talent profiles.", icon: Search },
+        { title: "Optimized Job Advertising", desc: "Crafting modern, impactful job narratives and strategic placement to maximize visibility and high-quality candidate engagement.", icon: Rocket },
+        { title: "Assessment & Selection Tools", desc: "Utilizing rigorous, evidence-based evaluation techniques and behavioral insights to ensure the perfect fit for the role and culture.", icon: ClipboardCheck },
+        { title: "Candidate Engagement", desc: "Building meaningful, long-term connections with potential hires through personalized outreach to enhance trust and long-term retention.", icon: MessageSquare },
+        { title: "Onboarding Support", desc: "Providing structured assistance to streamline the transition from new hire to high-performing employee, ensuring a welcoming start for all.", icon: UserCheck },
     ];
 
     return (
@@ -46,7 +86,7 @@ const RecruitmentSection = () => {
                     variants={fadeInUp}
                     className="max-w-4xl mx-auto text-center mb-12 md:mb-16"
                 >
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-navy mb-6 md:mb-8 leading-tight">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-navy mb-6 md:mb-8 leading-tight">
                         Recruitment & <span className="text-gradient-gold italic">Talent Acquisition</span>
                     </h2>
                     <p className="text-navy text-lg md:text-2xl leading-relaxed font-medium">
@@ -142,15 +182,21 @@ const RecruitmentSection = () => {
 
 const ExecutiveSearchSection = () => {
     const strategicSupport = [
-        { title: "Talent Mapping & Market Analysis", desc: "Gain insights into industry-specific talent pools, market trends, and competitor benchmarks.", icon: Search, color: "text-gold", bgColor: "bg-navy/5" },
-        { title: "Confidential Search", desc: "Handle sensitive recruitment assignments with the highest level of discretion and security.", icon: Shield, color: "text-gold", bgColor: "bg-navy/5" },
-        { title: "Customized Assessments", desc: "Conduct tailored screenings and interviews to ensure role-specific requirements are met.", icon: BadgeCheck, color: "text-gold", bgColor: "bg-navy/5" },
+        { title: "Talent Mapping & Market Analysis", desc: "Gain deep, actionable insights into industry-specific talent pools, emerging market trends, and comprehensive competitor benchmarks to stay ahead of the curve.", icon: Search, color: "text-gold", bgColor: "bg-navy/5" },
+        { title: "Confidential Search", desc: "Expertly handle sensitive recruitment assignments with the highest level of professional discretion, integrity, and operational security for critical appointments.", icon: Shield, color: "text-gold", bgColor: "bg-navy/5" },
+        { title: "Customized Assessments", desc: "Conduct rigorously tailored screenings and strategic interviews using behavioral science to ensure every unique role-specific requirement is met with precision.", icon: BadgeCheck, color: "text-gold", bgColor: "bg-navy/5" },
+        { title: "Reference & Final Vetting", desc: "Thorough verification of candidate history, technical credentials, and past leadership achievements to provide absolute certainty in your critical hiring decisions.", icon: ClipboardCheck, color: "text-gold", bgColor: "bg-navy/5" },
+        { title: "Succession Alignment", desc: "Strategically mapping candidates to ensure they not only fill current gaps but also support your long-term leadership continuity and sustainable organizational growth.", icon: Target, color: "text-gold", bgColor: "bg-navy/5" },
+        { title: "Executive Onboarding", desc: "Providing dedicated transition coaching and support to ensure new leaders integrate seamlessly into your culture and start delivering results from day one.", icon: UserCheck, color: "text-gold", bgColor: "bg-navy/5" },
     ];
 
     const clientCentric = [
-        { title: "Director-Level Oversight", desc: "Every project is led by a senior consultant ensuring accountability at the highest level.", icon: Award },
-        { title: "Strategic Partnership", desc: "We work closely with leadership teams to deliver talent solutions that drive success.", icon: Handshake },
-        { title: "Trusted Process", desc: "Our methodology ensures precision and alignment with your business vision.", icon: CheckCircle2 },
+        { title: "Director-Level Oversight", desc: "Every project is led by a senior consultant ensuring accountability and expertise at the highest level of search.", icon: Award },
+        { title: "Strategic Partnership", desc: "We work closely with leadership teams as a trusted extension of your office to deliver talent solutions that drive success.", icon: Handshake },
+        { title: "Trusted Process", desc: "Our methodology ensures precision and perfect alignment with your business vision and operational requirements.", icon: CheckCircle2 },
+        { title: "Dynamic Adaptability", desc: "We scale our processes to meet your changing needs, ensuring agility in response to market shifts and internal requirements.", icon: Zap },
+        { title: "Value-Added Intelligence", desc: "Providing actionable insights beyond recruitment, including bench-strength analysis and market positioning reports.", icon: Lightbulb },
+        { title: "Cross-Border Reach", desc: "Leveraging our global networks to source executive talent without geographic limitations for truly world-class leadership.", icon: Globe },
     ];
 
     return (
@@ -162,7 +208,7 @@ const ExecutiveSearchSection = () => {
                     viewport={{ once: true }}
                     className="max-w-4xl mx-auto text-center mb-12 md:mb-16"
                 >
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-navy mb-6 md:mb-8 leading-tight">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-navy mb-6 md:mb-8 leading-tight">
                         Executive <span className="text-gradient-gold italic">Search</span>
                     </h2>
                     <p className="text-navy text-lg md:text-xl leading-relaxed font-medium">
@@ -230,11 +276,12 @@ const ExecutiveSearchSection = () => {
 
 const HRAdvisorySection = () => {
     const advisoryAreas = [
-        { title: "Organization Design", desc: "Tailoring structures to enhance efficiency and effectiveness.", icon: Layout, color: "text-gold", bgColor: "bg-navy/5" },
-        { title: "Leadership Development", desc: "Cultivating strong leaders through personalized coaching programs.", icon: GraduationCap, color: "text-gold", bgColor: "bg-navy/5" },
-        { title: "Roles & Responsibilities", desc: "Clarifying roles to ensure optimal performance and accountability.", icon: Users, color: "text-gold", bgColor: "bg-navy/5" },
-        { title: "Policy Formulation", desc: "Developing HR policies that promote positive culture and compliance.", icon: ClipboardCheck, color: "text-gold", bgColor: "bg-navy/5" },
-        { title: "Compensation & Rewards", desc: "Crafting competitive strategies to attract and retain talent.", icon: Award, color: "text-gold", bgColor: "bg-navy/5" },
+        { title: "Organization Design", desc: "Tailoring structures to enhance efficiency, reduce redundancies, and maximize overall operational effectiveness.", icon: Layout, color: "text-gold", bgColor: "bg-navy/5" },
+        { title: "Leadership Development", desc: "Cultivating strong, resilient leaders through personalized coaching programs and strategic guidance.", icon: GraduationCap, color: "text-gold", bgColor: "bg-navy/5" },
+        { title: "Roles & Responsibilities", desc: "Clarifying roles to ensure optimal performance, accountability, and seamless team collaboration.", icon: Users, color: "text-gold", bgColor: "bg-navy/5" },
+        { title: "Policy Formulation", desc: "Developing HR policies that promote a positive company culture and ensure full regulatory compliance.", icon: ClipboardCheck, color: "text-gold", bgColor: "bg-navy/5" },
+        { title: "Compensation & Rewards", desc: "Crafting competitive strategies to attract and retain top talent through innovative reward systems.", icon: Award, color: "text-gold", bgColor: "bg-navy/5" },
+        { title: "Cultural Alignment Analysis", desc: "Ensuring that talent strategies are perfectly synchronized with your core organizational values and vision.", icon: Heart, color: "text-gold", bgColor: "bg-navy/5" },
     ];
 
     return (
@@ -302,8 +349,24 @@ const BadgeCheck = ({ size, className }: { size?: number, className?: string }) 
 );
 
 const ServicesPageContent = () => {
+    const location = useLocation();
+    const isHomePage = location.pathname === "/";
+
     return (
         <div className="flex flex-col">
+            {isHomePage && (
+                <section className="pt-20 pb-0 bg-white">
+                    <div className="w-full px-4 sm:px-10 lg:px-20 xl:px-24">
+                        <div className="text-center mb-0">
+                            <p className="text-gold font-bold tracking-[0.3em] md:tracking-[0.4em] uppercase text-[10px] md:text-sm mb-4">Strategic Solutions</p>
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-navy leading-[1.1]">
+                                Our Corporate <span className="text-gradient-gold italic">Services</span>
+                            </h2>
+                            <div className="w-16 sm:w-20 h-1.5 gradient-gold mx-auto mt-6 rounded-full" />
+                        </div>
+                    </div>
+                </section>
+            )}
             <RecruitmentSection />
             <div className="w-full h-px bg-gradient-to-r from-transparent via-navy/10 to-transparent" />
             <ExecutiveSearchSection />

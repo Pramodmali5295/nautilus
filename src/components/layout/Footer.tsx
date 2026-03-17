@@ -57,8 +57,11 @@ const Footer = () => {
             <Link to="/" className="inline-block transition-transform hover:scale-105 duration-300">
               <img src={logo} alt="Nautilus International" className="h-20 md:h-24 w-auto object-contain" />
             </Link>
-            <p className="text-navy text-base md:text-lg leading-relaxed max-w-sm font-medium italic">
-              "Architecture of recruitment, engineered for executive success."
+            <h3 className="text-gold text-xl md:text-2xl font-display font-bold leading-tight">
+              Talent and HR Solutions that Transform Industries
+            </h3>
+            <p className="text-navy text-sm md:text-base leading-relaxed max-w-md font-medium">
+              We connect visionary organizations with exceptional talent, blending advanced recruitment technology and human expertise to build diverse, dynamic teams. With Nautilus International, you are not just hiring—you are shaping the future through innovation, creativity, and sustainable success.
             </p>
             <div className="flex gap-4 mt-1">
               {socials.map((s, i) => (
@@ -149,15 +152,10 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 text-xs md:text-sm text-navy/70 font-bold">
-            <p>© {new Date().getFullYear()} Nautilus International · All rights reserved</p>
-          </div>
-          
-          <div className="flex items-center gap-2 text-xs md:text-sm text-navy/70 font-bold">
-            <Globe size={18} className="text-gold animate-pulse" />
-            <span>Developed by <span className="text-orange-600 font-black">Infoyashonand Technology Pvt. Ltd.</span></span>
-          </div>
+        <div className="pt-8 border-t border-gray-100 text-center">
+          <p className="text-xs md:text-sm text-navy/70 font-bold">
+            © {new Date().getFullYear()} Nautilus International · All rights reserved
+          </p>
         </div>
       </div>
     </footer>
