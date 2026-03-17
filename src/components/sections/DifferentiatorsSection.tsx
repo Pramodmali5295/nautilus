@@ -186,7 +186,7 @@ const DifferentiatorsSection = () => {
                             </h3>
 
                             <p className="text-white/80 text-sm md:text-xl italic leading-relaxed">
-                                "Choosing Nautilus International means selecting a partner that truly prioritizes your success in recruitment and beyond, with a commitment to excellence that differentiates us from the competition."
+                                "Nautilus International means selecting a partner that truly prioritizes your success in recruitment and beyond, with a commitment to excellence that differentiates us from the competition."
                             </p>
 
                             <div className="mt-10 flex items-center gap-8 justify-center">
