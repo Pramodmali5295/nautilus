@@ -10,7 +10,6 @@ const ContactSection = () => {
         phone: "",
         message: "",
     });
-    const [fileName, setFileName] = useState("");
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -26,14 +25,7 @@ const ContactSection = () => {
         setForm({ ...form, [name]: value });
     };
 
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0];
-        if (file) {
-            setFileName(file.name);
-        } else {
-            setFileName("");
-        }
-    };
+
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -50,7 +42,6 @@ const ContactSection = () => {
 Name: ${form.name}
 Email: ${form.email}
 Phone: ${form.phone}
-${fileName ? `Document: ${fileName} (Please attach the file to this email)` : ""}
 
 Message:
 ${form.message}`;
@@ -59,9 +50,8 @@ ${form.message}`;
         
         window.open(gmailUrl, "_blank");
         
-        alert("Thank you! Opening Gmail to send your inquiry. Please remember to attach your CV/Portfolio if you selected one.");
+        alert("Thank you! Opening Gmail to send your inquiry.");
         setForm({ name: "", email: "", phone: "", message: "" });
-        setFileName("");
     };
 
     const fadeInUp: Variants = {
@@ -261,27 +251,6 @@ ${form.message}`;
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label className="text-xs md:text-sm font-black tracking-[0.2em] text-navy ml-1 uppercase">Upload CV / Portfolio (Optional)</label>
-                                        <div className="relative group/file">
-                                            <input
-                                                type="file" accept=".pdf,.doc,.docx" onChange={handleFileChange}
-                                                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                                            />
-                                            <div className="w-full rounded-xl border border-dashed border-navy/20 group-hover/file:border-gold/50 group-hover/file:bg-gold/5 bg-surface/30 p-4 flex flex-row items-center justify-center gap-4 transition-all duration-500">
-                                                <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all ${fileName ? "bg-gold text-white" : "bg-navy/5 text-navy/20"}`}>
-                                                    <Upload size={20} />
-                                                </div>
-                                                <div className="flex flex-col">
-                                                    <span className={`text-sm tracking-wide font-display ${fileName ? "text-navy font-bold" : "text-navy/40 font-medium"}`}>
-                                                        {fileName || "Click to browse or drag & drop"}
-                                                    </span>
-                                                    {!fileName && <span className="text-[9px] text-navy/30 uppercase font-bold tracking-widest mt-0.5">PDF, DOCX up to 10MB</span>}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="space-y-2">
                                         <label className="text-xs md:text-sm font-black tracking-[0.2em] text-navy ml-1 uppercase">Message</label>
                                         <div className="relative group">
                                             <textarea
@@ -289,6 +258,12 @@ ${form.message}`;
                                                 className="w-full bg-white border border-black rounded-xl py-4 px-5 text-base text-navy placeholder:text-navy/20 focus:outline-none focus:border-gold focus:ring-4 focus:ring-gold/5 transition-all resize-none font-display"
                                             />
                                         </div>
+                                    </div>
+
+                                    <div className="bg-navy/5 p-4 rounded-xl border border-navy/10">
+                                        <p className="text-[11px] md:text-xs text-navy/70 leading-relaxed font-bold italic">
+                                            *Note: Clicking "SEND MESSAGE" will open Gmail. Candidates, please remember to attach your CV/Portfolio in the email window before sending.
+                                        </p>
                                     </div>
 
                                     <motion.button
