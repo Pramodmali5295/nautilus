@@ -165,12 +165,12 @@ ${form.message}`;
                                      ))}
                                  </div>
 
-                                <div className="mt-14 pt-10 border-t border-white/10">
-                                    <div className="flex items-center gap-6 text-white/60 text-lg italic">
-                                        <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center shadow-inner border border-white/10">
-                                            <Clock size={24} className="text-gold" />
+                                <div className="mt-10 md:mt-14 pt-8 md:pt-10 border-t border-navy/10">
+                                    <div className="flex flex-row items-center gap-4 md:gap-6 text-navy/60 text-sm md:text-lg italic">
+                                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-navy/5 flex items-center justify-center shadow-inner border border-navy/10 shrink-0">
+                                            <Clock size={20} className="text-gold md:w-6 md:h-6" />
                                         </div>
-                                        <span>Global Operations: 24/7 Strategic Support</span>
+                                        <span className="leading-tight">Global Operations: 24/7 Strategic Support</span>
                                     </div>
                                 </div>
                             </div>
