@@ -43,7 +43,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-navy"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy"
     >
       {/* Full-screen Background Image */}
       <motion.div
@@ -63,22 +63,22 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-navy/30" />
       </motion.div>
 
-      <div className="relative z-10 w-full px-4 sm:px-10 lg:px-20 xl:px-24 pt-24 md:pt-32 pb-20 md:pb-32 flex flex-col items-center justify-center min-h-[70vh]">
+      <div className="relative z-10 w-full px-4 sm:px-10 lg:px-20 xl:px-24 pt-32 md:pt-40 pb-20 md:pb-32 flex flex-col items-center justify-center min-h-[70vh]">
         <motion.div
           initial="visible"
           animate="visible"
           variants={containerVariants}
           className="text-center max-w-5xl mx-auto"
         >
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-blue-600 border border-white/20 px-5 py-2 rounded-full mt-16 md:mt-28 shadow-xl">
+          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-blue-600 border border-white/20 px-5 py-2 rounded-full mb-8 sm:mb-12 shadow-xl">
             <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
             <span className="text-white tracking-[0.3em] uppercase text-[10px] md:text-xs text-nowrap">
               Connect Excellence
             </span>
           </motion.div>
 
-          <motion.h1 variants={itemVariants} className="mt-8 text-[2.5rem] sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold text-primary-foreground mb-6 sm:mb-8 leading-[1.1] sm:leading-[1.05] drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
-            Nautilus <br />
+          <motion.h1 variants={itemVariants} className="text-[2.25rem] sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold text-primary-foreground mb-6 sm:mb-8 leading-[1.1] sm:leading-[1.05] drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+            Nautilus <br className="sm:hidden" />
             <span className="text-gradient-gold italic">International</span>
           </motion.h1>
 

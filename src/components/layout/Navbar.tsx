@@ -62,7 +62,7 @@ const Navbar = () => {
                 <li key={item.href}>
                   <Link
                     to={item.href}
-                    className={`relative text-sm xl:text-[15px] tracking-wide uppercase font-bold transition-all duration-300 py-1.5 px-4 rounded-md group ${
+                    className={`relative text-[15px] tracking-wide uppercase font-bold transition-all duration-300 py-1.5 px-4 rounded-md group ${
                       isActive(item.href)
                         ? "text-gold bg-primary/5"
                         : "text-navy hover:text-gold"
@@ -84,7 +84,7 @@ const Navbar = () => {
             {/* Contact Button */}
             <Link
               to="/contact"
-              className={`gradient-gold text-white px-6 py-2.5 rounded-md text-sm xl:text-[15px] font-bold tracking-widest uppercase transition-all duration-300 shadow-xl hover:shadow-[0_0_25px_rgba(59,130,246,0.5)] hover:scale-105 whitespace-nowrap ${isActive("/contact") ? "opacity-80" : ""
+              className={`gradient-gold text-white px-6 py-2.5 rounded-md text-[15px] font-bold tracking-widest uppercase transition-all duration-300 shadow-xl hover:shadow-[0_0_25px_rgba(59,130,246,0.5)] hover:scale-105 whitespace-nowrap ${isActive("/contact") ? "opacity-80" : ""
                 }`}
             >
               Contact Us
@@ -113,7 +113,7 @@ const Navbar = () => {
 
       {/* Mobile Sidebar */}
       <div
-        className={`lg:hidden fixed top-0 right-0 h-fit max-h-screen rounded-bl-2xl w-[60%] min-w-[220px] z-50 bg-white backdrop-blur-2xl border-l border-b border-gray-200 shadow-2xl transition-transform duration-500 ease-in-out flex flex-col pt-24 px-6 pb-6 overflow-y-auto ${mobileOpen ? "translate-x-0" : "translate-x-full"
+        className={`lg:hidden fixed top-0 right-0 h-auto max-h-[90vh] rounded-bl-3xl w-[70%] sm:w-[280px] z-50 bg-white/95 backdrop-blur-md border-l border-b border-gray-100 shadow-2xl transition-transform duration-500 ease-in-out flex flex-col pt-24 px-6 pb-10 overflow-y-auto ${mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
       >
         <ul className="flex flex-col items-start gap-1">

@@ -102,13 +102,15 @@
 @layer base {
   * {
     @apply border-border;
+    -webkit-tap-highlight-color: transparent;
   }
 
   html {
-    /* Fixed base font size to ensure consistency between local and production */
-    font-size: 100%;
+    /* Fixed base font size to ensure consistency */
+    font-size: 16px;
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
     text-size-adjust: 100%;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -120,6 +122,8 @@
     @apply bg-background text-foreground font-sans;
     overflow-x: hidden;
     width: 100%;
+    position: relative;
+    overscroll-behavior-y: none;
   }
 
   h1,
@@ -129,6 +133,8 @@
   h5,
   h6 {
     @apply font-display font-bold;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 }
 

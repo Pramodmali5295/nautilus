@@ -113,7 +113,7 @@ const RecruitmentProcessSection = () => {
 
                             <div className="flex justify-between items-start mb-6 xl:mb-8">
                                 <div className={`w-14 h-14 xl:w-16 xl:h-16 rounded-2xl ${step.bgColor} flex items-center justify-center ${step.color} group-hover:bg-navy group-hover:text-white transition-all duration-500 shadow-sm relative z-10 border border-navy/5`}>
-                                    <step.icon size={window.innerWidth > 1280 ? 30 : 24} />
+                                    <step.icon className="w-6 h-6 xl:w-8 xl:h-8" />
                                 </div>
                                 <span className="text-4xl xl:text-5xl font-display font-bold text-navy/5 group-hover:text-gold/10 transition-colors duration-500 select-none">
                                     {String(index + 1).padStart(2, "0")}

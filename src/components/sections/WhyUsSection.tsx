@@ -151,7 +151,7 @@ const WhyUsSection = () => (
               Global Scale Impact
             </h3>
 
-            <div className="grid grid-cols-2 gap-x-6 md:gap-x-8 gap-y-8 md:gap-y-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 md:gap-x-8 gap-y-8 md:gap-y-10">
               {differentiators.map((d) => (
                 <div key={d.label} className="group/stat">
                   <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-gold mb-1 transition-transform group-hover/stat:scale-110 duration-500">

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Phone, Mail, Globe, MapPin, Linkedin, Instagram, MessageSquare } from "lucide-react";
+import { ArrowUpRight, Phone, Mail, Globe, MapPin, Linkedin, Instagram, MessageCircle, Facebook, Twitter, Youtube, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import logo from "@/assets/MainLogo.png";
 
@@ -28,16 +28,40 @@ const Footer = () => {
       color: "bg-[#0077b5]" 
     },
     { 
+      href: "https://wa.me/917410775779", 
+      icon: MessageCircle, 
+      label: "WhatsApp",
+      color: "bg-[#25D366]" 
+    },
+    { 
+      href: "#", 
+      icon: Facebook, 
+      label: "Facebook",
+      color: "bg-[#1877F2]" 
+    },
+    { 
       href: "#", 
       icon: Instagram, 
       label: "Instagram",
       color: "bg-[#E4405F]" 
     },
     { 
-      href: "https://wa.me/917410775779", 
-      icon: MessageSquare, 
-      label: "WhatsApp",
-      color: "bg-[#25D366]" 
+      href: "#", 
+      icon: Twitter, 
+      label: "Twitter",
+      color: "bg-[#1DA1F2]" 
+    },
+    { 
+      href: "#", 
+      icon: Youtube, 
+      label: "YouTube",
+      color: "bg-[#FF0000]" 
+    },
+    { 
+      href: "#", 
+      icon: Send, 
+      label: "Telegram",
+      color: "bg-[#0088cc]" 
     },
   ];
 
@@ -63,7 +87,7 @@ const Footer = () => {
             <p className="text-navy text-sm md:text-base leading-relaxed max-w-md font-medium">
               We connect visionary organizations with exceptional talent, blending advanced recruitment technology and human expertise to build diverse, dynamic teams. With Nautilus International, you are not just hiring—you are shaping the future through innovation, creativity, and sustainable success.
             </p>
-            <div className="flex gap-4 mt-1">
+            <div className="flex flex-wrap gap-4 mt-1">
               {socials.map((s, i) => (
                 <motion.a
                   key={i}
@@ -88,7 +112,7 @@ const Footer = () => {
                 <li key={link.label}>
                   <Link 
                     to={link.path} 
-                    className="group flex items-center gap-2 text-navy hover:text-gold transition-all duration-300 font-bold text-sm md:text-base"
+                    className="group flex items-center gap-2 text-navy hover:text-gold transition-all duration-300 font-bold text-base"
                   >
                     <ArrowUpRight size={16} className="text-gold opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                     {link.label}
@@ -108,7 +132,7 @@ const Footer = () => {
                 <li key={item.label}>
                   <Link 
                     to={item.path} 
-                    className="group flex items-center gap-2 text-navy hover:text-gold transition-all duration-300 font-bold text-sm md:text-base"
+                    className="group flex items-center gap-2 text-navy hover:text-gold transition-all duration-300 font-bold text-base"
                   >
                     <div className="w-2 h-2 rounded-full bg-gold/30 group-hover:bg-gold transition-colors" />
                     {item.label}
@@ -128,7 +152,7 @@ const Footer = () => {
                 <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center shrink-0 group-hover:bg-navy group-hover:text-white transition-all text-gold shadow-sm">
                   <MapPin size={20} />
                 </div>
-                <p className="text-sm md:text-base leading-relaxed font-bold">
+                <p className="text-base leading-relaxed font-bold">
                   Office No 214, Vishnu Capital, <br />
                   City Pride School Lane, Chikhali-Moshi, <br />
                   Pune, Maharashtra, India - 411062
@@ -138,13 +162,13 @@ const Footer = () => {
                 <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center shrink-0 group-hover:bg-navy group-hover:text-white transition-all text-gold shadow-sm">
                   <Phone size={20} />
                 </div>
-                <a href="tel:+917410775779" className="text-sm md:text-base font-black hover:text-gold transition-colors">+91 7410775779</a>
+                <a href="tel:+917410775779" className="text-base font-black hover:text-gold transition-colors">+91 7410775779</a>
               </div>
               <div className="flex items-center gap-4 text-navy group">
                 <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center shrink-0 group-hover:bg-navy group-hover:text-white transition-all text-gold shadow-sm">
                   <Mail size={20} />
                 </div>
-                <a href="mailto:hr@nautilusinternational.in" className="text-sm md:text-base font-black hover:text-gold transition-colors break-all">hr@nautilusinternational.in</a>
+                <a href="mailto:hr@nautilusinternational.in" className="text-base font-black hover:text-gold transition-colors break-all">hr@nautilusinternational.in</a>
               </div>
             </div>
           </div>
@@ -153,7 +177,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-100 text-center">
-          <p className="text-xs md:text-sm text-navy/70 font-bold">
+          <p className="text-sm text-navy/70 font-bold">
             © {new Date().getFullYear()} Nautilus International · All rights reserved
           </p>
         </div>

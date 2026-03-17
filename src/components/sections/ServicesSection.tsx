@@ -225,14 +225,14 @@ const ServicesSection = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer}
-          className="grid md:grid-cols-2 gap-6 xl:gap-8 items-start"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 xl:gap-8 items-start"
         >
           {displayServices.map((s, i) => {
             const isLastOnHome = !isDetailedPage && i === 2;
             const Icon = s.icon;
 
             return (
-              <div key={s.title} className={isLastOnHome ? "md:col-span-2 lg:col-span-2" : ""}>
+              <div key={s.title} className={isLastOnHome ? "md:col-span-2" : ""}>
                 <ServiceCard s={{ ...s, icon: Icon }} index={i} />
               </div>
             );

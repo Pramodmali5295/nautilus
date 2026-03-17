@@ -43,21 +43,23 @@ const ContactSection = () => {
             return;
         }
         
-       const whatsappNumber = "917410775779";
-        const messageText = `*New Inquiry from Nautilus website*
+        const emailAddress = "hr@nautilusinternational.in";
+        const subject = `New Inquiry from ${form.name} - Nautilus Website`;
+        const body = `New Inquiry Details:
         
-*Name:* ${form.name}
-*Email:* ${form.email}
-*Phone:* ${form.phone}
-${fileName ? `*Document:* ${fileName} (User will attach in chat)` : ""}
-*Message:* ${form.message}`;
+Name: ${form.name}
+Email: ${form.email}
+Phone: ${form.phone}
+${fileName ? `Document: ${fileName} (Please attach the file to this email)` : ""}
 
-        const encodedMessage = encodeURIComponent(messageText);
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+Message:
+${form.message}`;
+
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailAddress}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         
-        window.open(whatsappUrl, "_blank");
+        window.open(gmailUrl, "_blank");
         
-        alert("Thank you for your inquiry! Redirecting you to WhatsApp. Please remember to attach your CV/Portfolio once the chat opens.");
+        alert("Thank you! Opening Gmail to send your inquiry. Please remember to attach your CV/Portfolio if you selected one.");
         setForm({ name: "", email: "", phone: "", message: "" });
         setFileName("");
     };
@@ -184,7 +186,7 @@ ${fileName ? `*Document:* ${fileName} (User will attach in chat)` : ""}
                             </div>
                         </motion.div>
 
-                        <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-4">
+                        <motion.div variants={fadeInUp} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div className="bg-surface/50 backdrop-blur-md border border-navy/5 rounded-[2rem] p-8 flex flex-col justify-between group hover:border-gold/30 transition-all duration-500">
                                 <Globe size={24} className="text-teal mb-4 group-hover:rotate-12 transition-transform" />
                                 <div>
