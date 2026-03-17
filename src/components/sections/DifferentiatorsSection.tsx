@@ -5,7 +5,7 @@ const differentiators = [
     {
         title: "High Joining Ratio",
         icon: TrendingUp,
-        desc: "Our commitment to quality candidates is reflected in our impressive joining ratio of over 80%. We do not just find candidates; we ensure they are ready and eager to join your team.",
+        desc: "Our commitment to quality candidates is reflected in our impressive joining ratio of over 88%. We do not just find candidates; we ensure they are ready and eager to join your team.",
         size: "large",
         color: "text-gold",
         bgColor: "bg-navy/5"
