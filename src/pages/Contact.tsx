@@ -50,23 +50,29 @@ const Contact = () => {
             return;
         }
         
-        // Construct the WhatsApp message
-       const whatsappNumber = "917410775779";
-        const messageText = `*New Inquiry from Nautilus website*
+        // Construct the Gmail redirection
+        const emailAddress = "hr@nautilusinternational.in";
+        const subject = `New Inquiry from ${form.name} - Nautilus Website`;
+        const body = `New Inquiry Details:
         
-*Name:* ${form.name}
-*Email:* ${form.email}
-*Phone:* ${form.phone}
-${fileName ? `*Document:* ${fileName} (User will attach in chat)` : ""}
-*Message:* ${form.message}`;
+Name: ${form.name}
+Email: ${form.email}
+Phone: ${form.phone}
+${fileName ? `Document: ${fileName} (Please attach the file to this email)` : ""}
 
-        const encodedMessage = encodeURIComponent(messageText);
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+Message:
+${form.message}`;
+
+        const encodedSubject = encodeURIComponent(subject);
+        const encodedBody = encodeURIComponent(body);
         
-        // Open WhatsApp
-        window.open(whatsappUrl, "_blank");
+        // Gmail web compose URL
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailAddress}&su=${encodedSubject}&body=${encodedBody}`;
         
-        alert("Thank you for your inquiry! Redirecting you to WhatsApp. Please remember to attach your CV/Portfolio once the chat opens.");
+        // Open Gmail
+        window.open(gmailUrl, "_blank");
+        
+        alert("Thank you for your inquiry! Opening Gmail to compose your message. Please remember to attach your CV/Portfolio if you selected one.");
         setForm({ name: "", email: "", phone: "", message: "" });
         setFileName("");
     };
