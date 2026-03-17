@@ -16,7 +16,7 @@ const Services = () => {
 
 
     return (
-        <div className="min-h-screen flex flex-col bg-background overflow-hidden font-display">
+        <div className="min-h-screen flex flex-col bg-background font-display">
             <Navbar />
             <main className="flex-grow">
                 {/* the top padding keeps the hero content below the fixed navbar so the "Our Expertise" badge

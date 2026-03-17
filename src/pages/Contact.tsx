@@ -92,7 +92,7 @@ ${fileName ? `*Document:* ${fileName} (User will attach in chat)` : ""}
     };
 
     return (
-        <div className="min-h-screen flex flex-col bg-background overflow-hidden font-display">
+        <div className="min-h-screen flex flex-col bg-background font-display">
             <Navbar />
             <main className="flex-grow">
                 {/* Cinematic Header */}

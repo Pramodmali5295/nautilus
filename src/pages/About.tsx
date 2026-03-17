@@ -11,7 +11,7 @@ const About = () => {
     }, []);
 
     return (
-        <div className="min-h-screen flex flex-col bg-background overflow-hidden font-display">
+        <div className="min-h-screen flex flex-col bg-background font-display">
             <Navbar />
             <main className="flex-grow">
                 <header className="relative min-h-[70vh] flex items-center justify-center overflow-hidden font-display pt-32 md:pt-32 bg-navy">
