@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Phone, Mail, Globe, MapPin, Linkedin, Instagram, MessageCircle, Facebook, Twitter, Youtube, Send } from "lucide-react";
+import { ArrowUpRight, Phone, Mail, Globe, MapPin, Linkedin, Instagram, MessageCircle, Facebook, Youtube, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import logo from "@/assets/MainLogo.png";
+
+const XIcon = ({ size = 22 }: { size?: number }) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="currentColor"
+  >
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 const Footer = () => {
   const navLinks = [
@@ -47,9 +58,9 @@ const Footer = () => {
     },
     { 
       href: "#", 
-      icon: Twitter, 
-      label: "Twitter",
-      color: "bg-[#1DA1F2]" 
+      icon: XIcon, 
+      label: "X",
+      color: "bg-black" 
     },
     { 
       href: "#", 
@@ -81,7 +92,7 @@ const Footer = () => {
             <Link to="/" className="inline-block transition-transform hover:scale-105 duration-300">
               <img src={logo} alt="Nautilus International" className="h-20 md:h-24 w-auto object-contain" />
             </Link>
-            <h3 className="text-gold text-xl md:text-2xl font-display font-bold leading-tight">
+            <h3 className="text-gold text-lg md:text-xl font-display font-bold leading-tight">
               Talent and HR Solutions that Transform Industries
             </h3>
             <p className="text-navy text-sm md:text-base leading-relaxed max-w-md font-medium">
